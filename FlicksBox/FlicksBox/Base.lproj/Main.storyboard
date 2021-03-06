@@ -16,18 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Я открылся!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plO-04-lrN">
-                                <rect key="frame" x="135.5" y="438.5" width="143.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение работает" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plO-04-lrN">
+                                <rect key="frame" x="75" y="438.5" width="264.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u96-k7-6B2">
+                                <rect key="frame" x="158" y="492.5" width="98" height="30"/>
+                                <state key="normal" title="Открыть сайт"/>
+                                <connections>
+                                    <action selector="clickOpenSite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZe-g6-rvm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="plO-04-lrN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="QDh-j6-Zju"/>
                             <constraint firstItem="plO-04-lrN" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mMv-Gs-48U"/>
+                            <constraint firstItem="u96-k7-6B2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sDJ-UI-Xoz"/>
+                            <constraint firstItem="u96-k7-6B2" firstAttribute="top" secondItem="plO-04-lrN" secondAttribute="bottom" constant="25" id="x0x-fx-ixC"/>
                         </constraints>
                     </view>
                 </viewController>

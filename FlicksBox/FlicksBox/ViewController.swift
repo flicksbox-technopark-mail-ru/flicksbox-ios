@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,10 @@ class ViewController: UIViewController {
         client.run(request: request)
     }
 
-
+    @IBAction func clickOpenSite(_ sender: Any) {
+        let vc = SFSafariViewController(url: URL(string: "https://www.flicksbox.ru")!)
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
