@@ -13,6 +13,11 @@
 		B537F65025F25C8A00B51383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B537F64E25F25C8A00B51383 /* Main.storyboard */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
 		B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B537F65325F25C9700B51383 /* LaunchScreen.storyboard */; };
+		B5F896C325F418C300728327 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
+		B5F896C725F418D300728327 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
+		B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
+		B5F896D225F427C800728327 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
+		B5F896D525F4284000728327 /* HermesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D425F4284000728327 /* HermesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		B537F65125F25C9700B51383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B537F65425F25C9700B51383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B537F65625F25C9700B51383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F896C225F418C300728327 /* HermesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesRequest.swift; sourceTree = "<group>"; };
+		B5F896C625F418D300728327 /* HermesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesClient.swift; sourceTree = "<group>"; };
+		B5F896CD25F41B8A00728327 /* HermesMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesMethod.swift; sourceTree = "<group>"; };
+		B5F896D125F427C800728327 /* HermesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesError.swift; sourceTree = "<group>"; };
+		B5F896D425F4284000728327 /* HermesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
+				B5F896C125F4189C00728327 /* Hermes */,
 				B537F64825F25C8A00B51383 /* AppDelegate.swift */,
 				B537F64A25F25C8A00B51383 /* SceneDelegate.swift */,
 				B537F64C25F25C8A00B51383 /* ViewController.swift */,
@@ -65,6 +76,18 @@
 				B537F65625F25C9700B51383 /* Info.plist */,
 			);
 			path = FlicksBox;
+			sourceTree = "<group>";
+		};
+		B5F896C125F4189C00728327 /* Hermes */ = {
+			isa = PBXGroup;
+			children = (
+				B5F896CD25F41B8A00728327 /* HermesMethod.swift */,
+				B5F896C225F418C300728327 /* HermesRequest.swift */,
+				B5F896C625F418D300728327 /* HermesClient.swift */,
+				B5F896D125F427C800728327 /* HermesError.swift */,
+				B5F896D425F4284000728327 /* HermesResponse.swift */,
+			);
+			path = Hermes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +162,12 @@
 			files = (
 				B537F64D25F25C8A00B51383 /* ViewController.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
+				B5F896D525F4284000728327 /* HermesResponse.swift in Sources */,
+				B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */,
+				B5F896C725F418D300728327 /* HermesClient.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
+				B5F896C325F418C300728327 /* HermesRequest.swift in Sources */,
+				B5F896D225F427C800728327 /* HermesError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
