@@ -5,23 +5,17 @@
 //  Created by sn.alekseev on 07.03.2021.
 //
 
-import UIKit
 import SafariServices
 
-class StartViewController: UIViewController {
+class StartViewController: SBViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         configureSubviews()
         testRequest()
     }
     
-    private func configureView() {
-        view.backgroundColor = .systemBackground
-    }
-    
     private func configureSubviews() {
-        let label = UILabel()
+        let label = SBLabel()
         label.frame = CGRect(
             x: view.bounds.midX - 100,
             y: view.bounds.midY - 50,
@@ -34,7 +28,7 @@ class StartViewController: UIViewController {
         label.numberOfLines = 0
         view.addSubview(label)
         
-        let button = UIButton()
+        let button = SBButton()
         button.frame = CGRect(
             x: label.frame.minX,
             y: label.frame.maxY + 20,
