@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
-		B537F64D25F25C8A00B51383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64C25F25C8A00B51383 /* ViewController.swift */; };
-		B537F65025F25C8A00B51383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B537F64E25F25C8A00B51383 /* Main.storyboard */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
 		B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B537F65325F25C9700B51383 /* LaunchScreen.storyboard */; };
 		B5F896C325F418C300728327 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
@@ -18,14 +16,15 @@
 		B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
 		B5F896D225F427C800728327 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
 		B5F896D525F4284000728327 /* HermesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D425F4284000728327 /* HermesResponse.swift */; };
+		B5F896DE25F4380800728327 /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896DD25F4380800728327 /* BaseStep.swift */; };
+		B5F896E625F4382B00728327 /* StartStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896E525F4382B00728327 /* StartStep.swift */; };
+		B5F896EB25F4395300728327 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896EA25F4395300728327 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B537F64C25F25C8A00B51383 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B537F64F25F25C8A00B51383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B537F65125F25C9700B51383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B537F65425F25C9700B51383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B537F65625F25C9700B51383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +33,9 @@
 		B5F896CD25F41B8A00728327 /* HermesMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesMethod.swift; sourceTree = "<group>"; };
 		B5F896D125F427C800728327 /* HermesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesError.swift; sourceTree = "<group>"; };
 		B5F896D425F4284000728327 /* HermesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesResponse.swift; sourceTree = "<group>"; };
+		B5F896DD25F4380800728327 /* BaseStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStep.swift; sourceTree = "<group>"; };
+		B5F896E525F4382B00728327 /* StartStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStep.swift; sourceTree = "<group>"; };
+		B5F896EA25F4395300728327 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,11 +68,10 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
+				B5F896DA25F437C400728327 /* Steps */,
 				B5F896C125F4189C00728327 /* Hermes */,
 				B537F64825F25C8A00B51383 /* AppDelegate.swift */,
 				B537F64A25F25C8A00B51383 /* SceneDelegate.swift */,
-				B537F64C25F25C8A00B51383 /* ViewController.swift */,
-				B537F64E25F25C8A00B51383 /* Main.storyboard */,
 				B537F65125F25C9700B51383 /* Assets.xcassets */,
 				B537F65325F25C9700B51383 /* LaunchScreen.storyboard */,
 				B537F65625F25C9700B51383 /* Info.plist */,
@@ -88,6 +89,24 @@
 				B5F896D425F4284000728327 /* HermesResponse.swift */,
 			);
 			path = Hermes;
+			sourceTree = "<group>";
+		};
+		B5F896DA25F437C400728327 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				B5F896DD25F4380800728327 /* BaseStep.swift */,
+				B5F896DC25F437E400728327 /* Start */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
+		B5F896DC25F437E400728327 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B5F896E525F4382B00728327 /* StartStep.swift */,
+				B5F896EA25F4395300728327 /* StartViewController.swift */,
+			);
+			path = Start;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +168,6 @@
 			files = (
 				B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */,
 				B537F65225F25C9700B51383 /* Assets.xcassets in Resources */,
-				B537F65025F25C8A00B51383 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,28 +178,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B537F64D25F25C8A00B51383 /* ViewController.swift in Sources */,
+				B5F896E625F4382B00728327 /* StartStep.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B5F896D525F4284000728327 /* HermesResponse.swift in Sources */,
 				B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */,
+				B5F896EB25F4395300728327 /* StartViewController.swift in Sources */,
 				B5F896C725F418D300728327 /* HermesClient.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
 				B5F896C325F418C300728327 /* HermesRequest.swift in Sources */,
 				B5F896D225F427C800728327 /* HermesError.swift in Sources */,
+				B5F896DE25F4380800728327 /* BaseStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B537F64E25F25C8A00B51383 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B537F64F25F25C8A00B51383 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B537F65325F25C9700B51383 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -317,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXMNT4R7ZB;
 				INFOPLIST_FILE = FlicksBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = flicksbox.FlicksBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -336,6 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXMNT4R7ZB;
 				INFOPLIST_FILE = FlicksBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = flicksbox.FlicksBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
