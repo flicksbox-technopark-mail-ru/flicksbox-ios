@@ -30,6 +30,7 @@ final class HermesClient {
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 request.errorHandler?(error)
+                return
             }
             guard let data = data,
                   let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else {
