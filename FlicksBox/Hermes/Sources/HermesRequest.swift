@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct HermesResponse {
+    let data: [AnyHashable: Any] // json
+    let code: Int // код ответа
+}
+
 final class HermesRequest {
     var successHandler: ((HermesResponse) -> Void)?
     var errorHandler: ((Error) -> Void)?

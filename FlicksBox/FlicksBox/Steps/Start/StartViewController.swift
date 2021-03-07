@@ -48,7 +48,7 @@ class StartViewController: SBViewController {
     
     private func testRequest() {
         let client = HermesClient(with: "https://www.flicksbox.ru/api/v1/")
-        let request = HermesRequest(method: HermesMethod.get, path: "user/profile")
+        let request = HermesRequest(method: .get, path: "user/profile")
         request.successHandler = { response in
             print(response)
         }
