@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
+		B508561E25FE172600EFD69B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561D25FE172600EFD69B /* SignViewController.swift */; };
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
@@ -21,8 +23,6 @@
 		B5F896C725F418D300728327 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
 		B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
 		B5F896D225F427C800728327 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
-		B5F896DE25F4380800728327 /* BaseStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896DD25F4380800728327 /* BaseStep.swift */; };
-		B5F896E625F4382B00728327 /* StartStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896E525F4382B00728327 /* StartStep.swift */; };
 		B5F896EB25F4395300728327 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896EA25F4395300728327 /* StartViewController.swift */; };
 		B5F896F725F4460400728327 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
 		B5F896FB25F4461700728327 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
@@ -62,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B508561525FE161900EFD69B /* FactoryViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewControllers.swift; sourceTree = "<group>"; };
+		B508561D25FE172600EFD69B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 		B5F896C625F418D300728327 /* HermesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesClient.swift; sourceTree = "<group>"; };
 		B5F896CD25F41B8A00728327 /* HermesMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesMethod.swift; sourceTree = "<group>"; };
 		B5F896D125F427C800728327 /* HermesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesError.swift; sourceTree = "<group>"; };
-		B5F896DD25F4380800728327 /* BaseStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStep.swift; sourceTree = "<group>"; };
-		B5F896E525F4382B00728327 /* StartStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStep.swift; sourceTree = "<group>"; };
 		B5F896EA25F4395300728327 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B5F896F625F4460400728327 /* SBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBViewController.swift; sourceTree = "<group>"; };
 		B5F896FA25F4461700728327 /* SBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBButton.swift; sourceTree = "<group>"; };
@@ -113,6 +113,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B508561125FE15F900EFD69B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B508561525FE161900EFD69B /* FactoryViewControllers.swift */,
+				B508561225FE160100EFD69B /* Start */,
+				B508561C25FE16FB00EFD69B /* Sign */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B508561225FE160100EFD69B /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B5F896EA25F4395300728327 /* StartViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		B508561C25FE16FB00EFD69B /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				B508561D25FE172600EFD69B /* SignViewController.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
 		B537F63C25F25C8A00B51383 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +162,7 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
-				B5F896DA25F437C400728327 /* Steps */,
+				B508561125FE15F900EFD69B /* ViewControllers */,
 				B537F64825F25C8A00B51383 /* AppDelegate.swift */,
 				B537F64A25F25C8A00B51383 /* SceneDelegate.swift */,
 				B537F65125F25C9700B51383 /* Assets.xcassets */,
@@ -185,24 +211,6 @@
 				B5F896F425F445D600728327 /* Label */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		B5F896DA25F437C400728327 /* Steps */ = {
-			isa = PBXGroup;
-			children = (
-				B5F896DD25F4380800728327 /* BaseStep.swift */,
-				B5F896DC25F437E400728327 /* Start */,
-			);
-			path = Steps;
-			sourceTree = "<group>";
-		};
-		B5F896DC25F437E400728327 /* Start */ = {
-			isa = PBXGroup;
-			children = (
-				B5F896E525F4382B00728327 /* StartStep.swift */,
-				B5F896EA25F4395300728327 /* StartViewController.swift */,
-			);
-			path = Start;
 			sourceTree = "<group>";
 		};
 		B5F896F325F445CE00728327 /* Button */ = {
@@ -378,18 +386,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F896E625F4382B00728327 /* StartStep.swift in Sources */,
 				B5F896FE25F4462C00728327 /* SBLabel.swift in Sources */,
 				B5F896F725F4460400728327 /* SBViewController.swift in Sources */,
+				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
 				B5F896FB25F4461700728327 /* SBButton.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */,
 				B5F896EB25F4395300728327 /* StartViewController.swift in Sources */,
+				B508561E25FE172600EFD69B /* SignViewController.swift in Sources */,
 				B5F896C725F418D300728327 /* HermesClient.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
 				B5F896C325F418C300728327 /* HermesRequest.swift in Sources */,
 				B5F896D225F427C800728327 /* HermesError.swift in Sources */,
-				B5F896DE25F4380800728327 /* BaseStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
