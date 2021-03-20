@@ -5,13 +5,20 @@
 //  Created by sn.alekseev on 07.03.2021.
 //
 
-import SafariServices
+import UIKit
+import Botticelli
+import Hermes
 
-class StartViewController: SBViewController {
+class TestViewController: SBViewController, MainOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
         testRequest()
+    }
+    
+    func configureTabItem() {
+        self.tabBarItem.title = "Тест"
+        self.tabBarItem.image = SBIcon.house
     }
     
     private func configureSubviews() {
@@ -42,7 +49,7 @@ class StartViewController: SBViewController {
     }
     
     @objc private func presentSite() {
-        let vc = SFSafariViewController(url: URL(string: "https://www.flicksbox.ru")!)
+        let vc = SBBrowserController(url: URL(string: "https://www.flicksbox.ru")!)
         present(vc, animated: true, completion: nil)
     }
     
@@ -54,5 +61,4 @@ class StartViewController: SBViewController {
         }
         client.run(request: request)
     }
-
 }

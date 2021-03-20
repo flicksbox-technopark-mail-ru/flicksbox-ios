@@ -8,7 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
-		B508561E25FE172600EFD69B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561D25FE172600EFD69B /* SignViewController.swift */; };
+		B52F576C26066171003FFF06 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
+		B52F577126066174003FFF06 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
+		B52F577826066178003FFF06 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
+		B52F577D2606617C003FFF06 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
+		B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
+		B52F5787260661EE003FFF06 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
+		B52F578C260661F1003FFF06 /* SBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FD25F4462C00728327 /* SBLabel.swift */; };
+		B52F579726066305003FFF06 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F579626066305003FFF06 /* TestViewController.swift */; };
+		B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F579E2606633F003FFF06 /* ProfileViewController.swift */; };
+		B52F57A42606639A003FFF06 /* SBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57A32606639A003FFF06 /* SBImage.swift */; };
+		B52F57AA26066457003FFF06 /* SBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57A926066457003FFF06 /* SBTabBarController.swift */; };
+		B52F57AE2606650C003FFF06 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57AD2606650C003FFF06 /* MainController.swift */; };
+		B52F57B226066532003FFF06 /* MainOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57B126066532003FFF06 /* MainOutput.swift */; };
+		B52F57B626066634003FFF06 /* SBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57B526066634003FFF06 /* SBIcon.swift */; };
+		B52F57BE2606676A003FFF06 /* SBBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57BD2606676A003FFF06 /* SBBrowserController.swift */; };
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
@@ -19,14 +33,6 @@
 		B563055525F45ADC00A9ED21 /* Botticelli.h in Headers */ = {isa = PBXBuildFile; fileRef = B563055325F45ADC00A9ED21 /* Botticelli.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B563055825F45ADC00A9ED21 /* Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; };
 		B563055925F45ADC00A9ED21 /* Botticelli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B5F896C325F418C300728327 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
-		B5F896C725F418D300728327 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
-		B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
-		B5F896D225F427C800728327 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
-		B5F896EB25F4395300728327 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896EA25F4395300728327 /* StartViewController.swift */; };
-		B5F896F725F4460400728327 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
-		B5F896FB25F4461700728327 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
-		B5F896FE25F4462C00728327 /* SBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FD25F4462C00728327 /* SBLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +69,14 @@
 
 /* Begin PBXFileReference section */
 		B508561525FE161900EFD69B /* FactoryViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewControllers.swift; sourceTree = "<group>"; };
-		B508561D25FE172600EFD69B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		B52F579626066305003FFF06 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		B52F579E2606633F003FFF06 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B52F57A32606639A003FFF06 /* SBImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImage.swift; sourceTree = "<group>"; };
+		B52F57A926066457003FFF06 /* SBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTabBarController.swift; sourceTree = "<group>"; };
+		B52F57AD2606650C003FFF06 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		B52F57B126066532003FFF06 /* MainOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOutput.swift; sourceTree = "<group>"; };
+		B52F57B526066634003FFF06 /* SBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBIcon.swift; sourceTree = "<group>"; };
+		B52F57BD2606676A003FFF06 /* SBBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBrowserController.swift; sourceTree = "<group>"; };
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +93,6 @@
 		B5F896C625F418D300728327 /* HermesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesClient.swift; sourceTree = "<group>"; };
 		B5F896CD25F41B8A00728327 /* HermesMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesMethod.swift; sourceTree = "<group>"; };
 		B5F896D125F427C800728327 /* HermesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesError.swift; sourceTree = "<group>"; };
-		B5F896EA25F4395300728327 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		B5F896F625F4460400728327 /* SBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBViewController.swift; sourceTree = "<group>"; };
 		B5F896FA25F4461700728327 /* SBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBButton.swift; sourceTree = "<group>"; };
 		B5F896FD25F4462C00728327 /* SBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBLabel.swift; sourceTree = "<group>"; };
@@ -117,26 +129,45 @@
 			isa = PBXGroup;
 			children = (
 				B508561525FE161900EFD69B /* FactoryViewControllers.swift */,
-				B508561225FE160100EFD69B /* Start */,
-				B508561C25FE16FB00EFD69B /* Sign */,
+				B52F5793260662C9003FFF06 /* Main */,
+				B52F5792260662C1003FFF06 /* Test */,
+				B52F5791260662B2003FFF06 /* Profile */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		B508561225FE160100EFD69B /* Start */ = {
+		B52F5791260662B2003FFF06 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				B5F896EA25F4395300728327 /* StartViewController.swift */,
+				B52F579E2606633F003FFF06 /* ProfileViewController.swift */,
 			);
-			path = Start;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		B508561C25FE16FB00EFD69B /* Sign */ = {
+		B52F5792260662C1003FFF06 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				B508561D25FE172600EFD69B /* SignViewController.swift */,
+				B52F579626066305003FFF06 /* TestViewController.swift */,
 			);
-			path = Sign;
+			path = Test;
+			sourceTree = "<group>";
+		};
+		B52F5793260662C9003FFF06 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B52F57AD2606650C003FFF06 /* MainController.swift */,
+				B52F57B126066532003FFF06 /* MainOutput.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B52F57A226066388003FFF06 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B52F57A32606639A003FFF06 /* SBImage.swift */,
+				B52F57B526066634003FFF06 /* SBIcon.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		B537F63C25F25C8A00B51383 = {
@@ -206,6 +237,7 @@
 		B563055F25F45AE200A9ED21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B52F57A226066388003FFF06 /* Image */,
 				B5F896F525F445DE00728327 /* ViewController */,
 				B5F896F325F445CE00728327 /* Button */,
 				B5F896F425F445D600728327 /* Label */,
@@ -233,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				B5F896F625F4460400728327 /* SBViewController.swift */,
+				B52F57A926066457003FFF06 /* SBTabBarController.swift */,
+				B52F57BD2606676A003FFF06 /* SBBrowserController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -386,18 +420,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5F896FE25F4462C00728327 /* SBLabel.swift in Sources */,
-				B5F896F725F4460400728327 /* SBViewController.swift in Sources */,
+				B52F579726066305003FFF06 /* TestViewController.swift in Sources */,
+				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
-				B5F896FB25F4461700728327 /* SBButton.swift in Sources */,
+				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
-				B5F896CE25F41B8A00728327 /* HermesMethod.swift in Sources */,
-				B5F896EB25F4395300728327 /* StartViewController.swift in Sources */,
-				B508561E25FE172600EFD69B /* SignViewController.swift in Sources */,
-				B5F896C725F418D300728327 /* HermesClient.swift in Sources */,
+				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
-				B5F896C325F418C300728327 /* HermesRequest.swift in Sources */,
-				B5F896D225F427C800728327 /* HermesError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +441,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52F57A42606639A003FFF06 /* SBImage.swift in Sources */,
+				B52F57AA26066457003FFF06 /* SBTabBarController.swift in Sources */,
+				B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */,
+				B52F57B626066634003FFF06 /* SBIcon.swift in Sources */,
+				B52F577126066174003FFF06 /* HermesClient.swift in Sources */,
+				B52F578C260661F1003FFF06 /* SBLabel.swift in Sources */,
+				B52F5787260661EE003FFF06 /* SBButton.swift in Sources */,
+				B52F576C26066171003FFF06 /* HermesRequest.swift in Sources */,
+				B52F577D2606617C003FFF06 /* HermesError.swift in Sources */,
+				B52F57BE2606676A003FFF06 /* SBBrowserController.swift in Sources */,
+				B52F577826066178003FFF06 /* HermesMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +601,7 @@
 		B537F65A25F25C9700B51383 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -581,6 +622,7 @@
 		B537F65B25F25C9700B51383 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -610,6 +652,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,6 +680,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,6 +708,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Botticelli/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,6 +736,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Botticelli/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

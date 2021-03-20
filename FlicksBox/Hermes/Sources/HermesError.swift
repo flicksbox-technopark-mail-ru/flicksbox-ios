@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HermesError: Error {
+public enum HermesError: Error {
     case unknow
     case invalidUrl
     case emptyData

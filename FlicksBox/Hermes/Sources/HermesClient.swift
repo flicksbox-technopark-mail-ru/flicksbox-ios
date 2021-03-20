@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class HermesClient {
+public final class HermesClient {
     private var baseUrl: String
     
-    init(with baseUrl: String) {
+    public init(with baseUrl: String) {
         self.baseUrl = baseUrl
     }
     
-    func run(request: HermesRequest) {
+    public func run(request: HermesRequest) {
         let urlString = baseUrl + request.path
         var components = URLComponents(string: urlString)!
         components.queryItems = request.params.map { (key, value) in

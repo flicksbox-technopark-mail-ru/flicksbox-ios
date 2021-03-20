@@ -9,15 +9,24 @@ import UIKit
 
 // в этом классе будут конфигурироваться наши вью контроллеры вместе с моделями
 final class FactoryViewControllers {
-    static let shared = FactoryViewControllers()
-    
     private init() {}
-
-    func start() -> UIViewController {
-        StartViewController()
+    
+    class var main: UIViewController {
+        let viewControllers = [test, profile]
+        if let mainOutputs = viewControllers as? [MainOutput] {
+            for output in mainOutputs {
+                output.configureTabItem()
+            }
+        }
+        let mainController = MainController(with: viewControllers)
+        return mainController
     }
     
-    func sign() -> UIViewController {
-        SignViewController()
+    class var test: UIViewController {
+        TestViewController()
+    }
+
+    class var profile: UIViewController {
+        ProfileViewController()
     }
 }

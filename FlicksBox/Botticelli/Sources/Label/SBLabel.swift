@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class SBLabel: UILabel {
-    override init(frame: CGRect) {
+open class SBLabel: UILabel {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init with coder not implemented")
     }
 }

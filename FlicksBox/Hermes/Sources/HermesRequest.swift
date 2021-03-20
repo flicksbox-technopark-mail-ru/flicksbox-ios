@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct HermesResponse {
+public struct HermesResponse {
     let data: [AnyHashable: Any] // json
     let code: Int // код ответа
 }
 
-final class HermesRequest {
-    var successHandler: ((HermesResponse) -> Void)?
-    var errorHandler: ((Error) -> Void)?
+public final class HermesRequest {
+    public var successHandler: ((HermesResponse) -> Void)?
+    public var errorHandler: ((Error) -> Void)?
     
     let method: HermesMethod
     let path: String
     let params: [String: String]
     
-    init(method: HermesMethod, path: String, params: [String: String]? = nil) {
+    public init(method: HermesMethod, path: String, params: [String: String]? = nil) {
         self.method = method
         self.path = path
         self.params = params ?? [:]

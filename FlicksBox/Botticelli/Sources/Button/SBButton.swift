@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class SBButton: UIButton {
-    override init(frame: CGRect) {
+open class SBButton: UIButton {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init with coder not implemented")
     }
 }
