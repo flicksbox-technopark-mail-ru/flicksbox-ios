@@ -16,12 +16,16 @@ public final class HermesClient {
     
     public func run(request: HermesRequest) {
         let urlString = baseUrl + request.path
-        var components = URLComponents(string: urlString)!
-        components.queryItems = request.params.map { (key, value) in
+        var components = URLComponents(string: urlString)
+        components?.queryItems = request.params.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
-        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-        guard let url = components.url else {
+        guard let encodedQuery = components?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B") else {
+            request.errorHandler?(HermesError.invalidUrl)
+            return
+        }
+        components?.percentEncodedQuery = encodedQuery
+        guard let url = components?.url else {
             request.errorHandler?(HermesError.invalidUrl)
             return
         }
@@ -32,8 +36,7 @@ public final class HermesClient {
                 request.errorHandler?(error)
                 return
             }
-            guard let data = data,
-                  let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else {
+            guard let data = data else {
                 request.errorHandler?(HermesError.emptyData)
                 return
             }
@@ -41,7 +44,7 @@ public final class HermesClient {
                 request.errorHandler?(HermesError.invalidCode)
                 return
             }
-            request.successHandler?(HermesResponse(data: json, code: response.statusCode))
+            request.successHandler?(HermesResponse(data: HermesData(with: data), code: response.statusCode))
         }
         task.resume()
     }

@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
-		B52F576C26066171003FFF06 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
-		B52F577126066174003FFF06 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
-		B52F577826066178003FFF06 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
-		B52F577D2606617C003FFF06 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
 		B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
 		B52F5787260661EE003FFF06 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
 		B52F578C260661F1003FFF06 /* SBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FD25F4462C00728327 /* SBLabel.swift */; };
@@ -23,6 +19,12 @@
 		B52F57B226066532003FFF06 /* MainOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57B126066532003FFF06 /* MainOutput.swift */; };
 		B52F57B626066634003FFF06 /* SBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57B526066634003FFF06 /* SBIcon.swift */; };
 		B52F57BE2606676A003FFF06 /* SBBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57BD2606676A003FFF06 /* SBBrowserController.swift */; };
+		B52F57DC260693F5003FFF06 /* HermesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F57DB260693F5003FFF06 /* HermesData.swift */; };
+		B52F57E3260697A8003FFF06 /* HermesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896D125F427C800728327 /* HermesError.swift */; };
+		B52F57E8260697AD003FFF06 /* HermesMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896CD25F41B8A00728327 /* HermesMethod.swift */; };
+		B52F57ED260697B4003FFF06 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
+		B52F57F2260697B7003FFF06 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
+		B52F580E26069B78003FFF06 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F580D26069B78003FFF06 /* APIResponse.swift */; };
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		B52F57B126066532003FFF06 /* MainOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOutput.swift; sourceTree = "<group>"; };
 		B52F57B526066634003FFF06 /* SBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBIcon.swift; sourceTree = "<group>"; };
 		B52F57BD2606676A003FFF06 /* SBBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBrowserController.swift; sourceTree = "<group>"; };
+		B52F57DB260693F5003FFF06 /* HermesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesData.swift; sourceTree = "<group>"; };
+		B52F580D26069B78003FFF06 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +174,14 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		B52F580C26069B42003FFF06 /* APILayer */ = {
+			isa = PBXGroup;
+			children = (
+				B52F580D26069B78003FFF06 /* APIResponse.swift */,
+			);
+			path = APILayer;
+			sourceTree = "<group>";
+		};
 		B537F63C25F25C8A00B51383 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +205,7 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
+				B52F580C26069B42003FFF06 /* APILayer */,
 				B508561125FE15F900EFD69B /* ViewControllers */,
 				B537F64825F25C8A00B51383 /* AppDelegate.swift */,
 				B537F64A25F25C8A00B51383 /* SceneDelegate.swift */,
@@ -216,10 +229,11 @@
 		B563054A25F45A2D00A9ED21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B5F896C225F418C300728327 /* HermesRequest.swift */,
-				B5F896C625F418D300728327 /* HermesClient.swift */,
 				B5F896CD25F41B8A00728327 /* HermesMethod.swift */,
 				B5F896D125F427C800728327 /* HermesError.swift */,
+				B52F57DB260693F5003FFF06 /* HermesData.swift */,
+				B5F896C225F418C300728327 /* HermesRequest.swift */,
+				B5F896C625F418D300728327 /* HermesClient.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -363,6 +377,7 @@
 					};
 					B563053B25F45A0F00A9ED21 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					B563055025F45ADC00A9ED21 = {
 						CreatedOnToolsVersion = 12.4;
@@ -427,6 +442,7 @@
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
+				B52F580E26069B78003FFF06 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +450,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52F57E3260697A8003FFF06 /* HermesError.swift in Sources */,
+				B52F57DC260693F5003FFF06 /* HermesData.swift in Sources */,
+				B52F57F2260697B7003FFF06 /* HermesClient.swift in Sources */,
+				B52F57E8260697AD003FFF06 /* HermesMethod.swift in Sources */,
+				B52F57ED260697B4003FFF06 /* HermesRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,13 +466,9 @@
 				B52F57AA26066457003FFF06 /* SBTabBarController.swift in Sources */,
 				B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */,
 				B52F57B626066634003FFF06 /* SBIcon.swift in Sources */,
-				B52F577126066174003FFF06 /* HermesClient.swift in Sources */,
 				B52F578C260661F1003FFF06 /* SBLabel.swift in Sources */,
 				B52F5787260661EE003FFF06 /* SBButton.swift in Sources */,
-				B52F576C26066171003FFF06 /* HermesRequest.swift in Sources */,
-				B52F577D2606617C003FFF06 /* HermesError.swift in Sources */,
 				B52F57BE2606676A003FFF06 /* SBBrowserController.swift in Sources */,
-				B52F577826066178003FFF06 /* HermesMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +660,7 @@
 		B563054625F45A0F00A9ED21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -661,6 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = flicksbox.Hermes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -671,6 +690,7 @@
 		B563054725F45A0F00A9ED21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

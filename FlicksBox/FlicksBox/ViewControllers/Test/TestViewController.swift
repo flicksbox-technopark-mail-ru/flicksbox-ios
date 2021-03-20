@@ -58,9 +58,8 @@ class TestViewController: MainOutputController {
         let request = HermesRequest(method: .get, path: "user/profile")
         request.successHandler = { response in
             let data = response.data
-            if let error = data["error"] as? [String: Any] {
-                print(error)
-            }
+            print(data.dictionary) // тут печатаем просто словарик
+            print(data.decode(type: APIResponse<String>.self)) // а тут уже структурку (стринг тут для примера)
         }
         client.run(request: request)
     }
