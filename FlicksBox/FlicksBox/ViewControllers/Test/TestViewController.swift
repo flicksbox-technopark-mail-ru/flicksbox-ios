@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 import Hermes
 
-class TestViewController: SBViewController, MainOutput {
+class TestViewController: MainOutputController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
