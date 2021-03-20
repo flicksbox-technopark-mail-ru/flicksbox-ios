@@ -19,10 +19,12 @@ public final class HermesRequest {
     let method: HermesMethod
     let path: String
     let params: [String: String]
+    let body: Data?
     
-    public init(method: HermesMethod, path: String, params: [String: String]? = nil) {
+    public init(method: HermesMethod, path: String, body: Data? = nil, params: [String: String]? = nil) {
         self.method = method
         self.path = path
+        self.body = body
         self.params = params ?? [:]
     }
 }

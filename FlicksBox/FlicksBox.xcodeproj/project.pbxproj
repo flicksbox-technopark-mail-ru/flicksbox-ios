@@ -25,6 +25,7 @@
 		B52F57ED260697B4003FFF06 /* HermesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C225F418C300728327 /* HermesRequest.swift */; };
 		B52F57F2260697B7003FFF06 /* HermesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896C625F418D300728327 /* HermesClient.swift */; };
 		B52F580E26069B78003FFF06 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F580D26069B78003FFF06 /* APIResponse.swift */; };
+		B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F58162606A4DB003FFF06 /* APIUser.swift */; };
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		B52F57BD2606676A003FFF06 /* SBBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBrowserController.swift; sourceTree = "<group>"; };
 		B52F57DB260693F5003FFF06 /* HermesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesData.swift; sourceTree = "<group>"; };
 		B52F580D26069B78003FFF06 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		B52F58162606A4DB003FFF06 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,8 +180,17 @@
 			isa = PBXGroup;
 			children = (
 				B52F580D26069B78003FFF06 /* APIResponse.swift */,
+				B52F58152606A4B1003FFF06 /* Entities */,
 			);
 			path = APILayer;
+			sourceTree = "<group>";
+		};
+		B52F58152606A4B1003FFF06 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B52F58162606A4DB003FFF06 /* APIUser.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		B537F63C25F25C8A00B51383 = {
@@ -442,6 +453,7 @@
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
+				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B52F580E26069B78003FFF06 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

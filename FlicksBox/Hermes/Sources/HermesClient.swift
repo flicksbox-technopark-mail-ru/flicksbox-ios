@@ -14,23 +14,30 @@ public final class HermesClient {
         self.baseUrl = baseUrl
     }
     
-    public func run(request: HermesRequest) {
+    private func createRequest(with request: HermesRequest) -> URLRequest? {
         let urlString = baseUrl + request.path
         var components = URLComponents(string: urlString)
         components?.queryItems = request.params.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
         guard let encodedQuery = components?.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B") else {
-            request.errorHandler?(HermesError.invalidUrl)
-            return
+            return nil
         }
         components?.percentEncodedQuery = encodedQuery
         guard let url = components?.url else {
-            request.errorHandler?(HermesError.invalidUrl)
-            return
+            return nil
         }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
+        urlRequest.httpBody = request.body
+        return urlRequest
+    }
+    
+    public func run(request: HermesRequest) {
+        guard let urlRequest = createRequest(with: request) else {
+            request.errorHandler?(HermesError.invalidUrl)
+            return
+        }
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
                 request.errorHandler?(error)

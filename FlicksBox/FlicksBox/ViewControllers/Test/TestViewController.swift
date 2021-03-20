@@ -59,7 +59,7 @@ class TestViewController: MainOutputController {
         request.successHandler = { response in
             let data = response.data
             print(data.dictionary) // тут печатаем просто словарик
-            print(data.decode(type: APIResponse<String>.self)) // а тут уже структурку (стринг тут для примера)
+            print(data.decode(type: APIResponse<APIUser>.self)) // а тут уже структурку
         }
         client.run(request: request)
     }
