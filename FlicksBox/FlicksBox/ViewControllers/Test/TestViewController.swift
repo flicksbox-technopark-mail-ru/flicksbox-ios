@@ -57,7 +57,10 @@ class TestViewController: MainOutputController {
         let client = HermesClient(with: "https://www.flicksbox.ru/api/v1/")
         let request = HermesRequest(method: .get, path: "user/profile")
         request.successHandler = { response in
-            print(response)
+            let data = response.data
+            if let error = data["error"] as? [String: Any] {
+                print(error)
+            }
         }
         client.run(request: request)
     }

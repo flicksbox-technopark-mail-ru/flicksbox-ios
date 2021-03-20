@@ -8,8 +8,8 @@
 import Foundation
 
 public struct HermesResponse {
-    let data: [AnyHashable: Any] // json
-    let code: Int // код ответа
+    public let data: [AnyHashable: Any] // json
+    public let code: Int // код ответа
 }
 
 public final class HermesRequest {
