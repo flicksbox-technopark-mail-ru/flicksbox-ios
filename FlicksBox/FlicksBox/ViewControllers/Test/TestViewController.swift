@@ -7,7 +7,6 @@
 
 import UIKit
 import Botticelli
-import Hermes
 
 class TestViewController: MainOutputController {
     override func viewDidLoad() {
@@ -54,13 +53,19 @@ class TestViewController: MainOutputController {
     }
     
     private func testRequest() {
-        let client = HermesClient(with: "https://www.flicksbox.ru/api/v1/")
-        let request = HermesRequest(method: .get, path: "user/profile")
-        request.successHandler = { response in
-            let data = response.data
-            print(data.dictionary) // тут печатаем просто словарик
-            print(data.decode(type: APIResponse<APIUser>.self)) // а тут уже структурку
+        let interactor = UserInteractor()
+        // пример регистрации
+        interactor.signup(user: .init(nickname: "testsss3", email: "haha3@dasdads.com", password: "12345678", repeated_password: "12345678")) { response in
+            print(response)
+        } failure: { error in
+            print(error)
         }
-        client.run(request: request)
+        // пример авторизации
+        interactor.signin(user: .init(email: "haha3@dasdads.com", password: "12345678")) { response in
+            print(response)
+        } failure: { error in
+            print(error)
+        }
+
     }
 }

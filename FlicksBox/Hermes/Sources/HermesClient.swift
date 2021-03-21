@@ -8,10 +8,20 @@
 import Foundation
 
 public final class HermesClient {
-    private var baseUrl: String
+    private let baseUrl: String
     
-    public init(with baseUrl: String) {
+    private let headers: [String: String]
+    
+    private var standartHeaders: [String: String] {
+        return [
+            "Content-Type": "application/json",
+            "User-Agent": "FlicksBox/1.0 iOS"
+        ]
+    }
+    
+    public init(with baseUrl: String, headers: [String: String]? = nil) {
         self.baseUrl = baseUrl
+        self.headers = headers ?? [:]
     }
     
     private func createRequest(with request: HermesRequest) -> URLRequest? {
@@ -30,10 +40,18 @@ public final class HermesClient {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.httpBody = request.body
+        var httpHeaders = standartHeaders
+        for (key, value) in headers {
+            httpHeaders.updateValue(value, forKey: key)
+        }
+        for (key, value) in request.headers {
+            httpHeaders.updateValue(value, forKey: key)
+        }
+        urlRequest.allHTTPHeaderFields = httpHeaders
         return urlRequest
     }
     
-    public func run(request: HermesRequest) {
+    public func run(with request: HermesRequest) {
         guard let urlRequest = createRequest(with: request) else {
             request.errorHandler?(HermesError.invalidUrl)
             return
