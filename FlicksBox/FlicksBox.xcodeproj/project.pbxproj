@@ -27,6 +27,7 @@
 		B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52F58162606A4DB003FFF06 /* APIUser.swift */; };
 		B535F04326076C2600C48BC4 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535F04226076C2600C48BC4 /* UserInteractor.swift */; };
 		B535F051260780D900C48BC4 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535F050260780D900C48BC4 /* APIResponse.swift */; };
+		B535F0612607985A00C48BC4 /* CSRFStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B535F0602607985A00C48BC4 /* CSRFStorage.swift */; };
 		B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64825F25C8A00B51383 /* AppDelegate.swift */; };
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		B52F58162606A4DB003FFF06 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
 		B535F04226076C2600C48BC4 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		B535F050260780D900C48BC4 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		B535F0602607985A00C48BC4 /* CSRFStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRFStorage.swift; sourceTree = "<group>"; };
 		B537F64525F25C8A00B51383 /* FlicksBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B537F64825F25C8A00B51383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B537F64A25F25C8A00B51383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				B535F04126076C0C00C48BC4 /* Interactors */,
 				B52F58152606A4B1003FFF06 /* Entities */,
+				B535F05F2607984300C48BC4 /* Storages */,
 			);
 			path = APILayer;
 			sourceTree = "<group>";
@@ -202,6 +205,14 @@
 				B535F04226076C2600C48BC4 /* UserInteractor.swift */,
 			);
 			path = Interactors;
+			sourceTree = "<group>";
+		};
+		B535F05F2607984300C48BC4 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				B535F0602607985A00C48BC4 /* CSRFStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		B537F63C25F25C8A00B51383 = {
@@ -457,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B535F0612607985A00C48BC4 /* CSRFStorage.swift in Sources */,
 				B52F579726066305003FFF06 /* TestViewController.swift in Sources */,
 				B535F04326076C2600C48BC4 /* UserInteractor.swift in Sources */,
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,

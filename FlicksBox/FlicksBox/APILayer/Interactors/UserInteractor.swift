@@ -58,6 +58,9 @@ final class UserInteractor {
                 failure(UserInteractorError.emptyData)
                 return
             }
+            if let token = response.headers["x-csrf-token"] as? String {
+                CSRFStorage.shared.token = token
+            }
             success(data)
         }
         request.errorHandler = { error in

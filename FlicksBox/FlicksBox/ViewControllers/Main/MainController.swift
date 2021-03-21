@@ -7,7 +7,7 @@
 
 import Botticelli
 
-class MainController: SBTabBarController {
+final class MainController: SBTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

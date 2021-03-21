@@ -69,7 +69,7 @@ public final class HermesClient {
                 request.errorHandler?(HermesError.invalidCode)
                 return
             }
-            request.successHandler?(HermesResponse(data: HermesData(with: data), code: response.statusCode))
+            request.successHandler?(.init(data: .init(with: data), code: response.statusCode, headers: response.allHeaderFields))
         }
         task.resume()
     }
