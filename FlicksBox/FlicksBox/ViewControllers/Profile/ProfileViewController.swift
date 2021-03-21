@@ -7,7 +7,7 @@
 
 import Botticelli
 
-class ProfileViewController: MainOutputController {
+final class ProfileViewController: MainOutputController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }

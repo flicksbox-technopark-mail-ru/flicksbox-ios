@@ -8,7 +8,7 @@
 import UIKit
 import Botticelli
 
-class TestViewController: MainOutputController {
+final class TestViewController: MainOutputController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()

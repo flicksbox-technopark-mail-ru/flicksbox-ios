@@ -10,6 +10,7 @@ import Foundation
 public struct HermesResponse {
     public let data: HermesData // json
     public let code: Int // код ответа
+    public let headers: [AnyHashable: Any] // хедеры ответа
 }
 
 public final class HermesRequest {
