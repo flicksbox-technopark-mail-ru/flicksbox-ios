@@ -38,6 +38,10 @@
 		B563055525F45ADC00A9ED21 /* Botticelli.h in Headers */ = {isa = PBXBuildFile; fileRef = B563055325F45ADC00A9ED21 /* Botticelli.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B563055825F45ADC00A9ED21 /* Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; };
 		B563055925F45ADC00A9ED21 /* Botticelli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E81676D626133B9600E960E9 /* SBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81676D526133B9600E960E9 /* SBView.swift */; };
+		E81676DA26133CF600E960E9 /* SBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81676D926133CF600E960E9 /* SBImageView.swift */; };
+		E81676DE26134B5D00E960E9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */; };
+		E817428426148FEB00BFBD82 /* ProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +110,10 @@
 		B5F896F625F4460400728327 /* SBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBViewController.swift; sourceTree = "<group>"; };
 		B5F896FA25F4461700728327 /* SBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBButton.swift; sourceTree = "<group>"; };
 		B5F896FD25F4462C00728327 /* SBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBLabel.swift; sourceTree = "<group>"; };
+		E81676D526133B9600E960E9 /* SBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBView.swift; sourceTree = "<group>"; };
+		E81676D926133CF600E960E9 /* SBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImageView.swift; sourceTree = "<group>"; };
+		E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				B52F579E2606633F003FFF06 /* ProfileViewController.swift */,
+				E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */,
+				E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -176,6 +186,7 @@
 			children = (
 				B52F57A32606639A003FFF06 /* SBImage.swift */,
 				B52F57B526066634003FFF06 /* SBIcon.swift */,
+				E81676D926133CF600E960E9 /* SBImageView.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 		B563055F25F45AE200A9ED21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E81676CE26133B5F00E960E9 /* View */,
 				B52F57A226066388003FFF06 /* Image */,
 				B5F896F525F445DE00728327 /* ViewController */,
 				B5F896F325F445CE00728327 /* Button */,
@@ -316,6 +328,14 @@
 				B52F57BD2606676A003FFF06 /* SBBrowserController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E81676CE26133B5F00E960E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E81676D526133B9600E960E9 /* SBView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,9 +491,11 @@
 				B535F0612607985A00C48BC4 /* CSRFStorage.swift in Sources */,
 				B52F579726066305003FFF06 /* TestViewController.swift in Sources */,
 				B535F04326076C2600C48BC4 /* UserInteractor.swift in Sources */,
+				E817428426148FEB00BFBD82 /* ProfileUserInfoView.swift in Sources */,
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
 				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
+				E81676DE26134B5D00E960E9 /* ProfileViewModel.swift in Sources */,
 				B535F051260780D900C48BC4 /* APIResponse.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
@@ -504,7 +526,9 @@
 				B52F57B626066634003FFF06 /* SBIcon.swift in Sources */,
 				B52F578C260661F1003FFF06 /* SBLabel.swift in Sources */,
 				B52F5787260661EE003FFF06 /* SBButton.swift in Sources */,
+				E81676DA26133CF600E960E9 /* SBImageView.swift in Sources */,
 				B52F57BE2606676A003FFF06 /* SBBrowserController.swift in Sources */,
+				E81676D626133B9600E960E9 /* SBView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
