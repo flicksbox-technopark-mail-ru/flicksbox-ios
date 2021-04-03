@@ -83,7 +83,7 @@ final class ProfileSubscriptionView: SBView {
     private func configurateDescriptionLabel() {
         descriptionLabel.frame = CGRect(
             x: self.bounds.minX + 100,
-            y: self.bounds.minY + 50,
+            y: self.bounds.minY + 65,
             width: self.bounds.width - 125,
             height: 60
         )
@@ -99,7 +99,7 @@ final class ProfileSubscriptionView: SBView {
     private func configuratePriceLabel() {
         priceLabel.frame = CGRect(
             x: self.bounds.minX + 25,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height / 2 - 20,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height / 2 - 20,
             width: 75,
             height: 20
         )
@@ -114,7 +114,7 @@ final class ProfileSubscriptionView: SBView {
     private func configuratePriceMounthLabel() {
         priceMounthLabel.frame = CGRect(
             x: self.bounds.minX + 25,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height / 2,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height / 2,
             width: 75,
             height: 15
         )
@@ -129,7 +129,7 @@ final class ProfileSubscriptionView: SBView {
     private func configurateUMoneyButton() {
         uMoneyButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height + 25,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height + 25,
             width: self.bounds.width * 0.7,
             height: 40
         )
@@ -143,7 +143,7 @@ final class ProfileSubscriptionView: SBView {
     private func configurateVkPayButton() {
         vkPayButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height + 90,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height + 90,
             width: self.bounds.width * 0.7,
             height: 40
         )
@@ -157,7 +157,7 @@ final class ProfileSubscriptionView: SBView {
     private func configurateApplePayButton() {
         applePayButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height + 155,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height + 155,
             width: self.bounds.width * 0.7,
             height: 40
         )
@@ -182,7 +182,7 @@ final class ProfileSubscriptionView: SBView {
     private func configurateBankCardButton() {
         bankCardButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
-            y: self.bounds.minY + 50 + descriptionLabel.frame.height + 220,
+            y: self.bounds.minY + 65 + descriptionLabel.frame.height + 220,
             width: self.bounds.width * 0.7,
             height: 40
         )

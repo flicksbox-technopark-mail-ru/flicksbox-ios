@@ -64,7 +64,7 @@ final class ProfileViewController: MainOutputController {
             x: 25,
             y: view.bounds.minY + 200,
             width: view.bounds.width - 50,
-            height: 400
+            height: 410
         )
     }
 }
