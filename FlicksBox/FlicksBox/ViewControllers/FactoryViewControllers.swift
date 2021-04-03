@@ -12,7 +12,7 @@ final class FactoryViewControllers {
     private init() {}
     
     class var main: UITabBarController {
-        let viewControllers = [test, profile]
+        let viewControllers = [profile, test]
         for controller in viewControllers {
             controller.configureTabItem()
         }

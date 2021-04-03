@@ -33,7 +33,6 @@ final class ProfileUserInfoView: SBView {
     }
     
     private func configureSubviews() {
-        configurateView()
         configurateAvatarImage()
         configurateUsernameLabel()
         configurateEmailLabel()
@@ -42,6 +41,7 @@ final class ProfileUserInfoView: SBView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        configurateView()
         configureSubviews()
     }
     

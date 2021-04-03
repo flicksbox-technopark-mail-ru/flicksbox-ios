@@ -42,6 +42,7 @@
 		E81676DA26133CF600E960E9 /* SBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81676D926133CF600E960E9 /* SBImageView.swift */; };
 		E81676DE26134B5D00E960E9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */; };
 		E817428426148FEB00BFBD82 /* ProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */; };
+		E8739C0E261862AA008B2988 /* ProfileSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8739C0D261862AA008B2988 /* ProfileSubscriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		E81676D926133CF600E960E9 /* SBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImageView.swift; sourceTree = "<group>"; };
 		E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoView.swift; sourceTree = "<group>"; };
+		E8739C0D261862AA008B2988 /* ProfileSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubscriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				B52F579E2606633F003FFF06 /* ProfileViewController.swift */,
 				E81676DD26134B5D00E960E9 /* ProfileViewModel.swift */,
 				E817428326148FEB00BFBD82 /* ProfileUserInfoView.swift */,
+				E8739C0D261862AA008B2988 /* ProfileSubscriptionView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
+				E8739C0E261862AA008B2988 /* ProfileSubscriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
