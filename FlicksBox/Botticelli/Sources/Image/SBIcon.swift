@@ -21,4 +21,8 @@ open class SBIcon {
     class public var gearshape: UIImage? {
         UIImage(systemName: "gearshape")
     }
+    
+    class public var applelogo: UIImage? {
+        UIImage(systemName: "applelogo")
+    }
 }
