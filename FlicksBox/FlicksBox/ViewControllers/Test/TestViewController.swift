@@ -14,12 +14,12 @@ final class TestViewController: MainOutputController {
         configureSubviews()
         testRequest()
     }
-    
+
     func configureTabItem() {
         self.tabBarItem.title = "Тест"
         self.tabBarItem.image = SBIcon.house
     }
-    
+
     private func configureSubviews() {
         let label = SBLabel()
         label.frame = CGRect(
@@ -33,7 +33,7 @@ final class TestViewController: MainOutputController {
         label.textAlignment = .center
         label.numberOfLines = 0
         view.addSubview(label)
-        
+
         let button = SBButton()
         button.frame = CGRect(
             x: label.frame.minX,
@@ -43,19 +43,24 @@ final class TestViewController: MainOutputController {
         )
         button.setTitle("Открыть сайт", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
-        button.addTarget(self, action:#selector(self.presentSite), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.presentSite), for: .touchUpInside)
         view.addSubview(button)
     }
-    
+
     @objc private func presentSite() {
         let vc = SBBrowserController(url: URL(string: "https://www.flicksbox.ru")!)
         present(vc, animated: true, completion: nil)
     }
-    
+
     private func testRequest() {
         let interactor = UserInteractor()
         // пример регистрации
-        interactor.signup(user: .init(nickname: "testsss3", email: "haha3@dasdads.com", password: "12345678", repeated_password: "12345678")) { response in
+        interactor.signup(user: .init(
+                            nickname: "testsss3",
+                            email: "haha3@dasdads.com",
+                            password: "12345678",
+                            repeatedPassword: "12345678"
+        )) { response in
             print(response)
         } failure: { error in
             print(error)

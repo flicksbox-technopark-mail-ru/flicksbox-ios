@@ -8,4 +8,3 @@
 import UIKit
 
 open class SBImageView: UIImageView {}
-

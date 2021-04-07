@@ -17,7 +17,7 @@ final class ProfileSubscriptionView: SBView {
     let vkPayButton: SBButton
     let applePayButton: SBButton
     let bankCardButton: SBButton
-    
+
     override init(frame: CGRect) {
         subscriptionLabel = SBLabel()
         descriptionLabel = SBLabel()
@@ -37,11 +37,11 @@ final class ProfileSubscriptionView: SBView {
         addSubview(applePayButton)
         addSubview(bankCardButton)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func configureSubviews() {
         configurateSubscriptionLabel()
         configurateDescriptionLabel()
@@ -52,19 +52,19 @@ final class ProfileSubscriptionView: SBView {
         configurateApplePayButton()
         configurateBankCardButton()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         configurateView()
         configureSubviews()
     }
-    
+
     private func configurateView() {
         self.backgroundColor = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 20;
+        self.layer.cornerRadius = 20
     }
-    
+
     private func configurateSubscriptionLabel() {
         subscriptionLabel.frame = CGRect(
             x: self.bounds.minX + 25,
@@ -79,7 +79,7 @@ final class ProfileSubscriptionView: SBView {
         subscriptionLabel.textColor = UIColor.white
         addSubview(subscriptionLabel)
     }
-    
+
     private func configurateDescriptionLabel() {
         descriptionLabel.frame = CGRect(
             x: self.bounds.minX + 100,
@@ -87,7 +87,8 @@ final class ProfileSubscriptionView: SBView {
             width: self.bounds.width - 125,
             height: 60
         )
-        descriptionLabel.text = "Наличие подписки дает доступ к коллекции из более N фильмов и сериалов в лучшем качестве"
+        descriptionLabel.text = "Наличие подписки дает доступ к коллекции" +
+            "из более N фильмов и сериалов в лучшем качестве"
         descriptionLabel.font = UIFont.systemFont(ofSize: 15)
         descriptionLabel.textAlignment = .left
         descriptionLabel.numberOfLines = 0
@@ -95,7 +96,7 @@ final class ProfileSubscriptionView: SBView {
         descriptionLabel.sizeToFit()
         addSubview(descriptionLabel)
     }
-    
+
     private func configuratePriceLabel() {
         priceLabel.frame = CGRect(
             x: self.bounds.minX + 25,
@@ -110,7 +111,7 @@ final class ProfileSubscriptionView: SBView {
         priceLabel.textColor = UIColor.white
         addSubview(priceLabel)
     }
-    
+
     private func configuratePriceMounthLabel() {
         priceMounthLabel.frame = CGRect(
             x: self.bounds.minX + 25,
@@ -125,7 +126,7 @@ final class ProfileSubscriptionView: SBView {
         priceMounthLabel.textColor = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)
         addSubview(priceMounthLabel)
     }
-    
+
     private func configurateUMoneyButton() {
         uMoneyButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
@@ -139,7 +140,7 @@ final class ProfileSubscriptionView: SBView {
         uMoneyButton.layer.cornerRadius = 5
         addSubview(uMoneyButton)
     }
-    
+
     private func configurateVkPayButton() {
         vkPayButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
@@ -153,7 +154,7 @@ final class ProfileSubscriptionView: SBView {
         vkPayButton.layer.cornerRadius = 5
         addSubview(vkPayButton)
     }
-    
+
     private func configurateApplePayButton() {
         applePayButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,
@@ -161,7 +162,7 @@ final class ProfileSubscriptionView: SBView {
             width: self.bounds.width * 0.7,
             height: 40
         )
-        
+
         let attachment = NSTextAttachment()
         attachment.image = SBIcon.applelogo?.withTintColor(
             UIColor(red: 34/255, green: 30/255, blue: 31/255, alpha: 1),
@@ -171,14 +172,14 @@ final class ProfileSubscriptionView: SBView {
 
         let strLabelText = NSAttributedString(string: " Pay")
         attachmentString.append(strLabelText)
-        
+
         applePayButton.backgroundColor = UIColor.white
         applePayButton.setAttributedTitle(attachmentString, for: .normal)
         applePayButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         applePayButton.layer.cornerRadius = 5
         addSubview(applePayButton)
     }
-    
+
     private func configurateBankCardButton() {
         bankCardButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.15,

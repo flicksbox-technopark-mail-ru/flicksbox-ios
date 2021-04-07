@@ -10,7 +10,7 @@ import Foundation
 struct APIError: Decodable {
     var code: Int
     var message: String
-    var user_message: String
+    var userMessage: String
 }
 
 struct APIResponse<T>: Decodable where T: Decodable {
