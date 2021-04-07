@@ -1,0 +1,16 @@
+disabled_rules:
+  - colon
+  - comma
+  - control_statement
+  - identifier_name
+
+opt_in_rules:
+  - empty_count
+  
+excluded:
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+  - AppDelegate.swift
+  - FlicksBox/AppDelegate.swift
+  - FlicksBox/SceneDelegate.swift
