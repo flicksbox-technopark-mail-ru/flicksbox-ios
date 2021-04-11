@@ -12,19 +12,20 @@ final class FactoryViewControllers {
     private init() {}
     
     class var main: UITabBarController {
-        let viewControllers = [test, profile]
-        for controller in viewControllers {
-            controller.configureTabItem()
-        }
+        let viewControllers = [home, profile]
         let mainController = MainController(with: viewControllers)
         return mainController
     }
     
-    class var test: MainOutputController {
-        TestViewController()
+    class var home: UIViewController {
+        let controller = HomeViewController()
+        controller.configureTabItem()
+        return UINavigationController(rootViewController: controller)
     }
 
-    class var profile: MainOutputController {
-        ProfileViewController()
+    class var profile: UIViewController {
+        let controller = ProfileViewController()
+        controller.configureTabItem()
+        return UINavigationController(rootViewController: controller)
     }
 }

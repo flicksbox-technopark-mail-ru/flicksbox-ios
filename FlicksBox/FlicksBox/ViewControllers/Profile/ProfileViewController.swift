@@ -7,13 +7,15 @@
 
 import Botticelli
 
-final class ProfileViewController: MainOutputController {
+final class ProfileViewController: SBViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+}
+
+extension ProfileViewController: MainOutput {
     func configureTabItem() {
-        self.tabBarItem.title = "Профиль"
+        self.title = "Профиль"
         self.tabBarItem.image = SBIcon.person
     }
 }
