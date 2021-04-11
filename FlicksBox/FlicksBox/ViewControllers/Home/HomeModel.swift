@@ -12,7 +12,7 @@ struct FilmsListInfo {
 }
 
 final class HomeModel: NSObject {
-    let interactor = FilmsInteractor()
+    private let interactor = FilmsInteractor()
     
     let sectionsInfo: [FilmsListInfo] = [
         .init(name: "Топ фильмов"),

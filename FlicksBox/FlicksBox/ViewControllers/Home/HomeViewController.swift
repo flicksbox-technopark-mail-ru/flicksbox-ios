@@ -80,6 +80,4 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
-}
+extension HomeViewController: UITableViewDelegate {}

@@ -21,6 +21,7 @@ class HomeTableViewCell: UITableViewCell {
                 return
             }
             stopAnimationLoading()
+            // анимация добавления фильмов
         }
     }
     
@@ -38,35 +39,35 @@ class HomeTableViewCell: UITableViewCell {
         return indicator
     }()
     
+    private var isAnimationLoading = false
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(collectionView)
         contentView.addSubview(activityIndicator)
     }
     
-    override func layoutSubviews() {
-        collectionView.frame = bounds
-        
-        activityIndicator.center = contentView.center
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var isAnimation = false
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = bounds
+        activityIndicator.center = contentView.center
+    }
     
     func startAnimationLoading(animated: Bool = false) {
-        isAnimation = true
-        UIView.animate(withDuration: 0.3) { [weak self] in
+        isAnimationLoading = true
+        UIView.animate(withDuration: animated ? 0.3 : 0) { [weak self] in
             self?.activityIndicator.isHidden = false
             self?.activityIndicator.startAnimating()
         }
     }
     
     func stopAnimationLoading(animated: Bool = false) {
-        isAnimation = false
-        UIView.animate(withDuration: 0.3) { [weak self] in
+        isAnimationLoading = false
+        UIView.animate(withDuration: animated ? 0.3 : 0) { [weak self] in
             self?.activityIndicator.isHidden = true
             self?.activityIndicator.stopAnimating()
         }
