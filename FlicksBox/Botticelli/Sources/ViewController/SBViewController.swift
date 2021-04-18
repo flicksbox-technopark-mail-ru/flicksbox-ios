@@ -22,7 +22,7 @@ open class SBViewController: UIViewController {
     }
     
     private func configureView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .black
     }
     
     public func alert(message: String) {
