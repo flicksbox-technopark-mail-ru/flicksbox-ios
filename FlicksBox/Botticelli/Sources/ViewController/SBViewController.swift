@@ -24,4 +24,10 @@ open class SBViewController: UIViewController {
     private func configureView() {
         view.backgroundColor = .systemBackground
     }
+    
+    public func alert(message: String) {
+        let alert = UIAlertController(title: "Ошибка!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }

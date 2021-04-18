@@ -7,13 +7,18 @@
 
 import Foundation
 
+enum InteractorError: Error {
+    case emptyData
+    case invalidEncode
+}
+
 struct APIError: Decodable {
-    var code: Int
-    var message: String
-    var user_message: String
+    let code: Int
+    let message: String
+    let user_message: String
 }
 
 struct APIResponse<T>: Decodable where T: Decodable {
-    var body: T?
-    var error: APIError?
+    let body: T?
+    let error: APIError?
 }
