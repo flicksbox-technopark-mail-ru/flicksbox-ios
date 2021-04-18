@@ -1,13 +1,13 @@
 //
-//  APIMovie.swift
+//  APITVShow.swift
 //  FlicksBox
 //
-//  Created by sn.alekseev on 11.04.2021.
+//  Created by sn.alekseev on 18.04.2021.
 //
 
 import Foundation
 
-struct APIMovie: Decodable {
+struct APITVShow: Decodable {
     let content_id: Int
     let description: String
     let id: Int
@@ -20,6 +20,5 @@ struct APIMovie: Decodable {
     let rating: Int
     let short_description: String
     let type: String
-    let video: String
     let year: Int
 }

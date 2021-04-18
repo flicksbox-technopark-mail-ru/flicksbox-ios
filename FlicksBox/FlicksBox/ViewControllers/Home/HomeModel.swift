@@ -25,9 +25,17 @@ struct FilmInfo {
     let image: String
     
     init(from movie: APIMovie) {
-        id = movie.id
-        name = movie.name
-        image = "https://www.flicksbox.ru\(movie.images)/640"
+        self.init(id: movie.id, name: movie.name, image: movie.images)
+    }
+    
+    init(from tvShow: APITVShow) {
+        self.init(id: tvShow.id, name: tvShow.name, image: tvShow.images)
+    }
+    
+    private init(id: Int, name: String, image: String) {
+        self.id = id
+        self.name = name
+        self.image = "https://www.flicksbox.ru\(image)/640"
     }
 }
 
@@ -53,22 +61,42 @@ final class HomeModel: NSObject {
         switch type {
         case .topMovies:
             interactor.topMovies(from: from, count: count) { response in
-                let movies = response.body?.movies ?? []
-                let films: [FilmInfo] = movies.map { movie -> FilmInfo in
-                    FilmInfo(from: movie)
-                }
-                success(films)
+                success(self.trasformate(movies: response.body?.movies ?? []))
             } failure: { error in
                 failure(error.localizedDescription)
             }
         case .lastMovies:
-            break
+            interactor.latestMovies(from: from, count: count) { response in
+                success(self.trasformate(movies: response.body?.movies ?? []))
+            } failure: { error in
+                failure(error.localizedDescription)
+            }
         case .topSerials:
-            break
+            interactor.topTVShows(from: from, count: count) { response in
+                success(self.trasformate(movies: response.body?.tvshows ?? []))
+            } failure: { error in
+                failure(error.localizedDescription)
+            }
         case .lastSerials:
-            break
+            interactor.latestTVShows(from: from, count: count) { response in
+                success(self.trasformate(movies: response.body?.tvshows ?? []))
+            } failure: { error in
+                failure(error.localizedDescription)
+            }
         default:
             break
+        }
+    }
+    
+    private func trasformate(movies: [APIMovie]) -> [FilmInfo] {
+        movies.map { movie -> FilmInfo in
+            FilmInfo(from: movie)
+        }
+    }
+    
+    private func trasformate(movies: [APITVShow]) -> [FilmInfo] {
+        movies.map { movie -> FilmInfo in
+            FilmInfo(from: movie)
         }
     }
 }

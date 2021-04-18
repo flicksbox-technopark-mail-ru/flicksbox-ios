@@ -45,6 +45,7 @@
 		B5A672E5262378FF0033DFC0 /* APIActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E4262378FF0033DFC0 /* APIActor.swift */; };
 		B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E82623790D0033DFC0 /* APICountry.swift */; };
 		B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672EC262379140033DFC0 /* APIMovie.swift */; };
+		B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD7143262C889900BDC279 /* APITVShow.swift */; };
 		B5EB4164262C5F2400D741A0 /* HomeFilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4163262C5F2400D741A0 /* HomeFilmCollectionViewCell.swift */; };
 		B5EB4169262C69EB00D741A0 /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4168262C69EB00D741A0 /* FilmInfoViewController.swift */; };
 		B5EB416D262C6B1200D741A0 /* SBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB416C262C6B1200D741A0 /* SBImageView.swift */; };
@@ -124,6 +125,7 @@
 		B5A672E4262378FF0033DFC0 /* APIActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActor.swift; sourceTree = "<group>"; };
 		B5A672E82623790D0033DFC0 /* APICountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICountry.swift; sourceTree = "<group>"; };
 		B5A672EC262379140033DFC0 /* APIMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMovie.swift; sourceTree = "<group>"; };
+		B5CD7143262C889900BDC279 /* APITVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
 		B5EB4163262C5F2400D741A0 /* HomeFilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilmCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5EB4168262C69EB00D741A0 /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
 		B5EB416C262C6B1200D741A0 /* SBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImageView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				B5A672E4262378FF0033DFC0 /* APIActor.swift */,
 				B5A672E82623790D0033DFC0 /* APICountry.swift */,
 				B5A672EC262379140033DFC0 /* APIMovie.swift */,
+				B5CD7143262C889900BDC279 /* APITVShow.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
 				B535F051260780D900C48BC4 /* APIResponse.swift in Sources */,
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
+				B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
