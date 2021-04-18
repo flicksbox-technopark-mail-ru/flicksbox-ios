@@ -13,25 +13,20 @@ final class UserInteractor {
     
     private let encoder: JSONEncoder
     
-    enum UserInteractorError: Error {
-        case emptyData
-        case invalidEncode
-    }
-    
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
     
      struct UserSignup: Encodable {
-        var nickname: String
-        var email: String
-        var password: String
-        var repeated_password: String
+        let nickname: String
+        let email: String
+        let password: String
+        let repeated_password: String
     }
     
     struct UserResponse: Decodable {
-        var user: APIUser
+        let user: APIUser
     }
     
     func signup(user: UserSignup, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
@@ -39,8 +34,8 @@ final class UserInteractor {
     }
     
     struct UserSignin: Encodable {
-       var email: String
-       var password: String
+       let email: String
+       let password: String
    }
     
     func signin(user: UserSignin, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
@@ -49,13 +44,13 @@ final class UserInteractor {
     
     private func sign<T>(user: T, method: String, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) where T: Encodable {
         guard let data = try? encoder.encode(user) else {
-            failure(UserInteractorError.invalidEncode)
+            failure(InteractorError.invalidEncode)
             return
         }
         let request = HermesRequest(method: .post, path: method, body: data)
         request.successHandler = { response in
             guard let data = response.data.decode(type: APIResponse<UserResponse>.self) else {
-                failure(UserInteractorError.emptyData)
+                failure(InteractorError.emptyData)
                 return
             }
             if let token = response.headers["x-csrf-token"] as? String {

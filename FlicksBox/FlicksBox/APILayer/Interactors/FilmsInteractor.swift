@@ -18,4 +18,37 @@ final class FilmsInteractor {
         encoder = JSONEncoder()
     }
     
+    struct MoviesResponse: Decodable {
+        let movies: [APIMovie]
+    }
+    
+    func topMovies(
+        from: Int,
+        count: Int,
+        success: @escaping (APIResponse<MoviesResponse>) -> Void,
+        failure: @escaping (Error) -> Void) {
+        let request = HermesRequest(
+            method: .get,
+            path: "/movies/top", body: nil,
+            headers: nil,
+            params: [
+                "count": "\(count)",
+                "from": "\(from)"
+            ]
+        )
+        request.successHandler = { response in
+            guard let data = response.data.decode(type: APIResponse<MoviesResponse>.self) else {
+                failure(InteractorError.emptyData)
+                return
+            }
+            success(data)
+        }
+        
+        request.errorHandler = { error in
+            failure(error)
+        }
+        
+        client.run(with: request)
+    }
+    
 }

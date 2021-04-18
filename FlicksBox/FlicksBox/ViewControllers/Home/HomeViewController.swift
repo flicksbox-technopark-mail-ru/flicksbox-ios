@@ -62,21 +62,33 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let reusableCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath)
-        return reusableCell
+        tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let cell = cell as? HomeTableViewCell else {
             return
         }
-        if cell.films == nil {
-            cell.startAnimationLoading()
+        
+        if let _ = cell.films {
+            return
+        }
+        
+        cell.startAnimationLoading(animated: true)
+        model.loadSection(index: indexPath.section) { [weak cell, weak self] films in
+            DispatchQueue.main.async {
+                cell?.navigationController = self?.navigationController
+                cell?.films = films
+            }
+        } failure: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.alert(message: error)
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.bounds.height / 4
+        view.bounds.height / 5
     }
 }
 
