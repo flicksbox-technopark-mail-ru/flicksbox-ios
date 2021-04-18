@@ -88,7 +88,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.bounds.height / 5
+        max(view.bounds.width, view.bounds.height) / 5
     }
 }
 
