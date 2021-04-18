@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -188,7 +188,6 @@
 				9CBE7A266ACBFEB4A24AE2AE /* Pods-Hermes.debug.xcconfig */,
 				6BA71565DB277CFA6149315C /* Pods-Hermes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

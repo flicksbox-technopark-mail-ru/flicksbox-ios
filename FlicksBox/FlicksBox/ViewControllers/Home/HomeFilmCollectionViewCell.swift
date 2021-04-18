@@ -18,25 +18,31 @@ class HomeFilmCollectionViewCell: UICollectionViewCell {
                 return
             }
             filmNameLabel.text = film?.name
-            fimImageView.load(url: urlImage)
+            fimImageView.loadWebP(url: urlImage)
         }
     }
+    
+    private let cornerRadius: CGFloat = 5
     
     private let filmNameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = .systemBackground
         return label
     }()
     
-    private let fimImageView: SBImageView = {
+    private lazy var fimImageView: SBImageView = {
         let imageView = SBImageView()
+        imageView.layer.cornerRadius = cornerRadius
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.lightGray
-        layer.cornerRadius = 5
+        layer.cornerRadius = cornerRadius
         
         addSubview(fimImageView)
         addSubview(filmNameLabel)

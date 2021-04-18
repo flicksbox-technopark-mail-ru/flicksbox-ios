@@ -27,7 +27,7 @@ struct FilmInfo {
     init(from movie: APIMovie) {
         id = movie.id
         name = movie.name
-        image = "https://www.flicksbox.ru\(movie.images)"
+        image = "https://www.flicksbox.ru\(movie.images)/640"
     }
 }
 

@@ -6,24 +6,17 @@
 //
 
 import UIKit
+import SDWebImageWebPCoder
 
 public class SBImageView: UIImageView {
-    public func load(url urlString: String) {
-        guard let url = URL(string: urlString) else {
-            return
+    public func loadWebP(url: String, success: (() -> Void)? = nil) {
+        let WebPCoder = SDImageWebPCoder.shared
+        SDImageCodersManager.shared.addCoder(WebPCoder)
+        guard let webpURL = URL(string: url) else { return }
+        DispatchQueue.main.async { [weak self] in
+            self?.sd_setImage(with: webpURL, completed: { (image, error, caheType, url) in
+                success?()
+            })
         }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            DispatchQueue.main.async { [weak self] in
-                self?.image = UIImage(data: data)
-            }
-        }
-        task.resume()
     }
 }
