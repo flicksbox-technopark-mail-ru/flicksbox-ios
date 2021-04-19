@@ -9,7 +9,8 @@ import UIKit
 import Botticelli
 
 final class FreeContentViewController: SBViewController {
-    let model = FreeContentModel()
+    private let contentModel = FreeContentModel()
+    private let filtersModel = FiltersModel()
     
     private lazy var filtersListView: FiltersListView = {
         FiltersListView(frame: view.bounds)
@@ -50,6 +51,8 @@ final class FreeContentViewController: SBViewController {
         super.viewDidLoad()
         configureSubviews()
         loadContent()
+        loadFilters()
+        setupFilterObserver()
     }
     
     private func configureSubviews() {
@@ -62,18 +65,72 @@ final class FreeContentViewController: SBViewController {
     }
     
     private func loadContent() {
-        model.loadData() { [weak self] films in
+        contentModel.loadData() { [weak self] films in
             DispatchQueue.main.async {
                 if films.count == 0 {
                     self?.showEmptyResultView()
                 } else {
+                    self?.showContentGridView()
                     self?.contentGridView.updateData(films)
+                    if self?.filtersView.years == nil {
+                        self?.loadYearFilters(films)
+                    }
                 }
             }
         } failure: { [weak self] error in
             DispatchQueue.main.async {
                 self?.alert(message: error)
             }
+        }
+    }
+    
+    private func loadYearFilters(_ films: [FilmInfo]) {
+        var yearsVal = films.map {
+            $0.year
+        }
+        yearsVal = yearsVal.uniqued().sorted { $0 > $1 }
+        
+        let years = yearsVal.map {
+            Year($0)
+        }
+        self.filtersView.years = years
+    }
+    
+    private func loadFilters() {
+        filtersModel.loadGenres() { [weak self] genres in
+            DispatchQueue.main.async {
+                self?.filtersView.genres = genres
+            }
+        } failure: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.alert(message: error)
+            }
+        }
+        
+        filtersModel.loadCountries() { [weak self] countries in
+            DispatchQueue.main.async {
+                self?.filtersView.countries = countries
+            }
+        } failure: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.alert(message: error)
+            }
+        }
+    }
+    
+    private func setupFilterObserver() {
+        filtersView.filterObserver = { [weak self] (filter) in
+            switch filter {
+            case is Genre:
+                self?.contentModel.setGenreFilter(filter as? Genre)
+            case is Country:
+                self?.contentModel.setCountryFilter(filter as? Country)
+            case is Year:
+                self?.contentModel.setYearFilter(filter as? Year)
+            default:
+                fatalError("Unexpected filter type")
+            }
+            self?.loadContent()
         }
     }
     
@@ -93,5 +150,13 @@ extension FreeContentViewController: MainOutput {
     func configureTabItem() {
         self.tabBarItem.title = "Поиск"
         self.tabBarItem.image = SBIcon.search // TODO: wtf?
+    }
+}
+
+// Move to where?
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
     }
 }

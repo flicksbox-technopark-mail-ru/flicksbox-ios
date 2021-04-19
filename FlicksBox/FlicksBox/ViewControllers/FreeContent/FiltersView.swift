@@ -10,11 +10,42 @@ import Botticelli
 
 final class FiltersView: SBView {
     var filtersListView: FiltersListView!
-    var filtersObserver: ((Int) -> ())?
+    var filterObserver: ((Filter?) -> ())? {
+        didSet {
+            guard let obsever = filterObserver else { return }
+            genreButton.filterObserver = obsever
+            yearButton.filterObserver = obsever
+            countryButton.filterObserver = obsever
+        }
+    }
     
-    let genres = ["Все жанры", "Комедия", "Драма", "Мультфильмы", "Фэнтези"]
-    let years = ["Все года", "2010", "2011", "2012", "2013"]
-    let countries = ["Все страны", "США", "Россия", "Великобритания", "Латвия"]
+    var genres: [Genre]? {
+        didSet {
+            guard var genres = genres else { return }
+            genres.insert(Genre(name: "Все жанры"), at: 0)
+            genreButton.setData(data: genres)
+        }
+    }
+    
+    var countries: [Country]? {
+        didSet {
+            guard var countries = countries else { return }
+            countries.insert(Country(name: "Все страны"), at: 0)
+            countryButton.setData(data: countries)
+        }
+    }
+    
+    var years: [Year]? {
+        didSet {
+            guard var years = years else { return }
+            years.insert(Year(name: "Все года"), at: 0)
+            yearButton.setData(data: years)
+        }
+    }
+    
+    var genreButton: FilterButton!
+    var yearButton: FilterButton!
+    var countryButton: FilterButton!
     
     init(frame: CGRect, _ filtersListView: FiltersListView) {
         super.init(frame: frame)
@@ -33,7 +64,7 @@ final class FiltersView: SBView {
             width: buttonWidth,
             height: bounds.height
         )
-        let genreButton = FilterButton(frame: gbFrame, title: "Все жанры", data: genres, filtersListView: filtersListView)
+        genreButton = FilterButton(frame: gbFrame, title: "Все жанры", filtersListView)
         
         let ybFrame = CGRect(
             x: genreButton.frame.maxX + interitemSpacing,
@@ -41,7 +72,7 @@ final class FiltersView: SBView {
             width: buttonWidth,
             height: bounds.height
         )
-        let yearButton = FilterButton(frame: ybFrame, title: "Все года", data: years, filtersListView: filtersListView)
+        yearButton = FilterButton(frame: ybFrame, title: "Все года", filtersListView)
         
         let cbFrame = CGRect(
             x: yearButton.frame.maxX + interitemSpacing,
@@ -49,7 +80,7 @@ final class FiltersView: SBView {
             width: buttonWidth,
             height: bounds.height
         )
-        let countryButton = FilterButton(frame: cbFrame, title: "Все страны", data: countries, filtersListView: filtersListView)
+        countryButton = FilterButton(frame: cbFrame, title: "Все страны", filtersListView)
         
         addSubview(genreButton)
         addSubview(yearButton)
@@ -63,15 +94,27 @@ final class FiltersView: SBView {
 
 class FilterButton: SBButton {
     var filtersListView: FiltersListView!
-    var data: [String]!
     var selectedRow: Int = 0
+    var filterObserver: ((Filter?) -> ())?
+    var filtersListPresented: Bool = false
     
-    init(frame: CGRect, title: String, data: [String], filtersListView: FiltersListView) {
+    var data: [Filter] = [] {
+        didSet {
+            if filtersListPresented {
+                filtersListView.setData(data, selectedRow)
+            }
+        }
+    }
+    
+    init(frame: CGRect, title: String, _ filtersListView: FiltersListView) {
         super.init(frame: frame)
         self.filtersListView = filtersListView
-        self.data = data
         configureView(title)
         configureImageView()
+    }
+    
+    func setData(data: [Filter]) {
+        self.data = data
     }
     
     private func configureView(_ title: String) {
@@ -99,12 +142,15 @@ class FilterButton: SBButton {
         filtersListView.setData(data, selectedRow)
         setupSelectionObserver()
         filtersListView.fadeIn()
+        filtersListPresented = true
     }
     
     private func setupSelectionObserver() {
         filtersListView.selectionObserver = { [weak self] (selectedRow) in
+            self?.filtersListPresented = false
             self?.selectedRow = selectedRow
-            self?.setTitle(self?.data[selectedRow], for: .normal)
+            self?.setTitle(self?.data[selectedRow].name, for: .normal)
+            self?.filterObserver?(self?.data[selectedRow])
         }
     }
     

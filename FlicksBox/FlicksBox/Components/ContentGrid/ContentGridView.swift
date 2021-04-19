@@ -52,7 +52,7 @@ final class ContentGridView: SBView {
     }
 }
 
-extension ContentGridView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ContentGridView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return content.count
@@ -81,5 +81,11 @@ extension ContentGridView: UICollectionViewDataSource, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: sideSpace, left: sideSpace * 2, bottom: sideSpace, right: sideSpace * 2)
+    }
+}
+
+extension ContentGridView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(content[indexPath.row])
     }
 }

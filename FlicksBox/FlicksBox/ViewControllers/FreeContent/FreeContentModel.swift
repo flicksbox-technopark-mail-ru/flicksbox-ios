@@ -12,7 +12,22 @@ final class FreeContentModel: NSObject {
 
     private let from = 0
     private let count = 30
-    let filters = ContentFilters()
+    private var filters = ContentFilters()
+    
+    func setGenreFilter(_ genre: Genre?) {
+        guard let genre = genre else { return }
+        self.filters.genre = genre.id
+    }
+    
+    func setCountryFilter(_ country: Country?) {
+        guard let country = country else { return }
+        self.filters.country = country.id
+    }
+    
+    func setYearFilter(_ year: Year?) {
+        guard let year = year else { return }
+        self.filters.year = year.value
+    }
 
     func loadData(success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
         interactor.filtredContent(from: from, count: count, filters: filters) { response in

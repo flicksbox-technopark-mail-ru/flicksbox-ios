@@ -50,13 +50,6 @@ class ContentGridCell: UICollectionViewCell {
         super.init(frame: frame)
         configureLayout()
         configureSubviews()
-        
-//        poster.image = UIImage(named: "0.jpg")
-//        titleLabel.text = "Ход королевы"
-//
-//        poster.image = UIImage(named: "1.jpg")
-//        titleLabel.text = "Рик и Морти"
-        
     }
     
     private func configureLayout() {

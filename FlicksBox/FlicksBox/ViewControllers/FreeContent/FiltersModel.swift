@@ -7,32 +7,92 @@
 
 import Foundation
 
-//final class FiltersModel: NSObject {
-//    private let interactor = FiltersInteractor()
-//
-//    func loadGenres(success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
-//        interactor.filtredContent(from: from, count: count, filters: filters) { response in
-//            success(self.trasformate(content: response.body!))
-//        } failure: { error in
-//            failure(error.localizedDescription)
-//        }
-//    }
-//
-//    func loadCountries(success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
-//        interactor.filtredContent(from: from, count: count, filters: filters) { response in
-//            success(self.trasformate(content: response.body!))
-//        } failure: { error in
-//            failure(error.localizedDescription)
-//        }
-//    }
-//
-//    private func trasformate(content: ContentResponse) -> [FilmInfo] {
-//        let movies = content.movies.map { movie -> FilmInfo in
-//            FilmInfo(from: movie)
-//        }
-//        let tvshows = content.tvshows.map { tvshow -> FilmInfo in
-//            FilmInfo(from: tvshow)
-//        }
-//        return movies + tvshows
-//    }
-//}
+protocol Filter {
+    var name: String { get }
+}
+
+struct Country: Filter {
+    let id: Int?
+    let name: String
+    
+    init(from country: APICountry) {
+        self.init(id: country.id, name: country.name)
+    }
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.id = nil
+    }
+}
+
+struct Genre: Filter {
+    let id: Int?
+    let name: String
+    
+    init(from genre: APIGenre) {
+        self.init(id: genre.id, name: genre.name)
+    }
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.id = nil
+    }
+}
+
+struct Year: Filter {
+    let value: Int?
+    let name: String
+    
+    init(_ value: Int) {
+        self.value = value
+        self.name = String(value)
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.value = nil
+    }
+}
+
+final class FiltersModel: NSObject {
+    private let genresInteractor = GenresInteractor()
+    private let countriesInteractor = CountriesInteractor()
+
+    func loadGenres(success: @escaping ([Genre]) -> Void, failure: @escaping (String) -> Void) {
+        genresInteractor.allGenres() { response in
+            success(self.trasformate(genres: response.body?.genres ?? []))
+        } failure: { error in
+            failure(error.localizedDescription)
+        }
+    }
+
+    func loadCountries(success: @escaping ([Country]) -> Void, failure: @escaping (String) -> Void) {
+        countriesInteractor.allCountries() { response in
+            success(self.trasformate(countries: response.body?.countries ?? []))
+        } failure: { error in
+            failure(error.localizedDescription)
+        }
+    }
+    
+    private func trasformate(genres: [APIGenre]) -> [Genre] {
+        genres.map { genre -> Genre in
+            Genre(from: genre)
+        }
+    }
+    
+    private func trasformate(countries: [APICountry]) -> [Country] {
+        countries.map { country -> Country in
+            Country(from: country)
+        }
+    }
+}

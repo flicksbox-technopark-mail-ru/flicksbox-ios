@@ -24,7 +24,6 @@ struct ContentFilters: Decodable {
 
 final class ContentInteractor {
     private let client: HermesClient
-    
     private let encoder: JSONEncoder
     
     init() {
@@ -86,8 +85,7 @@ final class ContentInteractor {
         
         let request = HermesRequest(
             method: .get,
-            path: path, body: nil,
-            headers: nil,
+            path: path,
             params: params
         )
         request.successHandler = { response in

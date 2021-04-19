@@ -60,6 +60,9 @@
 		C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9343262CCE6E001BBC13 /* FreeContentModel.swift */; };
 		C4FB934D262CD5B2001BBC13 /* ContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB934C262CD5B2001BBC13 /* ContentInteractor.swift */; };
 		C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9358262CEC7B001BBC13 /* FiltersModel.swift */; };
+		C4FB935F262D98B6001BBC13 /* APIGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB935E262D98B6001BBC13 /* APIGenre.swift */; };
+		C4FB9365262D991B001BBC13 /* GenresInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9364262D991B001BBC13 /* GenresInteractor.swift */; };
+		C4FB9369262D9B66001BBC13 /* CountriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9368262D9B66001BBC13 /* CountriesInteractor.swift */; };
 		C6E2F2EF98DD543C3CC6A349 /* Pods_Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */; };
 		FC1B950C4283F031381CBA15 /* Pods_Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */; };
 /* End PBXBuildFile section */
@@ -158,6 +161,9 @@
 		C4FB9343262CCE6E001BBC13 /* FreeContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeContentModel.swift; sourceTree = "<group>"; };
 		C4FB934C262CD5B2001BBC13 /* ContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInteractor.swift; sourceTree = "<group>"; };
 		C4FB9358262CEC7B001BBC13 /* FiltersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersModel.swift; sourceTree = "<group>"; };
+		C4FB935E262D98B6001BBC13 /* APIGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGenre.swift; sourceTree = "<group>"; };
+		C4FB9364262D991B001BBC13 /* GenresInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresInteractor.swift; sourceTree = "<group>"; };
+		C4FB9368262D9B66001BBC13 /* CountriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesInteractor.swift; sourceTree = "<group>"; };
 		E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -274,6 +280,7 @@
 				B5A672E82623790D0033DFC0 /* APICountry.swift */,
 				B5A672EC262379140033DFC0 /* APIMovie.swift */,
 				B5CD7143262C889900BDC279 /* APITVShow.swift */,
+				C4FB935E262D98B6001BBC13 /* APIGenre.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -284,6 +291,8 @@
 				B535F04226076C2600C48BC4 /* UserInteractor.swift */,
 				B5A672A8262339460033DFC0 /* FilmsInteractor.swift */,
 				C4FB934C262CD5B2001BBC13 /* ContentInteractor.swift */,
+				C4FB9364262D991B001BBC13 /* GenresInteractor.swift */,
+				C4FB9368262D9B66001BBC13 /* CountriesInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -713,7 +722,9 @@
 				B535F04326076C2600C48BC4 /* UserInteractor.swift in Sources */,
 				B5A672B3262339E40033DFC0 /* HomeTableViewCell.swift in Sources */,
 				B5A672E5262378FF0033DFC0 /* APIActor.swift in Sources */,
+				C4FB935F262D98B6001BBC13 /* APIGenre.swift in Sources */,
 				C4FB9332262CAC90001BBC13 /* FiltersListView.swift in Sources */,
+				C4FB9365262D991B001BBC13 /* GenresInteractor.swift in Sources */,
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
@@ -731,6 +742,7 @@
 				C4FB9330262CAC90001BBC13 /* FiltersView.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
+				C4FB9369262D9B66001BBC13 /* CountriesInteractor.swift in Sources */,
 				C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
 				B5EB4169262C69EB00D741A0 /* FilmInfoViewController.swift in Sources */,

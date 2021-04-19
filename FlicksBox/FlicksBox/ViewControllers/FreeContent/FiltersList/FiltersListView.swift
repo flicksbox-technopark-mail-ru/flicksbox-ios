@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 
 final class FiltersListView: SBView {
-    var data: [String] = []
+    var data: [Filter] = []
     var selectedRow: Int = 0
     var selectionObserver: ((Int) -> ())?
     
@@ -52,7 +52,7 @@ final class FiltersListView: SBView {
         configureSubviews()
     }
     
-    func setData(_ data: [String], _ selectedRow: Int) {
+    func setData(_ data: [Filter], _ selectedRow: Int) {
         self.data = data
         self.selectedRow = selectedRow
         collectionView.reloadData()
@@ -109,7 +109,7 @@ extension FiltersListView: UICollectionViewDelegate, UICollectionViewDataSource,
             for: indexPath
         ) as! FiltersListCell
         
-        cell.titleLabel.text = data[indexPath.row]
+        cell.titleLabel.text = data[indexPath.row].name
         if indexPath.row == selectedRow {
             cell.customizeAsSelected()
         } else {
@@ -132,7 +132,7 @@ extension FiltersListView: UICollectionViewDelegate, UICollectionViewDataSource,
             cell.customizeAsSelected()
             selectionObserver?(indexPath.row)
             
-            _ = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { (timer) in
+            _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { (timer) in
                 self.isHidden = true
             }
         }
