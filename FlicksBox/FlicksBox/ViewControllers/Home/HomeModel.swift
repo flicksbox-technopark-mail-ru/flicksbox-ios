@@ -23,19 +23,21 @@ struct FilmInfo {
     let id: Int
     let name: String
     let image: String
+    let year: Int
     
     init(from movie: APIMovie) {
-        self.init(id: movie.id, name: movie.name, image: movie.images)
+        self.init(id: movie.id, name: movie.name, image: movie.images, year: movie.year)
     }
     
     init(from tvShow: APITVShow) {
-        self.init(id: tvShow.id, name: tvShow.name, image: tvShow.images)
+        self.init(id: tvShow.id, name: tvShow.name, image: tvShow.images, year: tvShow.year)
     }
     
-    private init(id: Int, name: String, image: String) {
+    private init(id: Int, name: String, image: String, year: Int) {
         self.id = id
         self.name = name
         self.image = "https://www.flicksbox.ru\(image)/640"
+        self.year = year
     }
 }
 

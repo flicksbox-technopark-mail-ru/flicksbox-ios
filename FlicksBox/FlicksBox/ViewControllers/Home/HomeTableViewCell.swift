@@ -29,7 +29,7 @@ class HomeTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(HomeFilmCollectionViewCell.self, forCellWithReuseIdentifier: HomeFilmCollectionViewCell.identifier)
+        collectionView.register(ContentGridCell.self, forCellWithReuseIdentifier: ContentGridCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
@@ -117,8 +117,8 @@ extension HomeTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reusableCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFilmCollectionViewCell.identifier, for: indexPath)
-        guard let cell = reusableCell as? HomeFilmCollectionViewCell,
+        let reusableCell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentGridCell.identifier, for: indexPath)
+        guard let cell = reusableCell as? ContentGridCell,
               let films = films else {
             return reusableCell
         }
