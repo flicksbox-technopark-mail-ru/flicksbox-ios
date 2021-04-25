@@ -9,6 +9,11 @@ import UIKit
 import Botticelli
 
 class ResultsActorGridCell: UICollectionViewCell {
+    var actor: Actor? {
+        didSet {
+            titleLabel.text = actor?.name
+        }
+    }
 
     let titleLabel: SBLabel = {
         let label = SBLabel()
@@ -22,8 +27,6 @@ class ResultsActorGridCell: UICollectionViewCell {
         super.init(frame: frame)
         configureSubviews()
         configureView()
-        
-        titleLabel.text = "Орландо Блум"
     }
     
     private func configureView() {

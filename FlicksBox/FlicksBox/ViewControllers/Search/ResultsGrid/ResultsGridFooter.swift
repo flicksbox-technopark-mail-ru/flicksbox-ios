@@ -9,7 +9,6 @@ import UIKit
 import Botticelli
 
 final class ResultsGridFooter: UICollectionReusableView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

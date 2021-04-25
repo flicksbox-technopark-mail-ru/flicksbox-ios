@@ -9,7 +9,6 @@ import UIKit
 import Botticelli
 
 final class ResultsGridHeader: UICollectionReusableView {
-
     let titleLabel: SBLabel = {
         let label = SBLabel()
         label.numberOfLines = 1

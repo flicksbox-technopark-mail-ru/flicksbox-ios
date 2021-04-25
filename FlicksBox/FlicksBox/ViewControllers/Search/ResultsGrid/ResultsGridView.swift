@@ -9,6 +9,8 @@ import UIKit
 import Botticelli
 
 final class ResultsGridView: SBView {
+    private var content: [FilmInfo] = []
+    private var actors: [Actor] = []
     private let sectionTitles = ["Фильмы и сериалы", "Актеры"]
     private let lineSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 2
@@ -26,8 +28,8 @@ final class ResultsGridView: SBView {
         collectionView.keyboardDismissMode = .onDrag
         
         collectionView.register(
-            ResultsContentGridCell.self,
-            forCellWithReuseIdentifier: NSStringFromClass(ResultsContentGridCell.self)
+            ContentGridCell.self,
+            forCellWithReuseIdentifier: NSStringFromClass(ContentGridCell.self)
         )
         collectionView.register(
             ResultsActorGridCell.self,
@@ -59,14 +61,20 @@ final class ResultsGridView: SBView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateData(content: [FilmInfo], actors: [Actor]) {
+        self.content = content
+        self.actors = actors
+        self.collectionView.reloadData()
+    }
 }
 
 extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 10
+            return content.count
         } else {
-            return 10
+            return actors.count
         }
     }
     
@@ -75,16 +83,18 @@ extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell: UICollectionViewCell
         switch indexPath.section {
         case 0:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ResultsContentGridCell.self), for: indexPath) as! ResultsContentGridCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ContentGridCell.self), for: indexPath) as! ContentGridCell
+            cell.film = content[indexPath.row]
+            return cell
         case 1:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ResultsActorGridCell.self), for: indexPath) as! ResultsActorGridCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ResultsActorGridCell.self), for: indexPath) as! ResultsActorGridCell
+            cell.actor = actors[indexPath.row]
+            return cell
         default:
             fatalError("Unexpected section")
         }
-        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
