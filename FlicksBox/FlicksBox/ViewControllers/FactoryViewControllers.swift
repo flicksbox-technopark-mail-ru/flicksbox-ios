@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import Botticelli
 
 // в этом классе будут конфигурироваться наши вью контроллеры вместе с моделями
 final class FactoryViewControllers {
     private init() {}
     
-    class var main: UITabBarController {
-        let viewControllers = [search, free, home, profile]
-        let mainController = MainController(with: viewControllers)
-        return mainController
+    class var start: UIViewController {
+        let viewController = StartViewController()
+        return viewController
     }
     
     class var home: UIViewController {
@@ -39,6 +39,29 @@ final class FactoryViewControllers {
         let controller = ProfileViewController()
         controller.configureTabItem()
         return UINavigationController(rootViewController: controller)
+    }
+    
+    class var sign: UIViewController {
+        let controller = SBViewController()
+        controller.title = "Вход"
+        controller.tabBarItem.image = SBIcon.person
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    enum MainControllerType {
+        case profile
+        case sign
+    }
+    
+    static func createMain(with type: MainControllerType) -> UITabBarController {
+        let viewControllers: [UIViewController]
+        if case .profile = type {
+            viewControllers = [search, free, home, profile]
+        } else {
+            viewControllers = [search, free, home, sign]
+        }
+        let mainController = MainController(with: viewControllers)
+        return mainController
     }
     
     static func createFilmInfo(info: FilmInfo) -> UIViewController {

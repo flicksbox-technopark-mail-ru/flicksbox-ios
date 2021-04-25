@@ -38,6 +38,9 @@
 		B563055525F45ADC00A9ED21 /* Botticelli.h in Headers */ = {isa = PBXBuildFile; fileRef = B563055325F45ADC00A9ED21 /* Botticelli.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B563055825F45ADC00A9ED21 /* Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; };
 		B563055925F45ADC00A9ED21 /* Botticelli.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B563055125F45ADC00A9ED21 /* Botticelli.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B56E97DE2635B46800F71060 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56E97DD2635B46800F71060 /* StartViewController.swift */; };
+		B56E97E22635B5C000F71060 /* StartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56E97E12635B5C000F71060 /* StartModel.swift */; };
+		B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56E97E82635CC6100F71060 /* ClientUser.swift */; };
 		B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A6729D262334450033DFC0 /* HomeViewController.swift */; };
 		B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672A4262336510033DFC0 /* HomeModel.swift */; };
 		B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672A8262339460033DFC0 /* FilmsInteractor.swift */; };
@@ -147,6 +150,9 @@
 		B563055125F45ADC00A9ED21 /* Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B563055325F45ADC00A9ED21 /* Botticelli.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Botticelli.h; sourceTree = "<group>"; };
 		B563055425F45ADC00A9ED21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B56E97DD2635B46800F71060 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		B56E97E12635B5C000F71060 /* StartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModel.swift; sourceTree = "<group>"; };
+		B56E97E82635CC6100F71060 /* ClientUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientUser.swift; sourceTree = "<group>"; };
 		B5A6729D262334450033DFC0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B5A672A4262336510033DFC0 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		B5A672A8262339460033DFC0 /* FilmsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsInteractor.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				B508561525FE161900EFD69B /* FactoryViewControllers.swift */,
+				B56E97DC2635B44A00F71060 /* Start */,
 				B5A6729C262334360033DFC0 /* Home */,
 				B52F5793260662C9003FFF06 /* Main */,
 				B52F5791260662B2003FFF06 /* Profile */,
@@ -364,6 +371,7 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
+				B56E97E72635CC5100F71060 /* Client */,
 				B52F580C26069B42003FFF06 /* APILayer */,
 				B508561125FE15F900EFD69B /* ViewControllers */,
 				C4FB9347262CD07A001BBC13 /* Components */,
@@ -418,6 +426,23 @@
 				C4FB9338262CC553001BBC13 /* View */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		B56E97DC2635B44A00F71060 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B56E97DD2635B46800F71060 /* StartViewController.swift */,
+				B56E97E12635B5C000F71060 /* StartModel.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		B56E97E72635CC5100F71060 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				B56E97E82635CC6100F71060 /* ClientUser.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		B5A6729C262334360033DFC0 /* Home */ = {
@@ -809,6 +834,7 @@
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
 				C4FB933E262CC663001BBC13 /* ContentEmptyResultView.swift in Sources */,
 				B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */,
+				B56E97DE2635B46800F71060 /* StartViewController.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				C4FB937E26335B67001BBC13 /* RecommendationsGridHeader.swift in Sources */,
 				C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */,
@@ -820,6 +846,7 @@
 				C4FB9330262CAC90001BBC13 /* FiltersView.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
+				B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */,
 				C4FB9369262D9B66001BBC13 /* CountriesInteractor.swift in Sources */,
 				C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
@@ -830,6 +857,7 @@
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,
 				C4FB9333262CAC90001BBC13 /* FiltersListFooter.swift in Sources */,
+				B56E97E22635B5C000F71060 /* StartModel.swift in Sources */,
 				C4FB938626335B67001BBC13 /* ResultsActorGridCell.swift in Sources */,
 				C4FB937C26335B67001BBC13 /* SearchEmptyResultView.swift in Sources */,
 				C4FB934D262CD5B2001BBC13 /* ContentInteractor.swift in Sources */,
