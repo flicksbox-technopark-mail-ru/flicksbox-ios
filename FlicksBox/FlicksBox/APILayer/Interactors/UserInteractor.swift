@@ -63,4 +63,22 @@ final class UserInteractor {
         }
         client.run(with: request)
     }
+    
+    func profile(success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
+        let request = HermesRequest(method: .get, path: "/user/profile")
+        request.successHandler = { response in
+            guard let data = response.data.decode(type: APIResponse<UserResponse>.self) else {
+                failure(InteractorError.emptyData)
+                return
+            }
+            if let token = response.headers["x-csrf-token"] as? String {
+                CSRFStorage.shared.token = token
+            }
+            success(data)
+        }
+        request.errorHandler = { error in
+            failure(error)
+        }
+        client.run(with: request)
+    }
 }
