@@ -163,14 +163,17 @@ final class ProfileSubscriptionView: SBView {
             height: 40
         )
 
+        let appleLogoColor = UIColor(red: 34/255, green: 30/255, blue: 31/255, alpha: 1)
+
         let attachment = NSTextAttachment()
         attachment.image = SBIcon.applelogo?.withTintColor(
-            UIColor(red: 34/255, green: 30/255, blue: 31/255, alpha: 1),
+            appleLogoColor,
             renderingMode: .alwaysOriginal
         )
         let attachmentString = NSMutableAttributedString(attachment: attachment)
 
-        let strLabelText = NSAttributedString(string: " Pay")
+        let attributedStringColor = [NSAttributedString.Key.foregroundColor: appleLogoColor]
+        let strLabelText = NSAttributedString(string: " Pay", attributes: attributedStringColor)
         attachmentString.append(strLabelText)
 
         applePayButton.backgroundColor = UIColor.white
