@@ -13,6 +13,7 @@
 		78F3E1002635D3BB00BB68C9 /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */; };
 		78F3E1062635D40100BB68C9 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E1052635D40100BB68C9 /* AuthButton.swift */; };
 		78F3E10C2635D5BF00BB68C9 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */; };
+		78F3E11C263611B800BB68C9 /* AuthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E11B263611B800BB68C9 /* AuthLabel.swift */; };
 		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
 		B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
 		B52F5787260661EE003FFF06 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
@@ -138,6 +139,7 @@
 		78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
 		78F3E1052635D40100BB68C9 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		78F3E11B263611B800BB68C9 /* AuthLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLabel.swift; sourceTree = "<group>"; };
 		8C98ACF8C0696B5B34590CF8 /* Pods-Botticelli.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Botticelli.release.xcconfig"; path = "Target Support Files/Pods-Botticelli/Pods-Botticelli.release.xcconfig"; sourceTree = "<group>"; };
 		945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlicksBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBE7A266ACBFEB4A24AE2AE /* Pods-Hermes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.debug.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */,
 				78F3E1052635D40100BB68C9 /* AuthButton.swift */,
 				78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */,
+				78F3E11B263611B800BB68C9 /* AuthLabel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */,
 				78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */,
 				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
+				78F3E11C263611B800BB68C9 /* AuthLabel.swift in Sources */,
 				B535F051260780D900C48BC4 /* APIResponse.swift in Sources */,
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
 				C4FB933E262CC663001BBC13 /* ContentEmptyResultView.swift in Sources */,

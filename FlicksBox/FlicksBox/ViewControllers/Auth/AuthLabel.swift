@@ -1,8 +1,8 @@
 //
-//  AuthLabel.swift
+//  AuthButton.swift
 //  FlicksBox
 //
-//  Created by Александр Бутолин on 25.04.2021.
+//  Created by Александр Бутолин on 21.04.2021.
 //
 
 import Botticelli
@@ -11,7 +11,8 @@ import UIKit
 final class AuthLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textAlignment = NSTextAlignment.center
+        textAlignment = .center
+        textColor = UIColor.white
     }
     
     required init?(coder: NSCoder) {

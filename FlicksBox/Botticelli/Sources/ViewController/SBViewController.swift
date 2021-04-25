@@ -29,9 +29,9 @@ open class SBViewController: UIViewController {
     private func customizeNavigationBar() {
         guard let navController = self.navigationController else { return }
         navController.navigationBar.isTranslucent = false
-//        navController.navigationBar.barStyle = .black
-//        navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-//        navController.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
+        navController.navigationBar.barStyle = .black
+        navController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navController.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
     }
     
     public func alert(message: String, complition: (() -> Void)? = nil) {
