@@ -13,10 +13,8 @@ class ContentGridCell: UICollectionViewCell {
     
     var film: FilmInfo? {
         didSet {
-            guard oldValue?.id != film?.id,
-                  let urlImage = film?.image else {
-                return
-            }
+            guard oldValue?.contentId != film?.contentId,
+                  let urlImage = film?.image else { return }
             titleLabel.text = film?.name
             poster.loadWebP(url: urlImage)
         }
