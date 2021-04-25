@@ -25,4 +25,8 @@ open class SBIcon {
     class public var filter: UIImage? {
         UIImage(named: "filter.png")
     }
+    
+    class public var auth: UIImage? {
+        UIImage(systemName: "search")
+    }
 }

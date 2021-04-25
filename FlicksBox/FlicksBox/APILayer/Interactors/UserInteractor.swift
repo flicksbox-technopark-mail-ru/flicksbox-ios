@@ -8,6 +8,11 @@
 import Foundation
 import Hermes
 
+struct UserSignin: Encodable {
+   let email: String
+   let password: String
+}
+
 final class UserInteractor {
     private let client: HermesClient
     
@@ -32,11 +37,7 @@ final class UserInteractor {
     func signup(user: UserSignup, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
         sign(user: user, method: "/user/register", success: success, failure: failure)
     }
-    
-    struct UserSignin: Encodable {
-       let email: String
-       let password: String
-   }
+
     
     func signin(user: UserSignin, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
         sign(user: user, method: "/session", success: success, failure: failure)

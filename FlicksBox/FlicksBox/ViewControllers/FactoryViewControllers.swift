@@ -42,7 +42,7 @@ final class FactoryViewControllers {
     }
     
     class var sign: UIViewController {
-        let controller = SBViewController()
+        let controller = AuthViewController()
         controller.title = "Вход"
         controller.tabBarItem.image = SBIcon.person
         return UINavigationController(rootViewController: controller)
@@ -64,6 +64,7 @@ final class FactoryViewControllers {
         return mainController
     }
     
+
     static func createFilmInfo(info: FilmInfo) -> UIViewController {
         let controller = FilmInfoViewController()
         controller.filmInfo = info

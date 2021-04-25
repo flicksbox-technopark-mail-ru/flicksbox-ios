@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		60245F796FDA7B2BF0593D93 /* Pods_FlicksBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */; };
+		78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F32635D36700BB68C9 /* AuthViewController.swift */; };
+		78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F92635D39400BB68C9 /* AuthView.swift */; };
+		78F3E1002635D3BB00BB68C9 /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */; };
+		78F3E1062635D40100BB68C9 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E1052635D40100BB68C9 /* AuthButton.swift */; };
+		78F3E10C2635D5BF00BB68C9 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */; };
 		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
 		B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
 		B52F5787260661EE003FFF06 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
@@ -128,6 +133,11 @@
 		209462193A37A7EE8D27044D /* Pods-FlicksBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.debug.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.debug.xcconfig"; sourceTree = "<group>"; };
 		3999011EB277C28CD9719C04 /* Pods-FlicksBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.release.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.release.xcconfig"; sourceTree = "<group>"; };
 		6BA71565DB277CFA6149315C /* Pods-Hermes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.release.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.release.xcconfig"; sourceTree = "<group>"; };
+		78F3E0F32635D36700BB68C9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		78F3E0F92635D39400BB68C9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
+		78F3E1052635D40100BB68C9 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		8C98ACF8C0696B5B34590CF8 /* Pods-Botticelli.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Botticelli.release.xcconfig"; path = "Target Support Files/Pods-Botticelli/Pods-Botticelli.release.xcconfig"; sourceTree = "<group>"; };
 		945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlicksBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBE7A266ACBFEB4A24AE2AE /* Pods-Hermes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.debug.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +269,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		78F3E0E62635D29200BB68C9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				78F3E0F32635D36700BB68C9 /* AuthViewController.swift */,
+				78F3E0F92635D39400BB68C9 /* AuthView.swift */,
+				78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */,
+				78F3E1052635D40100BB68C9 /* AuthButton.swift */,
+				78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		A8485458EB33AADCD972C1E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +304,7 @@
 				B52F5791260662B2003FFF06 /* Profile */,
 				B5EB4167262C69CA00D741A0 /* FilmInfo */,
 				C4FB9323262CAC90001BBC13 /* FreeContent */,
+				78F3E0E62635D29200BB68C9 /* Auth */,
 				C4FB936C26335B65001BBC13 /* Search */,
 			);
 			path = ViewControllers;
@@ -859,6 +882,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B535F0612607985A00C48BC4 /* CSRFStorage.swift in Sources */,
+				78F3E1062635D40100BB68C9 /* AuthButton.swift in Sources */,
 				B535F04326076C2600C48BC4 /* UserInteractor.swift in Sources */,
 				B5A672B3262339E40033DFC0 /* HomeTableViewCell.swift in Sources */,
 				B5A672E5262378FF0033DFC0 /* APIActor.swift in Sources */,
@@ -874,7 +898,9 @@
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
 				C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */,
 				C4FB9331262CAC90001BBC13 /* FiltersListCell.swift in Sources */,
+				78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */,
 				B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */,
+				78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */,
 				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
 				B535F051260780D900C48BC4 /* APIResponse.swift in Sources */,
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
@@ -886,6 +912,7 @@
 				C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */,
 				C4FB93962633630D001BBC13 /* SearchInteractor.swift in Sources */,
 				C4FB932F262CAC90001BBC13 /* ContentGridCell.swift in Sources */,
+				78F3E10C2635D5BF00BB68C9 /* AuthModel.swift in Sources */,
 				C4FB938426335B67001BBC13 /* ResultsGridHeader.swift in Sources */,
 				C4FB937B26335B67001BBC13 /* SearchViewController.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
@@ -909,6 +936,7 @@
 				C4FB934D262CD5B2001BBC13 /* ContentInteractor.swift in Sources */,
 				C4FB93AE2634D521001BBC13 /* APIResult.swift in Sources */,
 				C4FB937F26335B67001BBC13 /* RecommendationsGridView.swift in Sources */,
+				78F3E1002635D3BB00BB68C9 /* AuthInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
