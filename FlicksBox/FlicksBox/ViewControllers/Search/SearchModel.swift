@@ -22,11 +22,11 @@ struct Actor {
 }
 
 struct SearchResult {
-    let actor: [Actor]
+    let actors: [Actor]
     let content: [FilmInfo]
     
-    init(actor: [Actor], content: [FilmInfo]) {
-        self.actor = actor
+    init(actors: [Actor], content: [FilmInfo]) {
+        self.actors = actors
         self.content = content
     }
 }
@@ -38,23 +38,26 @@ final class SearchModel: NSObject {
 
     func search(query: String, success: @escaping (SearchResult) -> Void, failure: @escaping (String) -> Void) {
         interactor.search(from: from, count: count, query: query) { response in
-            success(self.trasformate(resp: response.body!))
+            success(self.trasformate(resp: response.body ?? nil))
         } failure: { error in
             failure(error.localizedDescription)
         }
     }
 
-    private func trasformate(resp: SearchResponse) -> SearchResult {
-        let movies = resp.movies.map { movie -> FilmInfo in
+    private func trasformate(resp: SearchResponse?) -> SearchResult {
+        guard let resp = resp else {
+            return SearchResult(actors: [], content: [])
+        }
+        let movies = resp.result.movies.map { movie -> FilmInfo in
             FilmInfo(from: movie)
         }
-        let tvshows = resp.tvshows.map { tvshow -> FilmInfo in
+        let tvshows = resp.result.tv_shows.map { tvshow -> FilmInfo in
             FilmInfo(from: tvshow)
         }
-        let actors = resp.actors.map { actor -> Actor in
+        let actors = resp.result.actors.map { actor -> Actor in
             Actor(from: actor)
         }
-        let searchResult = SearchResult(actor: actors, content: movies + tvshows)
+        let searchResult = SearchResult(actors: actors, content: movies + tvshows)
         return searchResult
     }
 }

@@ -12,7 +12,7 @@ final class FactoryViewControllers {
     private init() {}
     
     class var main: UITabBarController {
-        let viewControllers = [free, home, profile]
+        let viewControllers = [search, free, home, profile]
         let mainController = MainController(with: viewControllers)
         return mainController
     }
@@ -25,6 +25,12 @@ final class FactoryViewControllers {
     
     class var free: UIViewController {
         let controller = FreeContentViewController()
+        controller.configureTabItem()
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    class var search: UIViewController {
+        let controller = SearchViewController()
         controller.configureTabItem()
         return UINavigationController(rootViewController: controller)
     }

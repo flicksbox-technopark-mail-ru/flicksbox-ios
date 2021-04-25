@@ -12,41 +12,27 @@ final class RecommendationsInteractor {
     private let client: HermesClient
     private let encoder: JSONEncoder
     
-    struct SearchResponse: Decodable {
-        let movies: [APIMovie]
-        let tvshows: [APITVShow]
-        let actors: [APIActor]
-    }
-    
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
     
-    func search(
-        from: Int,
-        count: Int,
-        query: String,
-        success: @escaping (APIResponse<SearchResponse>) -> Void,
+    // TODO this is temporary realization. waiting backend
+    func recommendations(
+        success: @escaping (APIResponse<ContentResponse>) -> Void,
         failure: @escaping (Error) -> Void
     ) {
-        getSearchResult(
-            path: "/search",
-            responseType: APIResponse<SearchResponse>.self,
-            from: from,
-            count: count,
-            query: query,
+        getRecommendations(
+            path: "/content",
+            responseType: APIResponse<ContentResponse>.self,
             success: success,
             failure: failure
         )
     }
     
-    private func getSearchResult<T>(
+    private func getRecommendations<T>(
         path: String,
         responseType: T.Type,
-        from: Int,
-        count: Int,
-        query: String,
         success: @escaping (T) -> Void,
         failure: @escaping (Error) -> Void
     ) where T: Decodable {
@@ -54,9 +40,8 @@ final class RecommendationsInteractor {
             method: .get,
             path: path,
             params: [
-                "q": query,
-                "count": "\(count)",
-                "from": "\(from)"
+                "count": "15",
+                "from": "\(Int.random(in: 0..<7))"
             ]
         )
         request.successHandler = { response in

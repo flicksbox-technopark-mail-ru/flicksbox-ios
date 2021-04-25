@@ -31,13 +31,16 @@ final class FreeContentModel: NSObject {
 
     func loadData(success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
         interactor.filtredContent(from: from, count: count, filters: filters) { response in
-            success(self.trasformate(content: response.body!))
+            success(self.trasformate(content: response.body ?? nil))
         } failure: { error in
             failure(error.localizedDescription)
         }
     }
 
-    private func trasformate(content: ContentResponse) -> [FilmInfo] {
+    private func trasformate(content: ContentResponse?) -> [FilmInfo] {
+        guard let content = content else {
+            return []
+        }
         let movies = content.movies.map { movie -> FilmInfo in
             FilmInfo(from: movie)
         }

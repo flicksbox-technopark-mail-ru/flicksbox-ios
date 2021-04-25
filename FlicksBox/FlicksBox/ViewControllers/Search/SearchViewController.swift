@@ -8,26 +8,30 @@
 import UIKit
 import Botticelli
 
-final class SearchViewController: MainOutputController {
+final class SearchViewController: SBViewController {
+    private let searchModel = SearchModel()
+    private let recModel = RecommendationsModel()
     
     private lazy var resultsGridView: ResultsGridView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
-            y: searchBarView.bounds.maxY,
+            y: searchBarView.bounds.maxY + 50,
             width: view.bounds.width,
-            height: view.bounds.height - searchBarView.bounds.maxY
+            height: view.bounds.height - searchBarView.bounds.maxY - 50
         )
         return ResultsGridView(frame: viewFrame)
     }()
+    
     private lazy var recGridView: RecommendationsGridView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
-            y: searchBarView.bounds.maxY,
+            y: searchBarView.bounds.maxY + 50,
             width: view.bounds.width,
-            height: view.bounds.height - searchBarView.bounds.maxY
+            height: view.bounds.height - searchBarView.bounds.maxY - 50
         )
         return RecommendationsGridView(frame: viewFrame)
     }()
+    
     private lazy var emptyResultView: SearchEmptyResultView = {
         let sideSpace: CGFloat = 20
         let viewFrame = CGRect(
@@ -38,32 +42,33 @@ final class SearchViewController: MainOutputController {
         )
         return SearchEmptyResultView(frame: viewFrame)
     }()
+    
     private lazy var searchBarView: SearchBarView = {
         var viewFrame = CGRect(
             x: view.bounds.minX,
-            y: view.bounds.minY,
+            y: view.bounds.minY + 50,
             width: view.bounds.width,
             height: 100
         )
         return SearchBarView(frame: viewFrame)
     }()
-    private lazy var searchBar: UISearchBar = { searchBarView.searchBar }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = searchBarView.searchBar
+        searchBar.delegate = self
+        return searchBar
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
         configureGestures()
-        searchBar.delegate = self
+        loadRecommendations()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchBar.becomeFirstResponder()
-    }
-    
-    func configureTabItem() {
-        self.tabBarItem.title = "Поиск"
-        self.tabBarItem.image = SBIcon.search // TODO: wtf?
     }
     
     private func configureSubviews() {
@@ -84,6 +89,18 @@ final class SearchViewController: MainOutputController {
         let scrollGesture = UIPanGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         scrollGesture.delegate = resultsGridView.collectionView
         self.resultsGridView.collectionView.addGestureRecognizer(scrollGesture)
+    }
+    
+    private func loadRecommendations() {
+        recModel.loadData() { [weak self] content in
+            DispatchQueue.main.async {
+                self?.recGridView.updateData(content)
+            }
+        } failure: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.alert(message: error)
+            }
+        }
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -110,8 +127,15 @@ final class SearchViewController: MainOutputController {
     }
 }
 
+// TODO delete
+extension SearchViewController: MainOutput {
+    func configureTabItem() {
+        self.tabBarItem.title = "Поиск"
+        self.tabBarItem.image = SBIcon.search // TODO: wtf?
+    }
+}
+
 extension SearchViewController: UISearchBarDelegate {
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
@@ -129,9 +153,11 @@ extension SearchViewController: UISearchBarDelegate {
         // Check if searh text is empty
         var delay: TimeInterval
         if let query = searchBar.text, query.trimmingCharacters(in: .whitespaces) == "" {
+            self.searchBarView.stopAnimationLoading()
             delay = 0
         } else {
-            delay = 0.75
+            delay = 0.5
+            searchBarView.startAnimationLoading()
         }
         perform(#selector(self.search(_:)), with: searchBar, afterDelay: delay)
     }
@@ -144,8 +170,20 @@ extension SearchViewController: UISearchBarDelegate {
         }
         
         // Send request
-        print(query)
-        
-        showResultsGridView()
+        searchModel.search(query: query) { [weak self] searchResult in
+            DispatchQueue.main.async {
+                self?.searchBarView.stopAnimationLoading()
+                if searchResult.content.count == 0 && searchResult.actors.count == 0 {
+                    self?.showEmptyResultView()
+                } else {
+                    self?.resultsGridView.updateData(content: searchResult.content, actors: searchResult.actors)
+                    self?.showResultsGridView()
+                }
+            }
+        } failure: { [weak self] error in
+            DispatchQueue.main.async {
+                self?.alert(message: error)
+            }
+        }
     }
 }
