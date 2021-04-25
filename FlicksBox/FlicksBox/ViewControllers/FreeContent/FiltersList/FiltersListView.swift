@@ -40,8 +40,8 @@ final class FiltersListView: SBView {
         let image = UIImage(named: "cancel.png")
         let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         button.setImage(tintedImage, for: .normal)
-        button.imageView?.backgroundColor = .black // TODO delete
-        button.imageView?.layer.cornerRadius = 30 // TODO delete how to do clearly?
+        button.imageView?.backgroundColor = .customBlack
+        button.imageView?.layer.cornerRadius = 30 // TODO need another icon
         button.addTarget(self, action: #selector(self.hideView), for: .touchUpInside)
         return button
     }()
@@ -139,7 +139,7 @@ extension FiltersListView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 100)
+        return CGSize(width: collectionView.frame.width, height: 150)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

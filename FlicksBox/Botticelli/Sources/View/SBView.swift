@@ -18,7 +18,7 @@ open class SBView: UIView {
     }
     
     private func configureView() {
-        backgroundColor = .black
+        backgroundColor = .customBlack
     }
 }
 
@@ -45,4 +45,8 @@ extension SBView {
             }
         )
     }
+}
+
+extension UIColor {
+    static public let customBlack = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 }

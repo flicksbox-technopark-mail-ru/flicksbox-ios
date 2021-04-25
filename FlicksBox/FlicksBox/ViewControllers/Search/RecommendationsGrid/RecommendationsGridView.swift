@@ -78,7 +78,7 @@ extension RecommendationsGridView: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let spaces = lineSpace * (cellCountOnRow + 3)
         let width = (bounds.width - spaces) / cellCountOnRow
-        return CGSize(width: width, height: 100)
+        return CGSize(width: width, height: 90)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

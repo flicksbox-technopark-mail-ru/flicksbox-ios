@@ -18,8 +18,19 @@ final class HomeViewController: SBViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .clear
         return tableView
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +68,14 @@ extension HomeViewController: UITableViewDataSource {
         return model.sectionsInfo.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return model.sectionsInfo[section].name
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = HomeTableViewHeader(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        headerView.titleLabel.text = model.sectionsInfo[section].name
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,3 +110,32 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {}
+
+private class HomeTableViewHeader: SBView {
+    lazy var titleLabel: SBLabel = {
+        let label = SBLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureSubviews()
+    }
+    
+    private func configureSubviews() {
+        let sideSpacing: CGFloat = 20
+        let height: CGFloat = 22
+        titleLabel.frame = CGRect.init(
+            x: sideSpacing,
+            y: bounds.maxY - height,
+            width: bounds.width - sideSpacing * 2,
+            height: bounds.height - height
+        )
+        addSubview(titleLabel)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
