@@ -42,7 +42,7 @@ final class FactoryViewControllers {
     }
     
     class var sign: UIViewController {
-        let controller = SBViewController()
+        let controller = AuthViewController()
         controller.title = "Вход"
         controller.tabBarItem.image = SBIcon.person
         return UINavigationController(rootViewController: controller)
@@ -62,12 +62,6 @@ final class FactoryViewControllers {
         }
         let mainController = MainController(with: viewControllers)
         return mainController
-    }
-    
-    class var auth: UIViewController {
-        let controller = AuthViewController()
-        controller.configureTabItem()
-        return UINavigationController(rootViewController: controller)
     }
     
 

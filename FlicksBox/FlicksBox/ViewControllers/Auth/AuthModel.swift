@@ -28,7 +28,7 @@ struct User {
 final class AuthModel: NSObject {
     private let userInteractor = UserInteractor()
     
-    func authorization(email: String, password: String, success: @escaping (User) -> Void, failure: @escaping (String) -> Void) {
+    func authorization(email: String, password: String, success: @escaping () -> Void, failure: @escaping (String) -> Void) {
         
         let userSignin = UserSignin(email: email, password: password)
         
@@ -41,7 +41,10 @@ final class AuthModel: NSObject {
                 failure("Неизвестная ошибка")
                 return
             }
-            print(user)
+            ClientUser.shared.setFromApi(user: user)
+            DispatchQueue.main.async {
+                success()
+            }
         } failure: { error in
             failure(error.localizedDescription)
         }
