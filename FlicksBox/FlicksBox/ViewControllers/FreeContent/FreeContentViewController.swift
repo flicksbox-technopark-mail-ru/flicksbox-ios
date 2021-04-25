@@ -19,7 +19,7 @@ final class FreeContentViewController: SBViewController {
     private lazy var filtersView: FiltersView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
-            y: view.bounds.minY + 100,
+            y: view.bounds.minY + 50,
             width: view.bounds.width,
             height: 40
         )
@@ -31,7 +31,7 @@ final class FreeContentViewController: SBViewController {
             x: view.bounds.minX,
             y: filtersView.frame.maxY,
             width: view.bounds.width,
-            height: view.bounds.height - filtersView.frame.maxY
+            height: view.bounds.height - filtersView.frame.maxY - 100
         )
         return ContentGridView(frame: viewFrame)
     }()
@@ -46,6 +46,16 @@ final class FreeContentViewController: SBViewController {
         )
         return ContentEmptyResultView(frame: viewFrame)
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,11 +155,10 @@ final class FreeContentViewController: SBViewController {
     }
 }
 
-// TODO delete
 extension FreeContentViewController: MainOutput {
     func configureTabItem() {
-        self.tabBarItem.title = "Поиск"
-        self.tabBarItem.image = SBIcon.search // TODO: wtf?
+        self.tabBarItem.title = "Фильтры"
+        self.tabBarItem.image = SBIcon.filter
     }
 }
 

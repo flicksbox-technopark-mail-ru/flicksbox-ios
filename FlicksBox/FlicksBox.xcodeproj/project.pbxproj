@@ -100,6 +100,13 @@
 			remoteGlobalIDString = B563055025F45ADC00A9ED21;
 			remoteInfo = Botticelli;
 		};
+		C4FB93BE26358A1C001BBC13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B537F63D25F25C8A00B51383 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B537F64425F25C8A00B51383;
+			remoteInfo = FlicksBox;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -200,6 +207,7 @@
 		C4FB93A12634BF15001BBC13 /* RecommendationsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsInteractor.swift; sourceTree = "<group>"; };
 		C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsModel.swift; sourceTree = "<group>"; };
 		C4FB93AD2634D521001BBC13 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		C4FB93B926358A1C001BBC13 /* FlicksBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlicksBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,6 +236,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E2F2EF98DD543C3CC6A349 /* Pods_Botticelli.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4FB93B626358A1C001BBC13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +379,7 @@
 				B537F64525F25C8A00B51383 /* FlicksBox.app */,
 				B563053C25F45A0F00A9ED21 /* Hermes.framework */,
 				B563055125F45ADC00A9ED21 /* Botticelli.framework */,
+				C4FB93B926358A1C001BBC13 /* FlicksBoxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -654,6 +670,24 @@
 			productReference = B563055125F45ADC00A9ED21 /* Botticelli.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C4FB93B826358A1C001BBC13 /* FlicksBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4FB93C226358A1C001BBC13 /* Build configuration list for PBXNativeTarget "FlicksBoxTests" */;
+			buildPhases = (
+				C4FB93B526358A1C001BBC13 /* Sources */,
+				C4FB93B626358A1C001BBC13 /* Frameworks */,
+				C4FB93B726358A1C001BBC13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4FB93BF26358A1C001BBC13 /* PBXTargetDependency */,
+			);
+			name = FlicksBoxTests;
+			productName = FlicksBoxTests;
+			productReference = C4FB93B926358A1C001BBC13 /* FlicksBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -673,6 +707,10 @@
 					B563055025F45ADC00A9ED21 = {
 						CreatedOnToolsVersion = 12.4;
 					};
+					C4FB93B826358A1C001BBC13 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = B537F64425F25C8A00B51383;
+					};
 				};
 			};
 			buildConfigurationList = B537F64025F25C8A00B51383 /* Build configuration list for PBXProject "FlicksBox" */;
@@ -691,6 +729,7 @@
 				B537F64425F25C8A00B51383 /* FlicksBox */,
 				B563053B25F45A0F00A9ED21 /* Hermes */,
 				B563055025F45ADC00A9ED21 /* Botticelli */,
+				C4FB93B826358A1C001BBC13 /* FlicksBoxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -713,6 +752,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B563054F25F45ADC00A9ED21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4FB93B726358A1C001BBC13 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -894,6 +940,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4FB93B526358A1C001BBC13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -906,6 +959,11 @@
 			isa = PBXTargetDependency;
 			target = B563055025F45ADC00A9ED21 /* Botticelli */;
 			targetProxy = B563055625F45ADC00A9ED21 /* PBXContainerItemProxy */;
+		};
+		C4FB93BF26358A1C001BBC13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B537F64425F25C8A00B51383 /* FlicksBox */;
+			targetProxy = C4FB93BE26358A1C001BBC13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1200,6 +1258,46 @@
 			};
 			name = Release;
 		};
+		C4FB93C026358A1C001BBC13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 648Y6Z8QQW;
+				INFOPLIST_FILE = FlicksBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Program.FlicksBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlicksBox.app/FlicksBox";
+			};
+			name = Debug;
+		};
+		C4FB93C126358A1C001BBC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 648Y6Z8QQW;
+				INFOPLIST_FILE = FlicksBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Program.FlicksBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlicksBox.app/FlicksBox";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1235,6 +1333,15 @@
 			buildConfigurations = (
 				B563055B25F45ADC00A9ED21 /* Debug */,
 				B563055C25F45ADC00A9ED21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4FB93C226358A1C001BBC13 /* Build configuration list for PBXNativeTarget "FlicksBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4FB93C026358A1C001BBC13 /* Debug */,
+				C4FB93C126358A1C001BBC13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

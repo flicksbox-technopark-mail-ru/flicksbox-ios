@@ -15,7 +15,7 @@ final class SearchViewController: SBViewController {
     private lazy var resultsGridView: ResultsGridView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
-            y: searchBarView.bounds.maxY + 50,
+            y: searchBarView.bounds.maxY,
             width: view.bounds.width,
             height: view.bounds.height - searchBarView.bounds.maxY - 50
         )
@@ -25,9 +25,9 @@ final class SearchViewController: SBViewController {
     private lazy var recGridView: RecommendationsGridView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
-            y: searchBarView.bounds.maxY + 50,
+            y: searchBarView.bounds.maxY + 10,
             width: view.bounds.width,
-            height: view.bounds.height - searchBarView.bounds.maxY - 50
+            height: view.bounds.height - searchBarView.bounds.maxY - 100
         )
         return RecommendationsGridView(frame: viewFrame)
     }()
@@ -46,7 +46,7 @@ final class SearchViewController: SBViewController {
     private lazy var searchBarView: SearchBarView = {
         var viewFrame = CGRect(
             x: view.bounds.minX,
-            y: view.bounds.minY + 50,
+            y: view.bounds.minY,
             width: view.bounds.width,
             height: 100
         )
@@ -59,16 +59,22 @@ final class SearchViewController: SBViewController {
         return searchBar
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.becomeFirstResponder()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
         configureGestures()
         loadRecommendations()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        searchBar.becomeFirstResponder()
     }
     
     private func configureSubviews() {
@@ -127,11 +133,10 @@ final class SearchViewController: SBViewController {
     }
 }
 
-// TODO delete
 extension SearchViewController: MainOutput {
     func configureTabItem() {
         self.tabBarItem.title = "Поиск"
-        self.tabBarItem.image = SBIcon.search // TODO: wtf?
+        self.tabBarItem.image = SBIcon.search
     }
 }
 

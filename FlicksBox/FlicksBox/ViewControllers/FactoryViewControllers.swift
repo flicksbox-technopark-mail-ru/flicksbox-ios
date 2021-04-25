@@ -11,7 +11,7 @@ import Botticelli
 // в этом классе будут конфигурироваться наши вью контроллеры вместе с моделями
 final class FactoryViewControllers {
     private init() {}
-    
+
     class var start: UIViewController {
         let viewController = StartViewController()
         return viewController
@@ -56,9 +56,9 @@ final class FactoryViewControllers {
     static func createMain(with type: MainControllerType) -> UITabBarController {
         let viewControllers: [UIViewController]
         if case .profile = type {
-            viewControllers = [search, free, home, profile]
+            viewControllers = [home, free, search, profile]
         } else {
-            viewControllers = [search, free, home, sign]
+            viewControllers = [home, free, search, sign]
         }
         let mainController = MainController(with: viewControllers)
         return mainController

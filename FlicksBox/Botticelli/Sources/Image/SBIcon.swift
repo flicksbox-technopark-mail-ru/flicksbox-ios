@@ -11,14 +11,18 @@ open class SBIcon {
     private init() {}
     
     class public var house: UIImage? {
-        UIImage(systemName: "house")
+        UIImage(named: "house.png")
     }
     
     class public var person: UIImage? {
-        UIImage(systemName: "person")
+        UIImage(named: "person.png")
     }
     
     class public var search: UIImage? {
-        UIImage(systemName: "search")
+        UIImage(named: "search.png")
+    }
+    
+    class public var filter: UIImage? {
+        UIImage(named: "filter.png")
     }
 }

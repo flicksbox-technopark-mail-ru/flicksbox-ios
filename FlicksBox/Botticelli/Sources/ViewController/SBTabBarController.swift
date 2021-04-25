@@ -27,6 +27,9 @@ open class SBTabBarController: UITabBarController {
     }
     
     private func configureView() {
-        view.backgroundColor = .systemBackground
+        tabBar.barTintColor = .customBlack
+        tabBar.unselectedItemTintColor = .lightGray
+        tabBar.isTranslucent = false
+        view.tintColor = .white
     }
 }
