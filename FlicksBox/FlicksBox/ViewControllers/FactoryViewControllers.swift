@@ -55,15 +55,14 @@ final class FactoryViewControllers {
     
     static func createMain(with type: MainControllerType) -> UITabBarController {
         let viewControllers: [UIViewController]
-        if case .profile = type {
-            viewControllers = [home, free, search, profile]
-        } else {
+//        if case .profile = type {
+//            viewControllers = [home, free, search, profile]
+//        } else {
             viewControllers = [home, free, search, sign]
-        }
+//        }
         let mainController = MainController(with: viewControllers)
         return mainController
     }
-    
 
     static func createFilmInfo(info: FilmInfo) -> UIViewController {
         let controller = FilmInfoViewController()
