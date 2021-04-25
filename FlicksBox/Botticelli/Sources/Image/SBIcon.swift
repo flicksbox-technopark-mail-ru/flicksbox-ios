@@ -21,4 +21,8 @@ open class SBIcon {
     class public var search: UIImage? {
         UIImage(systemName: "search")
     }
+    
+    class public var auth: UIImage? {
+        UIImage(systemName: "search")
+    }
 }

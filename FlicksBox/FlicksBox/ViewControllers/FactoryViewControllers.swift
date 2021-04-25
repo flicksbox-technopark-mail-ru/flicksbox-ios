@@ -64,6 +64,13 @@ final class FactoryViewControllers {
         return mainController
     }
     
+    class var auth: UIViewController {
+        let controller = AuthViewController()
+        controller.configureTabItem()
+        return UINavigationController(rootViewController: controller)
+    }
+    
+
     static func createFilmInfo(info: FilmInfo) -> UIViewController {
         let controller = FilmInfoViewController()
         controller.filmInfo = info
