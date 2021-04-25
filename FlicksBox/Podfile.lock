@@ -12,21 +12,25 @@ PODS:
   - SDWebImageWebPCoder (0.8.3):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.10)
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - SDWebImageWebPCoder
+  - SwiftLint (~> 0.43)
 
 SPEC REPOS:
   trunk:
     - libwebp
     - SDWebImage
     - SDWebImageWebPCoder
+    - SwiftLint
 
 SPEC CHECKSUMS:
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SDWebImageWebPCoder: bbf46e29fb8d1980a78ad3d5e9b4123c77f10ebc
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: aebb530d3ad52e021825ac32433cbbca1eede32b
+PODFILE CHECKSUM: 2d8c709742136b5422223260382610d09740a431
 
 COCOAPODS: 1.10.1
