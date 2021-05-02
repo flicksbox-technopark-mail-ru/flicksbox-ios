@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 
 final class ResultsGridView: SBView {
-    private var content: [FilmInfo] = []
+    private var content: [ContentInfo] = []
     private var actors: [Actor] = []
     private let sectionTitles = ["Фильмы и сериалы", "Актеры"]
     private let lineSpace: CGFloat = 10
@@ -62,7 +62,7 @@ final class ResultsGridView: SBView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateData(content: [FilmInfo], actors: [Actor]) {
+    func updateData(content: [ContentInfo], actors: [Actor]) {
         self.content = content
         self.actors = actors
         self.collectionView.reloadData()

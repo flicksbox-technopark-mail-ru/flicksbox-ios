@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 
 class RecommendationsGridCell: UICollectionViewCell {
-    var content: FilmInfo? {
+    var content: ContentInfo? {
         didSet {
             guard oldValue?.contentId != content?.contentId,
                   let urlImage = content?.image else { return }

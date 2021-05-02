@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 
 final class ContentGridView: SBView {
-    private var content: [FilmInfo] = []
+    private var content: [ContentInfo] = []
     private let sideSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 2
     
@@ -46,7 +46,7 @@ final class ContentGridView: SBView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateData(_ content: [FilmInfo]) {
+    func updateData(_ content: [ContentInfo]) {
         self.content = content
         self.collectionView.reloadData()
     }

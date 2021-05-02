@@ -9,7 +9,7 @@ import UIKit
 import Botticelli
 
 final class RecommendationsGridView: SBView {
-    private var content: [FilmInfo] = []
+    private var content: [ContentInfo] = []
     private let lineSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 1
     
@@ -50,7 +50,7 @@ final class RecommendationsGridView: SBView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateData(_ content: [FilmInfo]) {
+    func updateData(_ content: [ContentInfo]) {
         self.content = content
         self.collectionView.reloadData()
     }

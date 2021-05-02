@@ -11,7 +11,7 @@ import Botticelli
 class ContentGridCell: UICollectionViewCell {
     static let identifier = "ContentGridCell"
     
-    var film: FilmInfo? {
+    var film: ContentInfo? {
         didSet {
             guard oldValue?.contentId != film?.contentId,
                   let urlImage = film?.image else { return }

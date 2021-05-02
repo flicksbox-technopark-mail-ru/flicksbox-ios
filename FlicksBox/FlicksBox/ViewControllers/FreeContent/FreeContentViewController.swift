@@ -94,7 +94,7 @@ final class FreeContentViewController: SBViewController {
         }
     }
     
-    private func loadYearFilters(_ films: [FilmInfo]) {
+    private func loadYearFilters(_ films: [ContentInfo]) {
         var yearsVal = films.map {
             $0.year
         }
