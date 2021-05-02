@@ -14,7 +14,7 @@ final class ResultsGridView: SBView {
     private let sectionTitles = ["Фильмы и сериалы", "Актеры"]
     private let lineSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 2
-    
+
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = lineSpace
@@ -26,7 +26,7 @@ final class ResultsGridView: SBView {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.keyboardDismissMode = .onDrag
-        
+
         collectionView.register(
             ContentGridCell.self,
             forCellWithReuseIdentifier: NSStringFromClass(ContentGridCell.self)
@@ -47,21 +47,21 @@ final class ResultsGridView: SBView {
         )
         return collectionView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         collectionView.frame = bounds
         addSubview(collectionView)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func updateData(content: [ContentInfo], actors: [Actor]) {
         self.content = content
         self.actors = actors
@@ -77,19 +77,28 @@ extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource,
             return actors.count
         }
     }
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionTitles.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ContentGridCell.self), for: indexPath) as! ContentGridCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: NSStringFromClass(ContentGridCell.self),
+                for: indexPath
+            ) as! ContentGridCell
             cell.film = content[indexPath.row]
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ResultsActorGridCell.self), for: indexPath) as! ResultsActorGridCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: NSStringFromClass(ResultsActorGridCell.self),
+                for: indexPath
+            ) as! ResultsActorGridCell
             cell.actor = actors[indexPath.row]
             return cell
         default:
@@ -97,7 +106,11 @@ extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource,
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         var width: CGFloat
         var height: CGFloat
         switch indexPath.section {
@@ -116,23 +129,39 @@ extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource,
         }
         return CGSize(width: width, height: height)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return UIEdgeInsets(top: lineSpace, left: lineSpace * 2, bottom: lineSpace, right: lineSpace * 2)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
         if collectionView.dataSource?.collectionView(collectionView, numberOfItemsInSection: section) == 0 {
             return CGSize(width: collectionView.frame.width, height: 0)
         }
         return CGSize(width: collectionView.frame.width, height: 30)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForFooterInSection section: Int
+    ) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 30)
     }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(
@@ -159,7 +188,10 @@ extension ResultsGridView: UIGestureRecognizerDelegate {}
 
 // Allow collection view multiple gestures recognizers
 extension UICollectionView: UIGestureRecognizerDelegate {
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
+    ) -> Bool {
         return true
     }
 }

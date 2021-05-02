@@ -10,7 +10,7 @@ import Botticelli
 
 final class FiltersView: SBView {
     var filtersListView: FiltersListView!
-    var filterObserver: ((Filter?) -> ())? {
+    var filterObserver: ((Filter?) -> Void)? {
         didSet {
             guard let obsever = filterObserver else { return }
             genreButton.filterObserver = obsever
@@ -18,7 +18,7 @@ final class FiltersView: SBView {
             countryButton.filterObserver = obsever
         }
     }
-    
+
     var genres: [Genre]? {
         didSet {
             guard var genres = genres else { return }
@@ -26,7 +26,7 @@ final class FiltersView: SBView {
             genreButton.setData(data: genres)
         }
     }
-    
+
     var countries: [Country]? {
         didSet {
             guard var countries = countries else { return }
@@ -34,7 +34,7 @@ final class FiltersView: SBView {
             countryButton.setData(data: countries)
         }
     }
-    
+
     var years: [Year]? {
         didSet {
             guard var years = years else { return }
@@ -42,22 +42,22 @@ final class FiltersView: SBView {
             yearButton.setData(data: years)
         }
     }
-    
+
     var genreButton: FilterButton!
     var yearButton: FilterButton!
     var countryButton: FilterButton!
-    
+
     init(frame: CGRect, _ filtersListView: FiltersListView) {
         super.init(frame: frame)
         self.filtersListView = filtersListView
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         let interitemSpacing: CGFloat = 10
         let sideSpacing: CGFloat = bounds.width / 20
         let buttonWidth: CGFloat = (bounds.width - sideSpacing * 2 - interitemSpacing * 2) / 3
-        
+
         let gbFrame = CGRect(
             x: bounds.minX + sideSpacing,
             y: bounds.minY,
@@ -65,7 +65,7 @@ final class FiltersView: SBView {
             height: bounds.height
         )
         genreButton = FilterButton(frame: gbFrame, title: "Все жанры", filtersListView)
-        
+
         let ybFrame = CGRect(
             x: genreButton.frame.maxX + interitemSpacing,
             y: bounds.minY,
@@ -73,7 +73,7 @@ final class FiltersView: SBView {
             height: bounds.height
         )
         yearButton = FilterButton(frame: ybFrame, title: "Все года", filtersListView)
-        
+
         let cbFrame = CGRect(
             x: yearButton.frame.maxX + interitemSpacing,
             y: bounds.minY,
@@ -81,12 +81,12 @@ final class FiltersView: SBView {
             height: bounds.height
         )
         countryButton = FilterButton(frame: cbFrame, title: "Все страны", filtersListView)
-        
+
         addSubview(genreButton)
         addSubview(yearButton)
         addSubview(countryButton)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -95,9 +95,9 @@ final class FiltersView: SBView {
 class FilterButton: SBButton {
     var filtersListView: FiltersListView!
     var selectedRow: Int = 0
-    var filterObserver: ((Filter?) -> ())?
+    var filterObserver: ((Filter?) -> Void)?
     var filtersListPresented: Bool = false
-    
+
     var data: [Filter] = [] {
         didSet {
             if filtersListPresented {
@@ -105,18 +105,18 @@ class FilterButton: SBButton {
             }
         }
     }
-    
+
     init(frame: CGRect, title: String, _ filtersListView: FiltersListView) {
         super.init(frame: frame)
         self.filtersListView = filtersListView
         configureView(title)
         configureImageView()
     }
-    
+
     func setData(data: [Filter]) {
         self.data = data
     }
-    
+
     private func configureView(_ title: String) {
         setTitle(title, for: .normal)
         titleLabel?.textAlignment = .center
@@ -126,25 +126,25 @@ class FilterButton: SBButton {
         titleLabel?.adjustsFontSizeToFitWidth = true
         addTarget(self, action: #selector(self.showFiltersList), for: .touchUpInside)
     }
-    
+
     private func configureImageView() {
         let image = UIImage(named: "sort_down.png")
         let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         setImage(tintedImage, for: .normal)
-        
+
         // move image to right side
         transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
-    
+
     @objc private func showFiltersList() {
         filtersListView.setData(data, selectedRow)
         setupSelectionObserver()
         filtersListView.fadeIn()
         filtersListPresented = true
     }
-    
+
     private func setupSelectionObserver() {
         filtersListView.selectionObserver = { [weak self] (selectedRow) in
             self?.filtersListPresented = false
@@ -153,7 +153,7 @@ class FilterButton: SBButton {
             self?.filterObserver?(self?.data[selectedRow])
         }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -167,7 +167,7 @@ extension SBView {
         UIView.animate(
             withDuration: duration!,
             animations: { self.alpha = 1 },
-            completion: { (value: Bool) in
+            completion: { (_: Bool) in
                 if let complete = onCompletion { complete() }
             }
         )
@@ -177,7 +177,7 @@ extension SBView {
         UIView.animate(
             withDuration: duration!,
             animations: { self.alpha = 0 },
-            completion: { (value: Bool) in
+            completion: { (_: Bool) in
                 self.isHidden = true
                 if let complete = onCompletion { complete() }
             }

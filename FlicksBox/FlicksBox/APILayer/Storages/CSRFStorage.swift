@@ -9,8 +9,8 @@ import Foundation
 
 final class CSRFStorage {
     static let shared = CSRFStorage()
-    
+
     private init() {}
-    
+
     var token: String?
 }

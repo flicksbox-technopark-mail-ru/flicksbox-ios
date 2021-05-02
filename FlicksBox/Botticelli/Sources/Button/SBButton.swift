@@ -12,11 +12,11 @@ open class SBButton: UIButton {
         super.init(frame: frame)
         configureView()
     }
-    
+
     public required init?(coder: NSCoder) {
         fatalError("init with coder not implemented")
     }
-    
+
     private func configureView() {
         tintColor = .white
     }

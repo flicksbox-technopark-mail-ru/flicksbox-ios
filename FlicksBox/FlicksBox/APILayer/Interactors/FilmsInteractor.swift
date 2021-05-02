@@ -10,18 +10,18 @@ import Hermes
 
 final class FilmsInteractor {
     private let client: HermesClient
-    
+
     private let encoder: JSONEncoder
-    
+
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
-    
+
     struct MoviesResponse: Decodable {
         let movies: [APIMovie]
     }
-    
+
     func topMovies(
         from: Int,
         count: Int,
@@ -37,7 +37,7 @@ final class FilmsInteractor {
             failure: failure
         )
     }
-    
+
     func latestMovies(
         from: Int,
         count: Int,
@@ -53,11 +53,11 @@ final class FilmsInteractor {
             failure: failure
         )
     }
-    
+
     struct TVShowResponse: Decodable {
         let tvshows: [APITVShow]
     }
-    
+
     func topTVShows(
         from: Int,
         count: Int,
@@ -73,7 +73,7 @@ final class FilmsInteractor {
             failure: failure
         )
     }
-    
+
     func latestTVShows(
         from: Int,
         count: Int,
@@ -89,7 +89,7 @@ final class FilmsInteractor {
             failure: failure
         )
     }
-    
+
     private func getMoviesForTop<T>(
         path: String,
         responseType: T.Type,
@@ -97,7 +97,7 @@ final class FilmsInteractor {
         count: Int,
         success: @escaping (T) -> Void,
         failure: @escaping (Error) -> Void
-    ) where T: Decodable{
+    ) where T: Decodable {
         let request = HermesRequest(
             method: .get,
             path: path, body: nil,
@@ -114,12 +114,12 @@ final class FilmsInteractor {
             }
             success(data)
         }
-        
+
         request.errorHandler = { error in
             failure(error)
         }
-        
+
         client.run(with: request)
     }
-    
+
 }

@@ -1,0 +1,21 @@
+function_parameter_count:
+  - 7 # warning limit
+  - 10 # error limit
+
+disabled_rules:
+  - colon
+  - comma
+  - control_statement
+  - identifier_name
+  - force_cast
+  - empty_count
+
+opt_in_rules:
+  - empty_count
+
+excluded:
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift
+  - FlicksBox/AppDelegate.swift
+  - FlicksBox/SceneDelegate.swift

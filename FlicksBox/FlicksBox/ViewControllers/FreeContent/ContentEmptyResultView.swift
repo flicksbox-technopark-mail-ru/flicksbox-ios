@@ -13,7 +13,7 @@ final class ContentEmptyResultView: SBView {
         super.init(frame: frame)
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         let titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.lightGray,
@@ -23,7 +23,7 @@ final class ContentEmptyResultView: SBView {
             NSAttributedString.Key.foregroundColor: UIColor.gray,
             .font: UIFont.systemFont(ofSize: 20, weight: .medium)
         ]
-        
+
         let title = NSMutableAttributedString(
             string: "Мы ничего не нашли.",
             attributes: titleTextAttributes
@@ -32,11 +32,11 @@ final class ContentEmptyResultView: SBView {
             string: "\nПопробуйте выбрать другие фильтры.",
             attributes: descTextAttributes
         )
-        
+
         let message = NSMutableAttributedString()
         message.append(title)
         message.append(desc)
-        
+
         let messageLabel = SBLabel()
         messageLabel.frame = bounds
         messageLabel.numberOfLines = 0
@@ -45,7 +45,7 @@ final class ContentEmptyResultView: SBView {
         messageLabel.attributedText = message
         addSubview(messageLabel)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

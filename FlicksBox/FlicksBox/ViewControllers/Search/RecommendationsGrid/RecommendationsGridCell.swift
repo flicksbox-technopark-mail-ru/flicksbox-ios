@@ -17,7 +17,7 @@ class RecommendationsGridCell: UICollectionViewCell {
             poster.loadWebP(url: urlImage)
         }
     }
-    
+
     let poster: SBImageView = {
         let poster = SBImageView()
         poster.layer.cornerRadius = 5
@@ -27,7 +27,7 @@ class RecommendationsGridCell: UICollectionViewCell {
         poster.backgroundColor = .darkGray
         return poster
     }()
-    
+
     let playButton: SBButton = {
         let button = SBButton(type: .custom)
         let image = UIImage(named: "play.png")
@@ -35,7 +35,7 @@ class RecommendationsGridCell: UICollectionViewCell {
         button.setImage(tintedImage, for: .normal)
         return button
     }()
-    
+
     lazy var titleLabel: SBLabel = {
         let label = SBLabel()
         label.baselineAdjustment = .alignCenters
@@ -44,7 +44,7 @@ class RecommendationsGridCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
@@ -53,10 +53,10 @@ class RecommendationsGridCell: UICollectionViewCell {
     private func configureView() {
         backgroundColor = .clear
     }
-    
+
     private func configureSubviews() {
         let sideSpace: CGFloat = 10
-        
+
         poster.frame = CGRect(
             x: contentView.bounds.minX,
             y: contentView.bounds.minY,
@@ -64,7 +64,7 @@ class RecommendationsGridCell: UICollectionViewCell {
             height: contentView.bounds.height
         )
         contentView.addSubview(poster)
-        
+
         let buttonSize: CGFloat = 40
         playButton.frame = CGRect(
             x: contentView.bounds.maxX - buttonSize - sideSpace,
@@ -73,7 +73,7 @@ class RecommendationsGridCell: UICollectionViewCell {
             height: buttonSize
         )
         contentView.addSubview(playButton)
-        
+
         titleLabel.frame = CGRect(
             x: poster.frame.maxX + sideSpace,
             y: contentView.frame.minY,
@@ -82,7 +82,7 @@ class RecommendationsGridCell: UICollectionViewCell {
         )
         contentView.addSubview(titleLabel)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

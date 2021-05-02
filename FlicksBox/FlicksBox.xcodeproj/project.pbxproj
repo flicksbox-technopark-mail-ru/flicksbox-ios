@@ -88,6 +88,7 @@
 		C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */; };
 		C4FB93AE2634D521001BBC13 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93AD2634D521001BBC13 /* APIResult.swift */; };
 		C6E2F2EF98DD543C3CC6A349 /* Pods_Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */; };
+		E8D4705B263EEEC5004D62B2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E8D4705A263EEEC5004D62B2 /* .swiftlint.yml */; };
 		FC1B950C4283F031381CBA15 /* Pods_Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +222,7 @@
 		C4FB93AD2634D521001BBC13 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		C4FB93B926358A1C001BBC13 /* FlicksBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlicksBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D4705A263EEEC5004D62B2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -390,6 +392,7 @@
 		B537F63C25F25C8A00B51383 = {
 			isa = PBXGroup;
 			children = (
+				E8D4705A263EEEC5004D62B2 /* .swiftlint.yml */,
 				B537F64725F25C8A00B51383 /* FlicksBox */,
 				B563053D25F45A0F00A9ED21 /* Hermes */,
 				B563055225F45ADC00A9ED21 /* Botticelli */,
@@ -646,6 +649,7 @@
 				B537F64325F25C8A00B51383 /* Resources */,
 				B563054525F45A0F00A9ED21 /* Embed Frameworks */,
 				DCA6729F165A1DD95CFE67D4 /* [CP] Embed Pods Frameworks */,
+				E8D4705F263EEEF5004D62B2 /* SwiftLint run script */,
 			);
 			buildRules = (
 			);
@@ -765,6 +769,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D4705B263EEEC5004D62B2 /* .swiftlint.yml in Resources */,
 				B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */,
 				B537F65225F25C9700B51383 /* Assets.xcassets in Resources */,
 			);
@@ -876,6 +881,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlicksBox/Pods-FlicksBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E8D4705F263EEEF5004D62B2 /* SwiftLint run script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint run script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint --fix\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

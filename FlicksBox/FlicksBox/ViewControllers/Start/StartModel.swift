@@ -14,15 +14,15 @@ protocol StartOutput: class {
 
 final class StartModel {
     weak var output: StartOutput?
-    
+
     let interactor = UserInteractor()
-    
+
     func notifyWillAppear() {
         output?.animate()
-        
+
         checkProfile()
     }
-    
+
     private func checkProfile() {
         interactor.profile { [weak self] response in
             let type: FactoryViewControllers.MainControllerType
@@ -41,7 +41,7 @@ final class StartModel {
             })
         }
     }
-    
+
     private func showMainController(mainType: FactoryViewControllers.MainControllerType) {
         let window = UIApplication.shared.windows[0]
         UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve) {

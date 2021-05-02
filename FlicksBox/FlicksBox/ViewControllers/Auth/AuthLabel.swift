@@ -13,7 +13,7 @@ final class AuthLabel: UILabel {
         super.init(frame: frame)
         textAlignment = NSTextAlignment.center
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -11,16 +11,16 @@ import Hermes
 final class GenresInteractor {
     private let client: HermesClient
     private let encoder: JSONEncoder
-    
+
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
-    
+
     struct GenresResponse: Decodable {
         let genres: [APIGenre]
     }
-    
+
     func allGenres(
         success: @escaping (APIResponse<GenresResponse>) -> Void,
         failure: @escaping (Error) -> Void
@@ -32,7 +32,7 @@ final class GenresInteractor {
             failure: failure
         )
     }
-    
+
     private func getGenres<T>(
         path: String,
         responseType: T.Type,

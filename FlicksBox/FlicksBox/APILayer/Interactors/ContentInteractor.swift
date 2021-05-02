@@ -14,23 +14,23 @@ struct ContentResponse: Decodable {
 }
 
 struct ContentFilters: Decodable {
-    var year: Int? = nil
-    var genre: Int? = nil
-    var country: Int? = nil
-    var actor: Int? = nil
-    var director: Int? = nil
-    var is_free: Bool? = nil
+    var year: Int?
+    var genre: Int?
+    var country: Int?
+    var actor: Int?
+    var director: Int?
+    var is_free: Bool?
 }
 
 final class ContentInteractor {
     private let client: HermesClient
     private let encoder: JSONEncoder
-    
+
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
-    
+
     func filtredContent(
         from: Int,
         count: Int,
@@ -48,7 +48,7 @@ final class ContentInteractor {
             failure: failure
         )
     }
-    
+
     private func getContent<T>(
         path: String,
         responseType: T.Type,
@@ -62,7 +62,7 @@ final class ContentInteractor {
             "count": "\(count)",
             "from": "\(from)"
         ]
-        
+
         // TODO make via iterations
         if let year = filters.year {
             params["year"] = "\(year)"
@@ -82,7 +82,7 @@ final class ContentInteractor {
         if let is_free = filters.is_free {
             params["is_free"] = "\(is_free)"
         }
-        
+
         let request = HermesRequest(
             method: .get,
             path: path,
@@ -95,11 +95,11 @@ final class ContentInteractor {
             }
             success(data)
         }
-        
+
         request.errorHandler = { error in
             failure(error)
         }
-        
+
         client.run(with: request)
     }
 }

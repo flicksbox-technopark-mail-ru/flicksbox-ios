@@ -16,19 +16,19 @@ final class FactoryViewControllers {
         let viewController = StartViewController()
         return viewController
     }
-    
+
     class var home: UIViewController {
         let controller = HomeViewController()
         controller.configureTabItem()
         return UINavigationController(rootViewController: controller)
     }
-    
+
     class var free: UIViewController {
         let controller = FreeContentViewController()
         controller.configureTabItem()
         return UINavigationController(rootViewController: controller)
     }
-    
+
     class var search: UIViewController {
         let controller = SearchViewController()
         controller.configureTabItem()
@@ -40,19 +40,19 @@ final class FactoryViewControllers {
         controller.configureTabItem()
         return UINavigationController(rootViewController: controller)
     }
-    
+
     class var sign: UIViewController {
         let controller = AuthViewController()
         controller.title = "Вход"
         controller.tabBarItem.image = SBIcon.person
         return UINavigationController(rootViewController: controller)
     }
-    
+
     enum MainControllerType {
         case profile
         case sign
     }
-    
+
     static func createMain(with type: MainControllerType) -> UITabBarController {
         let viewControllers: [UIViewController]
         if case .profile = type {
@@ -63,7 +63,6 @@ final class FactoryViewControllers {
         let mainController = MainController(with: viewControllers)
         return mainController
     }
-    
 
     static func createFilmInfo(info: ContentInfo) -> UIViewController {
         let controller = FilmInfoViewController()

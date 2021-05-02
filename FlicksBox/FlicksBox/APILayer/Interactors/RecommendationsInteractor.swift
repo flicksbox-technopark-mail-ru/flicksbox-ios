@@ -11,12 +11,12 @@ import Hermes
 final class RecommendationsInteractor {
     private let client: HermesClient
     private let encoder: JSONEncoder
-    
+
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
-    
+
     // TODO this is temporary realization. waiting backend
     func recommendations(
         success: @escaping (APIResponse<ContentResponse>) -> Void,
@@ -29,7 +29,7 @@ final class RecommendationsInteractor {
             failure: failure
         )
     }
-    
+
     private func getRecommendations<T>(
         path: String,
         responseType: T.Type,
