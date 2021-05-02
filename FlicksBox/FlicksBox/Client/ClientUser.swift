@@ -16,7 +16,7 @@ struct UserData: Codable {
 
 final class ClientUser {
     static let shared = ClientUser()
-    
+
     var userData: UserData? {
         didSet {
             if userData == nil {
@@ -24,19 +24,19 @@ final class ClientUser {
             }
         }
     }
-    
+
     func setFromApi(user: APIUser) {
         userData = .init(avatar: user.avatar, email: user.email, id: user.id, nickname: user.nickname)
     }
-    
+
     private init() {}
-    
+
     private func clearCookies() {
         let storage = HTTPCookieStorage.shared
         guard let cookies = storage.cookies else {
             return
         }
-        
+
         for cookie in cookies {
             storage.deleteCookie(cookie)
         }

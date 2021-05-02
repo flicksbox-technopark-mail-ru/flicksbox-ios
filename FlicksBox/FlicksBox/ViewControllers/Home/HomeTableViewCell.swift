@@ -9,7 +9,7 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
     static let identifier = "HomeFilmsTableViewCell"
-    
+
     var films: [ContentInfo]? {
         didSet {
             guard let _ = films else {
@@ -19,9 +19,9 @@ class HomeTableViewCell: UITableViewCell {
             loadFilms()
         }
     }
-    
+
     var navigationController: UINavigationController?
-    
+
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -33,32 +33,32 @@ class HomeTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .clear
         return collectionView
     }()
-    
+
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.isHidden = true
         return indicator
     }()
-    
+
     private var isAnimationLoading = false
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         contentView.addSubview(collectionView)
         contentView.addSubview(activityIndicator)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = bounds
         activityIndicator.center = contentView.center
     }
-    
+
     func startAnimationLoading(animated: Bool = false) {
         isAnimationLoading = true
         UIView.animate(withDuration: animated ? 0.3 : 0) { [weak self] in
@@ -66,7 +66,7 @@ class HomeTableViewCell: UITableViewCell {
             self?.activityIndicator.startAnimating()
         }
     }
-    
+
     func stopAnimationLoading(animated: Bool = false) {
         isAnimationLoading = false
         UIView.animate(withDuration: animated ? 0.3 : 0) { [weak self] in
@@ -74,7 +74,7 @@ class HomeTableViewCell: UITableViewCell {
             self?.activityIndicator.stopAnimating()
         }
     }
-    
+
     private func loadFilms() {
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.collectionView.reloadData()
@@ -87,11 +87,13 @@ extension HomeTableViewCell: UICollectionViewDelegate {
         guard let filmInfo = films?[indexPath.row] else {
             return
         }
-        
+
         let cell = collectionView.cellForItem(at: indexPath)
-        UIView.animate(withDuration: 0.25, animations: {
-            cell?.alpha = 0.5
-        }) { _ in
+        UIView.animate(
+            withDuration: 0.25, animations: {
+                cell?.alpha = 0.5
+            }
+        ) { _ in
             UIView.animate(withDuration: 0.25, animations: {
                 cell?.alpha = 1
             })
@@ -109,9 +111,15 @@ extension HomeTableViewCell: UICollectionViewDataSource {
         }
         return films.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reusableCell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentGridCell.identifier, for: indexPath)
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let reusableCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ContentGridCell.identifier,
+            for: indexPath
+        )
         guard let cell = reusableCell as? ContentGridCell,
               let films = films else {
             return reusableCell
@@ -122,12 +130,20 @@ extension HomeTableViewCell: UICollectionViewDataSource {
 }
 
 extension HomeTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let side = frame.height - 10
         return CGSize(width: side * 1.75, height: side)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         20
     }
 }

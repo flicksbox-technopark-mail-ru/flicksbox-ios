@@ -8,6 +8,6 @@
 import Foundation
 
 enum APIContentType: String, Decodable {
-    case movie = "movie"
-    case tvshow = "tvshow"
+    case movie
+    case tvshow
 }

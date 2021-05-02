@@ -13,13 +13,13 @@ final class RecommendationsGridHeader: UICollectionReusableView {
         super.init(frame: frame)
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         let titleLabel = SBLabel()
         titleLabel.numberOfLines = 1
         titleLabel.text = "Рекомендуемое"
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        
+
         titleLabel.frame = CGRect(
             x: frame.minX + 20,
             y: frame.minY,
@@ -28,7 +28,7 @@ final class RecommendationsGridHeader: UICollectionReusableView {
         )
         addSubview(titleLabel)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

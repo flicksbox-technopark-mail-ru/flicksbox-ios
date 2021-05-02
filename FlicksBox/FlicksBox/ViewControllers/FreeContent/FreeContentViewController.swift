@@ -11,11 +11,11 @@ import Botticelli
 final class FreeContentViewController: SBViewController {
     private let contentModel = FreeContentModel()
     private let filtersModel = FiltersModel()
-    
+
     private lazy var filtersListView: FiltersListView = {
         FiltersListView(frame: view.bounds)
     }()
-    
+
     private lazy var filtersView: FiltersView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
@@ -25,7 +25,7 @@ final class FreeContentViewController: SBViewController {
         )
         return FiltersView(frame: viewFrame, filtersListView)
     }()
-    
+
     private lazy var contentGridView: ContentGridView = {
         let viewFrame = CGRect(
             x: view.bounds.minX,
@@ -35,7 +35,7 @@ final class FreeContentViewController: SBViewController {
         )
         return ContentGridView(frame: viewFrame)
     }()
-    
+
     private lazy var emptyResultView: ContentEmptyResultView = {
         let sideSpace: CGFloat = 20
         let viewFrame = CGRect(
@@ -46,7 +46,7 @@ final class FreeContentViewController: SBViewController {
         )
         return ContentEmptyResultView(frame: viewFrame)
     }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -56,7 +56,7 @@ final class FreeContentViewController: SBViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
@@ -64,7 +64,7 @@ final class FreeContentViewController: SBViewController {
         loadFilters()
         setupFilterObserver()
     }
-    
+
     private func configureSubviews() {
         view.addSubview(emptyResultView)
         view.addSubview(contentGridView)
@@ -73,7 +73,7 @@ final class FreeContentViewController: SBViewController {
         filtersListView.isHidden = true
         showContentGridView()
     }
-    
+
     private func loadContent() {
         contentModel.loadData() { [weak self] films in
             DispatchQueue.main.async {
@@ -93,19 +93,19 @@ final class FreeContentViewController: SBViewController {
             }
         }
     }
-    
+
     private func loadYearFilters(_ films: [ContentInfo]) {
         var yearsVal = films.map {
             $0.year
         }
         yearsVal = yearsVal.uniqued().sorted { $0 > $1 }
-        
+
         let years = yearsVal.map {
             Year($0)
         }
         self.filtersView.years = years
     }
-    
+
     private func loadFilters() {
         filtersModel.loadGenres() { [weak self] genres in
             DispatchQueue.main.async {
@@ -116,7 +116,7 @@ final class FreeContentViewController: SBViewController {
                 self?.alert(message: error)
             }
         }
-        
+
         filtersModel.loadCountries() { [weak self] countries in
             DispatchQueue.main.async {
                 self?.filtersView.countries = countries
@@ -127,7 +127,7 @@ final class FreeContentViewController: SBViewController {
             }
         }
     }
-    
+
     private func setupFilterObserver() {
         filtersView.filterObserver = { [weak self] (filter) in
             switch filter {
@@ -143,12 +143,12 @@ final class FreeContentViewController: SBViewController {
             self?.loadContent()
         }
     }
-    
+
     private func showEmptyResultView() {
         emptyResultView.isHidden = false
         contentGridView.isHidden = true
     }
-    
+
     private func showContentGridView() {
         emptyResultView.isHidden = true
         contentGridView.isHidden = false

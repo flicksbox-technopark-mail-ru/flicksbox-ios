@@ -9,21 +9,21 @@ import Foundation
 
 public final class HermesClient {
     private let baseUrl: String
-    
+
     private let headers: [String: String]
-    
+
     private var standartHeaders: [String: String] {
         return [
             "Content-Type": "application/json",
             "User-Agent": "FlicksBox/1.0 iOS"
         ]
     }
-    
+
     public init(with baseUrl: String, headers: [String: String]? = nil) {
         self.baseUrl = baseUrl
         self.headers = headers ?? [:]
     }
-    
+
     private func createRequest(with request: HermesRequest) -> URLRequest? {
         let urlString = baseUrl + request.path
         var components = URLComponents(string: urlString)
@@ -50,7 +50,7 @@ public final class HermesClient {
         urlRequest.allHTTPHeaderFields = httpHeaders
         return urlRequest
     }
-    
+
     public func run(with request: HermesRequest) {
         guard let urlRequest = createRequest(with: request) else {
             request.errorHandler?(HermesError.invalidUrl)
@@ -69,7 +69,13 @@ public final class HermesClient {
                 request.errorHandler?(HermesError.invalidCode)
                 return
             }
-            request.successHandler?(.init(data: .init(with: data), code: response.statusCode, headers: response.allHeaderFields))
+            request.successHandler?(
+                .init(
+                    data: .init(with: data),
+                    code: response.statusCode,
+                    headers: response.allHeaderFields
+                )
+            )
         }
         task.resume()
     }

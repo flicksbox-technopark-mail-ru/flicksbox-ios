@@ -10,7 +10,7 @@ import Botticelli
 
 class ContentGridCell: UICollectionViewCell {
     static let identifier = "ContentGridCell"
-    
+
     var film: ContentInfo? {
         didSet {
             guard oldValue?.contentId != film?.contentId,
@@ -19,7 +19,7 @@ class ContentGridCell: UICollectionViewCell {
             poster.loadWebP(url: urlImage)
         }
     }
-    
+
     private let poster: SBImageView = {
         let poster = SBImageView()
         poster.clipsToBounds = true
@@ -27,7 +27,7 @@ class ContentGridCell: UICollectionViewCell {
         poster.translatesAutoresizingMaskIntoConstraints = false
         return poster
     }()
-    
+
     private let titleLabel: SBLabel = {
         let label = SBLabel()
         label.textAlignment = .center
@@ -36,33 +36,33 @@ class ContentGridCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }()
-    
+
     private let gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         layer.locations = [0.4, 1.1]
         return layer
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureLayout()
         configureSubviews()
     }
-    
+
     private func configureLayout() {
         backgroundColor = .darkGray
         layer.cornerRadius = 5
         clipsToBounds = true
     }
-    
+
     private func configureSubviews() {
         poster.frame = contentView.bounds
         contentView.addSubview(poster)
-        
+
         gradientLayer.frame = contentView.frame
         contentView.layer.addSublayer(gradientLayer)
-        
+
         let sideSpace: CGFloat = 10
         let titleHeight: CGFloat = 40
         titleLabel.frame = CGRect(
@@ -73,7 +73,7 @@ class ContentGridCell: UICollectionViewCell {
         )
         contentView.addSubview(titleLabel)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -15,12 +15,12 @@ final class ResultsGridHeader: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         titleLabel.frame = CGRect(
             x: bounds.minX + 20,
@@ -30,7 +30,7 @@ final class ResultsGridHeader: UICollectionReusableView {
         )
         addSubview(titleLabel)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

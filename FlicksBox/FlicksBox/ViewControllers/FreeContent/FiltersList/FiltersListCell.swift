@@ -16,15 +16,15 @@ class FiltersListCell: UICollectionViewCell {
         label.numberOfLines = 1
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
         customizeAsUnselected()
-        
+
         titleLabel.text = "США"
     }
-    
+
     private func configureSubviews() {
         let sideSpacing: CGFloat = 80
         titleLabel.frame = CGRect(
@@ -35,17 +35,17 @@ class FiltersListCell: UICollectionViewCell {
         )
         contentView.addSubview(titleLabel)
     }
-    
+
     func customizeAsSelected() {
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         titleLabel.textColor = .white
     }
-    
+
     func customizeAsUnselected() {
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         titleLabel.textColor = .lightGray
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -12,11 +12,11 @@ open class SBLabel: UILabel {
         super.init(frame: frame)
         configureView()
     }
-    
+
     public required init?(coder: NSCoder) {
         fatalError("init with coder not implemented")
     }
-    
+
     private func configureView() {
         textColor = .white
     }

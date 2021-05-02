@@ -24,31 +24,38 @@ class MyListCollectionView: UICollectionViewCell, UICollectionViewDataSource, UI
         super.init(frame: frame)
         configureSubviews()
     }
-    
+
     private func configureSubviews() {
         contentView.addSubview(collectionView)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.frame = bounds
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath)
         cell.backgroundColor = UIColor.darkGray
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         return CGSize(width: bounds.height, height: bounds.height)
     }
 

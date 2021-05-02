@@ -15,12 +15,12 @@ struct SearchResponse: Decodable {
 final class SearchInteractor {
     private let client: HermesClient
     private let encoder: JSONEncoder
-    
+
     init() {
         client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
         encoder = JSONEncoder()
     }
-    
+
     func search(
         from: Int,
         count: Int,
@@ -38,7 +38,7 @@ final class SearchInteractor {
             failure: failure
         )
     }
-    
+
     private func getSearchResult<T>(
         path: String,
         responseType: T.Type,

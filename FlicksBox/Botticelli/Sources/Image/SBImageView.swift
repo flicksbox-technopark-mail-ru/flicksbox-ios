@@ -14,7 +14,7 @@ public class SBImageView: UIImageView {
         SDImageCodersManager.shared.addCoder(WebPCoder)
         guard let webpURL = URL(string: url) else { return }
         DispatchQueue.main.async { [weak self] in
-            self?.sd_setImage(with: webpURL, completed: { (image, error, caheType, url) in
+            self?.sd_setImage(with: webpURL, completed: { (_, _, _, _) in
                 success?()
             })
         }

@@ -10,7 +10,7 @@ import Botticelli
 
 class StartViewController: SBViewController, StartOutput {
     let model = StartModel()
-    
+
     private let label: UILabel = {
         let label = UILabel()
         label.text = "FlicksBox"
@@ -20,37 +20,37 @@ class StartViewController: SBViewController, StartOutput {
         label.isHidden = true
         return label
     }()
-    
+
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.isHidden = true
         indicator.color = UIColor.white
         return indicator
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         model.output = self
-        
+
         view.addSubview(label)
         view.addSubview(activityIndicator)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         model.notifyWillAppear()
     }
-    
+
     private let spaceCenter: CGFloat = 50
-    
+
     override func viewDidLayoutSubviews() {
         label.sizeToFit()
         label.center = CGPoint(x: view.center.x, y: view.center.y - spaceCenter)
-        
+
         activityIndicator.sizeToFit()
         activityIndicator.center = CGPoint(x: view.center.x, y: view.center.y + spaceCenter)
     }
-    
+
     func animate() {
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.label.isHidden = false
@@ -60,7 +60,7 @@ class StartViewController: SBViewController, StartOutput {
             self?.activityIndicator.startAnimating()
         }
     }
-    
+
     func showError(message: String, complition: @escaping () -> Void) {
         alert(message: message, complition: complition)
     }

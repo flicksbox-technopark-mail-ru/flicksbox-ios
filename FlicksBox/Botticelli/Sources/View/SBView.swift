@@ -12,11 +12,11 @@ open class SBView: UIView {
         super.init(frame: frame)
         configureView()
     }
-    
+
     public required init?(coder: NSCoder) {
         fatalError("init with coder not implemented")
     }
-    
+
     private func configureView() {
         backgroundColor = .customBlack
     }
@@ -29,7 +29,7 @@ extension SBView {
         UIView.animate(
             withDuration: duration!,
             animations: { self.alpha = 1 },
-            completion: { (value: Bool) in
+            completion: { (_: Bool) in
                 if let complete = onCompletion { complete() }
             }
         )
@@ -39,7 +39,7 @@ extension SBView {
         UIView.animate(
             withDuration: duration!,
             animations: { self.alpha = 0 },
-            completion: { (value: Bool) in
+            completion: { (_: Bool) in
                 self.isHidden = true
                 if let complete = onCompletion { complete() }
             }
