@@ -10,7 +10,7 @@ import Foundation
 final class RecommendationsModel: NSObject {
     private let interactor = RecommendationsInteractor()
 
-    func loadData(success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
+    func loadData(success: @escaping ([ContentInfo]) -> Void, failure: @escaping (String) -> Void) {
         interactor.recommendations() { response in
             success(self.trasformate(content: response.body!))
         } failure: { error in
@@ -18,12 +18,12 @@ final class RecommendationsModel: NSObject {
         }
     }
 
-    private func trasformate(content: ContentResponse) -> [FilmInfo] {
-        let movies = content.movies.map { movie -> FilmInfo in
-            FilmInfo(from: movie)
+    private func trasformate(content: ContentResponse) -> [ContentInfo] {
+        let movies = content.movies.map { movie -> ContentInfo in
+            ContentInfo(from: movie)
         }
-        let tvshows = content.tvshows.map { tvshow -> FilmInfo in
-            FilmInfo(from: tvshow)
+        let tvshows = content.tvshows.map { tvshow -> ContentInfo in
+            ContentInfo(from: tvshow)
         }
         return (movies + tvshows).shuffled()
     }

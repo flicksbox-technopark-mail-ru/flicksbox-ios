@@ -10,7 +10,7 @@ import UIKit
 class HomeTableViewCell: UITableViewCell {
     static let identifier = "HomeFilmsTableViewCell"
     
-    var films: [FilmInfo]? {
+    var films: [ContentInfo]? {
         didSet {
             guard let _ = films else {
                 return

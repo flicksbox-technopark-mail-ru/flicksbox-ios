@@ -7,46 +7,62 @@
 
 import Foundation
 
-enum FilmsListType: Int {
-    case topMovies = 0
-    case lastMovies
-    case topSerials
-    case lastSerials
-}
+struct ContentListInfo {
+    enum ContentListType: Int {
+        case topMovies = 0
+        case lastMovies
+        case topSerials
+        case lastSerials
+    }
 
-struct FilmsListInfo {
     let name: String
-    let type: FilmsListType
+    let type: ContentListType
 }
 
-struct FilmInfo {
+struct ContentInfo {
+    enum ContentType {
+        case movie
+        case tvshow
+        
+        init(apiType: APIContentType) {
+            switch apiType {
+            case .movie:
+                self = .movie
+            case .tvshow:
+                self = .tvshow
+            }
+        }
+    }
+    
     let id: Int
     let contentId: Int
     let name: String
     let image: String
     let year: Int
+    let type: ContentType
     
     init(from movie: APIMovie) {
-        self.init(id: movie.id, contentId: movie.content_id, name: movie.name, image: movie.images, year: movie.year)
+        self.init(id: movie.id, contentId: movie.content_id, name: movie.name, image: movie.images, year: movie.year, type: ContentType(apiType: movie.type))
     }
     
     init(from tvShow: APITVShow) {
-        self.init(id: tvShow.id, contentId: tvShow.content_id, name: tvShow.name, image: tvShow.images, year: tvShow.year)
+        self.init(id: tvShow.id, contentId: tvShow.content_id, name: tvShow.name, image: tvShow.images, year: tvShow.year, type: ContentType(apiType: tvShow.type))
     }
     
-    private init(id: Int, contentId: Int, name: String, image: String, year: Int) {
+    private init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType) {
         self.id = id
         self.contentId = contentId
         self.name = name
         self.image = "https://www.flicksbox.ru\(image)/640"
         self.year = year
+        self.type = type
     }
 }
 
 final class HomeModel: NSObject {
     private let interactor = FilmsInteractor()
     
-    let sectionsInfo: [FilmsListInfo] = [
+    let sectionsInfo: [ContentListInfo] = [
         .init(name: "Топ фильмов", type: .topMovies),
         .init(name: "Последние фильмы", type: .lastMovies),
         .init(name: "Топ сериалов", type: .topSerials),
@@ -60,8 +76,8 @@ final class HomeModel: NSObject {
     private let from = 0
     private let count = 15
     
-    func loadSection(index: Int, success: @escaping ([FilmInfo]) -> Void, failure: @escaping (String) -> Void) {
-        let type = FilmsListType(rawValue: index)
+    func loadSection(index: Int, success: @escaping ([ContentInfo]) -> Void, failure: @escaping (String) -> Void) {
+        let type = ContentListInfo.ContentListType(rawValue: index)
         switch type {
         case .topMovies:
             interactor.topMovies(from: from, count: count) { response in
@@ -92,15 +108,15 @@ final class HomeModel: NSObject {
         }
     }
     
-    private func trasformate(movies: [APIMovie]) -> [FilmInfo] {
-        movies.map { movie -> FilmInfo in
-            FilmInfo(from: movie)
+    private func trasformate(movies: [APIMovie]) -> [ContentInfo] {
+        movies.map { movie -> ContentInfo in
+            ContentInfo(from: movie)
         }
     }
     
-    private func trasformate(movies: [APITVShow]) -> [FilmInfo] {
-        movies.map { movie -> FilmInfo in
-            FilmInfo(from: movie)
+    private func trasformate(movies: [APITVShow]) -> [ContentInfo] {
+        movies.map { movie -> ContentInfo in
+            ContentInfo(from: movie)
         }
     }
 }

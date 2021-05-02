@@ -23,9 +23,9 @@ struct Actor {
 
 struct SearchResult {
     let actors: [Actor]
-    let content: [FilmInfo]
+    let content: [ContentInfo]
     
-    init(actors: [Actor], content: [FilmInfo]) {
+    init(actors: [Actor], content: [ContentInfo]) {
         self.actors = actors
         self.content = content
     }
@@ -48,11 +48,11 @@ final class SearchModel: NSObject {
         guard let resp = resp else {
             return SearchResult(actors: [], content: [])
         }
-        let movies = resp.result.movies.map { movie -> FilmInfo in
-            FilmInfo(from: movie)
+        let movies = resp.result.movies.map { movie -> ContentInfo in
+            ContentInfo(from: movie)
         }
-        let tvshows = resp.result.tv_shows.map { tvshow -> FilmInfo in
-            FilmInfo(from: tvshow)
+        let tvshows = resp.result.tv_shows.map { tvshow -> ContentInfo in
+            ContentInfo(from: tvshow)
         }
         let actors = resp.result.actors.map { actor -> Actor in
             Actor(from: actor)

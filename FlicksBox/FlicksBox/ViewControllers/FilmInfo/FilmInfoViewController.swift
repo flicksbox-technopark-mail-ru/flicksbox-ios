@@ -8,9 +8,9 @@
 import Botticelli
 
 final class FilmInfoViewController: SBViewController {
-    var filmInfo: FilmInfo? {
+    var contentInfo: ContentInfo? {
         didSet {
-            self.title = filmInfo?.name
+            self.title = contentInfo?.name
         }
     }
 }
