@@ -15,7 +15,7 @@ final class AuthViewController: SBViewController {
     private lazy var authView: AuthView = {
         
         let widthAuthView: CGFloat = view.bounds.width * 9 / 10
-        let heightAuthView: CGFloat = view.bounds.height * 3 / 10
+        let heightAuthView: CGFloat = view.bounds.height * 4 / 13
         let authView = AuthView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
         authView.buttonClick = { [weak self] email, password in
             self?.authModel.authorization(email: email, password: password) {
@@ -34,13 +34,54 @@ final class AuthViewController: SBViewController {
         return authView
     }()
 
+    private func configureGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(panGesture)
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.frame.origin.y = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         setupSubviews()
+        configureGestures()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print(self.view.frame.origin.y)
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - 100
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     private func setupSubviews() {
         view.addSubview(authView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

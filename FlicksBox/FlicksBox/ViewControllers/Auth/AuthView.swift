@@ -10,9 +10,15 @@ import UIKit
 
 
 final class AuthView: UIView {
-        
+
+    private lazy var authLabel: AuthLabel = {
+        let authLabel = AuthLabel(frame: CGRect(x: 20, y: 10, width: bounds.maxX - 40, height: 30))
+        authLabel.text = "Авторизация"
+        return authLabel
+    }()
+    
     private lazy var loginInput: AuthIput = {
-        let loginInput = AuthIput(frame: CGRect(x: 10, y: 50, width: bounds.maxX - 20, height: 40))
+        let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 30, width: bounds.maxX - 20, height: 40))
         loginInput.placeholder = "Введите логин"
         return loginInput
     }()
@@ -20,11 +26,12 @@ final class AuthView: UIView {
     private lazy var passwordInput: AuthIput = {
         let passwordInput = AuthIput(frame: CGRect(x: 10, y: loginInput.frame.maxY + 40, width: bounds.maxX - 20, height: 40))
         passwordInput.placeholder = "Введите пароль"
+        passwordInput.isSecureTextEntry = true
         return passwordInput
     }()
     
     private lazy var authButton: AuthButton = {
-        let authButton = AuthButton(frame: CGRect(x: 10, y: passwordInput.frame.maxY + 40, width: bounds.maxX - 20, height: 40))
+        let authButton = AuthButton(frame: CGRect(x: 10, y: passwordInput.frame.maxY + 35, width: bounds.maxX - 20, height: 40))
         authButton.addTarget(self, action:#selector(self.handleRegister), for: .touchUpInside)
         return authButton
     }()
@@ -44,6 +51,7 @@ final class AuthView: UIView {
         addSubview(loginInput)
         addSubview(passwordInput)
         addSubview(authButton)
+        addSubview(authLabel)
     }
     
     var buttonClick: ((String, String) -> Void)?

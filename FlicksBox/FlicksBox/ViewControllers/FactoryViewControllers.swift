@@ -63,7 +63,6 @@ final class FactoryViewControllers {
         let mainController = MainController(with: viewControllers)
         return mainController
     }
-    
 
     static func createFilmInfo(info: ContentInfo) -> UIViewController {
         let controller = FilmInfoViewController()
