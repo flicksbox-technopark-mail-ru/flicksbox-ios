@@ -19,7 +19,7 @@ struct APIMovie: Decodable {
     let original_name: String
     let rating: Int
     let short_description: String
-    let type: String
+    let type: APIContentType
     let video: String
     let year: Int
 }

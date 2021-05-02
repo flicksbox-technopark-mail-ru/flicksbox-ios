@@ -37,6 +37,7 @@
 		B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537F64A25F25C8A00B51383 /* SceneDelegate.swift */; };
 		B537F65225F25C9700B51383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B537F65125F25C9700B51383 /* Assets.xcassets */; };
 		B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B537F65325F25C9700B51383 /* LaunchScreen.storyboard */; };
+		B55CF12C263EA27500DE6F25 /* APIContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55CF12B263EA27500DE6F25 /* APIContentType.swift */; };
 		B563054025F45A0F00A9ED21 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = B563053E25F45A0F00A9ED21 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B563054325F45A0F00A9ED21 /* Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B563053C25F45A0F00A9ED21 /* Hermes.framework */; };
 		B563054425F45A0F00A9ED21 /* Hermes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B563053C25F45A0F00A9ED21 /* Hermes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -161,6 +162,7 @@
 		B537F65125F25C9700B51383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B537F65425F25C9700B51383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B537F65625F25C9700B51383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B55CF12B263EA27500DE6F25 /* APIContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIContentType.swift; sourceTree = "<group>"; };
 		B563053C25F45A0F00A9ED21 /* Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B563053E25F45A0F00A9ED21 /* Hermes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hermes.h; sourceTree = "<group>"; };
 		B563053F25F45A0F00A9ED21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				B5A672E82623790D0033DFC0 /* APICountry.swift */,
 				B5A672EC262379140033DFC0 /* APIMovie.swift */,
 				B5CD7143262C889900BDC279 /* APITVShow.swift */,
+				B55CF12B263EA27500DE6F25 /* APIContentType.swift */,
 				C4FB935E262D98B6001BBC13 /* APIGenre.swift */,
 				C4FB93AD2634D521001BBC13 /* APIResult.swift */,
 			);
@@ -897,6 +900,7 @@
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
 				C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */,
+				B55CF12C263EA27500DE6F25 /* APIContentType.swift in Sources */,
 				C4FB9331262CAC90001BBC13 /* FiltersListCell.swift in Sources */,
 				78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */,
 				B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */,

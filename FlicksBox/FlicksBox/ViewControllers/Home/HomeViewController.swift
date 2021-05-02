@@ -34,21 +34,12 @@ final class HomeViewController: SBViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSubviews()
+        
+        view.addSubview(tableView)
     }
     
-    private func setupSubviews() {
-        view.addSubview(tableView)
-        let safeArea = view.layoutMarginsGuide
-        var constraints = [NSLayoutConstraint]()
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        constraints.append(tableView.topAnchor.constraint(equalTo: safeArea.topAnchor))
-        constraints.append(tableView.leftAnchor.constraint(equalTo: view.leftAnchor))
-        constraints.append(tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor))
-        constraints.append(tableView.rightAnchor.constraint(equalTo: view.rightAnchor))
-        
-        NSLayoutConstraint.activate(constraints)
+    override func viewDidLayoutSubviews() {
+        tableView.frame = view.bounds
     }
 }
 
