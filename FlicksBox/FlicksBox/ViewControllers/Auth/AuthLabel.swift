@@ -11,6 +11,7 @@ import UIKit
 final class AuthLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         textAlignment = .center
         textColor = UIColor.white
     }

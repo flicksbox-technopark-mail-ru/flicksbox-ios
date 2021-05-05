@@ -1,10 +1,3 @@
-//
-//  AuthView.swift
-//  FlicksBox
-//
-//  Created by Александр Бутолин on 19.04.2021.
-//
-
 import Botticelli
 import UIKit
 
@@ -35,16 +28,48 @@ final class AuthView: UIView {
     
     private lazy var authButton: AuthButton = {
         let authButton = AuthButton(frame: CGRect(x: 10, y: passwordInput.frame.maxY + 35, width: bounds.maxX - 20, height: 40))
-        authButton.addTarget(self, action:#selector(self.handleRegister), for: .touchUpInside)
+        authButton.setTitle("Войти", for: .normal)
+        authButton.addTarget(self, action:#selector(self.handleAuthorization), for: .touchUpInside)
         return authButton
     }()
+    
+    var authButtonClick: ((String, String) -> Void)?
+    
+    @objc func handleAuthorization(sender: UIButton){
+        if let login = loginInput.text, let password = passwordInput.text {
+            authButtonClick?(login, password)
+        }
+    }
+    
+    private lazy var subLabel: SubLabel = {
+        let registrationLabel = SubLabel(frame: CGRect(x: 0, y: authButton.frame.maxY + 20, width: bounds.width, height: 25))
+        registrationLabel.text = "Еще не зарегистрированы?"
+        
+        return registrationLabel;
+    }()
+    
+    
+    var subButtonClick:(() -> Void)?
+    
+    @objc func handleSubButton(sender: UIButton) {
+        subButtonClick?()
+    }
+
+    
+    private lazy var subButton: SubButton = {
+        let registrationButton = SubButton(frame: CGRect(x: bounds.midX - 100, y: subLabel.frame.maxY + 10, width: 200, height: 25))
+        registrationButton.setTitle("Зарегистрироваться", for: .normal)
+        registrationButton.addTarget(self, action:#selector(self.handleSubButton), for:.touchUpInside)
+        
+        return registrationButton
+    }() 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = #colorLiteral(red: 0.09495786577, green: 0.09006708115, blue: 0.08577851206, alpha: 0.7474274288)
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.7
+        layer.shadowOpacity = 0.6
         layer.shadowRadius = 4.0
         layer.cornerRadius = 20
         setupSubviews()
@@ -55,14 +80,8 @@ final class AuthView: UIView {
         addSubview(passwordInput)
         addSubview(authButton)
         addSubview(authLabel)
-    }
-    
-    var buttonClick: ((String, String) -> Void)?
-    
-    @objc func handleRegister(sender: UIButton){
-        if let login = loginInput.text, let password = passwordInput.text {
-            buttonClick?(login, password)
-        }
+        addSubview(subLabel)
+        addSubview(subButton)
     }
     
     required init?(coder: NSCoder) {

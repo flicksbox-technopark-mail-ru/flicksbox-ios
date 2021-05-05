@@ -1,10 +1,3 @@
-//
-//  AuthModel.swift
-//  FlicksBox
-//
-//  Created by Александр Бутолин on 25.04.2021.
-//
-
 import Foundation
 
 struct User {
@@ -25,6 +18,13 @@ struct User {
     }
 }
 
+struct UserSignup: Encodable {
+   let nickname: String
+   let email: String
+   let password: String
+   let repeated_password: String
+}
+
 final class AuthModel: NSObject {
     private let userInteractor = UserInteractor()
     
@@ -33,6 +33,28 @@ final class AuthModel: NSObject {
         let userSignin = UserSignin(email: email, password: password)
         
         userInteractor.signin(user: userSignin) { response in
+            if let error = response.error {
+                failure(error.user_message)
+                return
+            }
+            guard let user = response.body?.user else {
+                failure("Неизвестная ошибка")
+                return
+            }
+            ClientUser.shared.setFromApi(user: user)
+            DispatchQueue.main.async {
+                success()
+            }
+        } failure: { error in
+            failure(error.localizedDescription)
+        }
+    }
+    
+    func registration(login: String, email: String, password: String, repeatPassword: String, success: @escaping () -> Void, failure: @escaping (String) -> Void) {
+        
+        let userSignup = UserSignup(nickname: login, email: email, password: password, repeated_password: repeatPassword)
+        
+        userInteractor.signup(user: userSignup) { response in
             if let error = response.error {
                 failure(error.user_message)
                 return

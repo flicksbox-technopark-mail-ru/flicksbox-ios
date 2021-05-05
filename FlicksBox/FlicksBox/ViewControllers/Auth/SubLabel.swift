@@ -1,5 +1,5 @@
 //
-//  AuthInput.swift
+//  AuthButton.swift
 //  FlicksBox
 //
 //  Created by Александр Бутолин on 21.04.2021.
@@ -8,12 +8,12 @@
 import Botticelli
 import UIKit
 
-final class AuthIput: UITextField {
+final class SubLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.cornerRadius = 5
-        let inputColor = #colorLiteral(red: 0.9802892804, green: 0.9804533124, blue: 0.9802661538, alpha: 1)
-        backgroundColor = inputColor
+        
+        textAlignment = .center
+        textColor = #colorLiteral(red: 0.7214913964, green: 0.7216146588, blue: 0.7214741707, alpha: 1)
     }
     
     required init?(coder: NSCoder) {
