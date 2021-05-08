@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		60245F796FDA7B2BF0593D93 /* Pods_FlicksBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */; };
+		785D91642646CC110014C1E2 /* ActorViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D91632646CC110014C1E2 /* ActorViewControllers.swift */; };
+		785D91772646FF1B0014C1E2 /* ActorContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D91762646FF1B0014C1E2 /* ActorContentModel.swift */; };
+		785D917C264733A30014C1E2 /* ActorsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D917B264733A30014C1E2 /* ActorsInteractor.swift */; };
 		78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F32635D36700BB68C9 /* AuthViewController.swift */; };
 		78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F92635D39400BB68C9 /* AuthView.swift */; };
 		78F3E1002635D3BB00BB68C9 /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */; };
@@ -135,6 +138,9 @@
 		209462193A37A7EE8D27044D /* Pods-FlicksBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.debug.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.debug.xcconfig"; sourceTree = "<group>"; };
 		3999011EB277C28CD9719C04 /* Pods-FlicksBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.release.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.release.xcconfig"; sourceTree = "<group>"; };
 		6BA71565DB277CFA6149315C /* Pods-Hermes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.release.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.release.xcconfig"; sourceTree = "<group>"; };
+		785D91632646CC110014C1E2 /* ActorViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorViewControllers.swift; sourceTree = "<group>"; };
+		785D91762646FF1B0014C1E2 /* ActorContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorContentModel.swift; sourceTree = "<group>"; };
+		785D917B264733A30014C1E2 /* ActorsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsInteractor.swift; sourceTree = "<group>"; };
 		78F3E0F32635D36700BB68C9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		78F3E0F92635D39400BB68C9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
@@ -273,6 +279,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		785D91622646C5BF0014C1E2 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				785D91632646CC110014C1E2 /* ActorViewControllers.swift */,
+				785D91762646FF1B0014C1E2 /* ActorContentModel.swift */,
+			);
+			path = Actor;
+			sourceTree = "<group>";
+		};
 		78F3E0E62635D29200BB68C9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +317,7 @@
 		B508561125FE15F900EFD69B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				785D91622646C5BF0014C1E2 /* Actor */,
 				B508561525FE161900EFD69B /* FactoryViewControllers.swift */,
 				B56E97DC2635B44A00F71060 /* Start */,
 				B5A6729C262334360033DFC0 /* Home */,
@@ -378,6 +394,7 @@
 				C4FB9368262D9B66001BBC13 /* CountriesInteractor.swift */,
 				C4FB93952633630D001BBC13 /* SearchInteractor.swift */,
 				C4FB93A12634BF15001BBC13 /* RecommendationsInteractor.swift */,
+				785D917B264733A30014C1E2 /* ActorsInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -902,6 +919,7 @@
 				C4FB938126335B67001BBC13 /* ResultsGridFooter.swift in Sources */,
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
+				785D917C264733A30014C1E2 /* ActorsInteractor.swift in Sources */,
 				C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */,
 				B55CF12C263EA27500DE6F25 /* APIContentType.swift in Sources */,
 				C4FB9331262CAC90001BBC13 /* FiltersListCell.swift in Sources */,
@@ -914,6 +932,7 @@
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
 				C4FB933E262CC663001BBC13 /* ContentEmptyResultView.swift in Sources */,
 				B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */,
+				785D91772646FF1B0014C1E2 /* ActorContentModel.swift in Sources */,
 				B56E97DE2635B46800F71060 /* StartViewController.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				C4FB937E26335B67001BBC13 /* RecommendationsGridHeader.swift in Sources */,
@@ -938,6 +957,7 @@
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,
 				C4FB9333262CAC90001BBC13 /* FiltersListFooter.swift in Sources */,
+				785D91642646CC110014C1E2 /* ActorViewControllers.swift in Sources */,
 				B56E97E22635B5C000F71060 /* StartModel.swift in Sources */,
 				C4FB938626335B67001BBC13 /* ResultsActorGridCell.swift in Sources */,
 				C4FB937C26335B67001BBC13 /* SearchEmptyResultView.swift in Sources */,

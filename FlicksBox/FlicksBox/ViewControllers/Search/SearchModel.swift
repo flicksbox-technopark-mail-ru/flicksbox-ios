@@ -7,20 +7,6 @@
 
 import Foundation
 
-struct Actor {
-    let id: Int
-    let name: String
-    
-    init(from actor: APIActor) {
-        self.init(id: actor.id, name: actor.name)
-    }
-    
-    init(id: Int, name: String) {
-        self.id = id
-        self.name = name
-    }
-}
-
 struct SearchResult {
     let actors: [Actor]
     let content: [ContentInfo]

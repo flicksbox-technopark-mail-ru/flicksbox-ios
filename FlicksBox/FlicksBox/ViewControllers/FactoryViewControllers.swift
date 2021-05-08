@@ -41,6 +41,12 @@ final class FactoryViewControllers {
         return UINavigationController(rootViewController: controller)
     }
     
+    class var actor: UIViewController {
+        let controller = ActorViewController()
+        controller.configureTabItem()
+        return UINavigationController(rootViewController: controller)
+    }
+    
     class var sign: UIViewController {
         let controller = AuthViewController()
         controller.title = "Вход"
@@ -56,9 +62,9 @@ final class FactoryViewControllers {
     static func createMain(with type: MainControllerType) -> UITabBarController {
         let viewControllers: [UIViewController]
         if case .profile = type {
-            viewControllers = [home, free, search, profile]
+            viewControllers = [home, free, search, profile, actor]
         } else {
-            viewControllers = [home, free, search, sign]
+            viewControllers = [home, free, search, sign, actor]
         }
         let mainController = MainController(with: viewControllers)
         return mainController
