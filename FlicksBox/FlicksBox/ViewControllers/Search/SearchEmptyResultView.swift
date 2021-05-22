@@ -9,7 +9,6 @@ import UIKit
 import Botticelli
 
 final class SearchEmptyResultView: SBView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()

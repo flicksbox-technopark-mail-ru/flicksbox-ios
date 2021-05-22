@@ -17,7 +17,6 @@ final class RecommendationsInteractor {
         encoder = JSONEncoder()
     }
     
-    // TODO this is temporary realization. waiting backend
     func recommendations(
         success: @escaping (APIResponse<ContentResponse>) -> Void,
         failure: @escaping (Error) -> Void
@@ -41,7 +40,7 @@ final class RecommendationsInteractor {
             path: path,
             params: [
                 "count": "15",
-                "from": "\(Int.random(in: 0..<7))"
+                "from": "\(Int.random(in: 0..<7))" // 22 movies and tvshows in db
             ]
         )
         request.successHandler = { response in
