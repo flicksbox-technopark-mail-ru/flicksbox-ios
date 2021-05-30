@@ -1,14 +1,15 @@
 //
-//  SearchEmptyResultView.swift
+//  MyListEmptyResultView.swift
 //  FlicksBox
 //
-//  Created by Mac-HOME on 29.03.2021.
+//  Created by Mac-HOME on 06.04.2021.
 //
 
 import UIKit
 import Botticelli
 
-final class SearchEmptyResultView: SBView {
+final class MyListEmptyResultView: SBView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
@@ -25,11 +26,11 @@ final class SearchEmptyResultView: SBView {
         ]
         
         let title = NSMutableAttributedString(
-            string: "Мы ничего не нашли.",
+            string: "Здесь пока пусто.",
             attributes: titleTextAttributes
         )
         let desc = NSMutableAttributedString(
-            string: "\nПопробуйте выполнить поиск другого фильма или сериала.",
+            string: "\nПопробуйте добавить понравившийся фильм или сериал.",
             attributes: descTextAttributes
         )
         

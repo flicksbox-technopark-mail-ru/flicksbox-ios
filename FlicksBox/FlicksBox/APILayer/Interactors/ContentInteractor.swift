@@ -49,6 +49,23 @@ final class ContentInteractor {
         )
     }
     
+    func previewContent(
+        success: @escaping (APIResponse<ContentResponse>) -> Void,
+        failure: @escaping (Error) -> Void
+    ) {
+        let count = 5
+        let from = Int.random(in: 0..<17) // 22 movies and tvshows in db
+        getContent(
+            path: "/content",
+            responseType: APIResponse<ContentResponse>.self,
+            from: from,
+            count: count,
+            filters: ContentFilters(),
+            success: success,
+            failure: failure
+        )
+    }
+    
     private func getContent<T>(
         path: String,
         responseType: T.Type,

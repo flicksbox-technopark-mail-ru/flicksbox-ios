@@ -9,124 +9,90 @@ import UIKit
 import Botticelli
 
 final class HomeViewController: SBViewController {
-    let model = HomeModel()
+    private let model = HomeModel()
+    private var myListAdded: Bool = false
     
-    private lazy var tableView: UITableView  = {
-        let tableView = UITableView()
-        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .clear
-        return tableView
+    private let pagesListHeight: CGFloat = 60
+    private lazy var pagesListView: PagesListView = {
+        let pagesFrame = CGRect(x: 0, y: 0, width: view.bounds.width, height: pagesListHeight)
+        let pageSelectionObserver: ((Int) -> ())? = { [weak self] (selectedPage) in
+            self?.hideAllPages()
+            let pageType = Page.PageType(rawValue: selectedPage)
+            switch pageType {
+            case .Main:
+                self?.mainPageVC.view.isHidden = false
+            case .Movies:
+                self?.moviesPageVC.view.isHidden = false
+            case .TVShows:
+                self?.tvshowsPageVC.view.isHidden = false
+            case .MyList:
+                self?.myListVC.loadMyListData()
+                self?.myListVC.view.isHidden = false
+            default:
+                fatalError("Unexpected page type")
+            }
+        }
+        return PagesListView(frame: pagesFrame, pages: model.activePages, observer: pageSelectionObserver)
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+    private lazy var pageFrame = CGRect(
+        x: 0,
+        y: pagesListView.frame.maxY,
+        width: view.bounds.width,
+        height: view.bounds.height - pagesListHeight
+    )
+    private lazy var mainPageVC = HomeContentViewController(model: model.getPageModel(page: .Main) as! PageModel)
+    private lazy var moviesPageVC = HomeContentViewController(model: model.getPageModel(page: .Movies) as! PageModel)
+    private lazy var tvshowsPageVC = HomeContentViewController(model: model.getPageModel(page: .TVShows) as! PageModel)
+    private lazy var myListVC = MyListViewController(model: model.getPageModel(page: .MyList) as! MyListModel)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if myListVC.view.isHidden == false {
+            myListVC.loadMyListData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(tableView)
+        view.addSubview(pagesListView)
+        add(myListVC, frame: pageFrame)
+        add(tvshowsPageVC, frame: pageFrame)
+        add(moviesPageVC, frame: pageFrame)
+        add(mainPageVC, frame: pageFrame)
     }
     
-    override func viewDidLayoutSubviews() {
-        tableView.frame = view.bounds
+    private func hideAllPages() {
+        mainPageVC.view.isHidden = true
+        moviesPageVC.view.isHidden = true
+        tvshowsPageVC.view.isHidden = true
+        myListVC.view.isHidden = true
     }
 }
 
 extension HomeViewController: MainOutput {
     func configureTabItem() {
-        self.title = "Главная"
+        self.title = "FlicksBox"
         self.tabBarItem.image = SBIcon.house
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+extension UIViewController {
+    func add(_ child: UIViewController, frame: CGRect? = nil) {
+        addChild(child)
+        if let frame = frame {
+            child.view.frame = frame
+        }
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return model.sectionsInfo.count
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HomeTableViewHeader(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        headerView.titleLabel.text = model.sectionsInfo[section].name
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? HomeTableViewCell else {
+
+    func remove() {
+        guard parent != nil else {
             return
         }
-        
-        if let _ = cell.films {
-            return
-        }
-        
-        cell.startAnimationLoading(animated: true)
-        model.loadSection(index: indexPath.section) { [weak cell, weak self] films in
-            DispatchQueue.main.async {
-                cell?.navigationController = self?.navigationController
-                cell?.films = films
-            }
-        } failure: { [weak self] error in
-            DispatchQueue.main.async {
-                self?.alert(message: error)
-            }
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        max(view.bounds.width, view.bounds.height) / 5
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {}
-
-private class HomeTableViewHeader: SBView {
-    lazy var titleLabel: SBLabel = {
-        let label = SBLabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .heavy)
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configureSubviews()
-    }
-    
-    private func configureSubviews() {
-        let sideSpacing: CGFloat = 20
-        let height: CGFloat = 22
-        titleLabel.frame = CGRect.init(
-            x: sideSpacing,
-            y: bounds.maxY - height,
-            width: bounds.width - sideSpacing * 2,
-            height: bounds.height - height
-        )
-        addSubview(titleLabel)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        willMove(toParent: nil)
+        view.removeFromSuperview()
+        removeFromParent()
     }
 }
