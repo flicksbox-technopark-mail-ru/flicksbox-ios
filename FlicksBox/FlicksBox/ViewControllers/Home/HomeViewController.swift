@@ -10,6 +10,7 @@ import Botticelli
 
 final class HomeViewController: SBViewController {
     private let model = HomeModel()
+    private var myListAdded: Bool = false
     
     private let pagesListHeight: CGFloat = 60
     private lazy var pagesListView: PagesListView = {
@@ -24,11 +25,14 @@ final class HomeViewController: SBViewController {
                 self?.moviesPageVC.view.isHidden = false
             case .TVShows:
                 self?.tvshowsPageVC.view.isHidden = false
+            case .MyList:
+                self?.myListVC.loadMyListData()
+                self?.myListVC.view.isHidden = false
             default:
                 fatalError("Unexpected page type")
             }
         }
-        return PagesListView(frame: pagesFrame, pages: model.pages, observer: pageSelectionObserver)
+        return PagesListView(frame: pagesFrame, pages: model.activePages, observer: pageSelectionObserver)
     }()
     
     private lazy var pageFrame = CGRect(
@@ -37,14 +41,22 @@ final class HomeViewController: SBViewController {
         width: view.bounds.width,
         height: view.bounds.height - pagesListHeight
     )
-    private lazy var mainPageVC = HomeContentViewController(model: model.getPageModel(page: .Main))
-    private lazy var moviesPageVC = HomeContentViewController(model: model.getPageModel(page: .Movies))
-    private lazy var tvshowsPageVC = HomeContentViewController(model: model.getPageModel(page: .TVShows))
-//    private lazy var myListVC = HomeContentViewController(model: model.getPageModel(page: .MyList))
+    private lazy var mainPageVC = HomeContentViewController(model: model.getPageModel(page: .Main) as! PageModel)
+    private lazy var moviesPageVC = HomeContentViewController(model: model.getPageModel(page: .Movies) as! PageModel)
+    private lazy var tvshowsPageVC = HomeContentViewController(model: model.getPageModel(page: .TVShows) as! PageModel)
+    private lazy var myListVC = MyListViewController(model: model.getPageModel(page: .MyList) as! MyListModel)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if myListVC.view.isHidden == false {
+            myListVC.loadMyListData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(pagesListView)
+        add(myListVC, frame: pageFrame)
         add(tvshowsPageVC, frame: pageFrame)
         add(moviesPageVC, frame: pageFrame)
         add(mainPageVC, frame: pageFrame)
@@ -54,6 +66,7 @@ final class HomeViewController: SBViewController {
         mainPageVC.view.isHidden = true
         moviesPageVC.view.isHidden = true
         tvshowsPageVC.view.isHidden = true
+        myListVC.view.isHidden = true
     }
 }
 

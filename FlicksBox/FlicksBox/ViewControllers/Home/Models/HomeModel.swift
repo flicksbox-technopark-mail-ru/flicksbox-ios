@@ -11,7 +11,9 @@ protocol PageContent {
     var name: String { get }
 }
 
-protocol PageModel: NSObject {
+protocol BaseHomeModel: NSObject {}
+
+protocol PageModel: BaseHomeModel {
     var sectionsCount: Int { get }
     func getSectionName(_ section: Int) -> String
     func loadSectionData(section: Int, success: @escaping ([ContentInfo]) -> Void, failure: @escaping (String) -> Void)
@@ -28,18 +30,37 @@ struct Page {
     
     let name: String
     let type: PageType
-    let model: PageModel
+    let model: BaseHomeModel
 }
 
 final class HomeModel: NSObject {
-    let pages: [Page] = [
+    private let pages: [Page] = [
         .init(name: "Главная", type: .Main, model: MainPageModel()),
         .init(name: "Фильмы", type: .Movies, model: MoviesPageModel()),
         .init(name: "Сериалы", type: .TVShows, model: TVShowsPageModel()),
-        .init(name: "Мой список", type: .MyList, model: TVShowsPageModel()),
+        .init(name: "Мой список", type: .MyList, model: MyListModel()),
     ]
     
-    func getPageModel(page: Page.PageType) -> PageModel {
+    var activePages: [Page] {
+        get {
+            var activePages = pages
+            if ClientUser.shared.userData == nil {
+                // delete my list page from pages
+                // how do better
+                activePages.removeLast()
+            }
+            return activePages
+        }
+    }
+    
+    // ClientUser.shared.userData
+    // TODO
+    // как скрыть при неавторизованом
+    // и как открыть при авторизованном
+    // возможно let hide: Bool в struct Page
+    
+    
+    func getPageModel(page: Page.PageType) -> BaseHomeModel {
         return pages[page.rawValue].model
     }
 }

@@ -45,6 +45,13 @@ class PagesListView: SBView {
         collectionView.frame = bounds
     }
     
+    func updateData(pages: [Page]) {
+        self.pages = pages.map {
+            .init($0.name)
+        }
+        collectionView.reloadData()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -61,8 +68,15 @@ extension PagesListView: UICollectionViewDelegate, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        // problem with correct resizeing on reloadData
+        // https://stackoverflow.com/questions/47337873/uicollectionview-cells-resize-incorrectly-on-reloaddata
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(PagesListCell.self), for: indexPath) as! PagesListCell
+        cell.contentView.frame = cell.bounds
+        cell.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         return CGSize(width: pages[indexPath.row].size.width, height: bounds.height)
     }
+
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)

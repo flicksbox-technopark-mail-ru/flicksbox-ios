@@ -47,6 +47,7 @@ final class ContentGridView: SBView {
     }
     
     func updateData(_ content: [ContentInfo]) {
+        guard self.content != content else { return }
         self.content = content
         self.collectionView.reloadData()
     }

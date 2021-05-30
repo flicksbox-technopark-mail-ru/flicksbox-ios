@@ -13,7 +13,7 @@ struct APITVShow: Decodable {
     let id: Int
     let images: String
     let is_favourite: Bool
-    let is_free: Bool
+    let is_free: Bool?
     let is_liked: Bool?
     let name: String
     let original_name: String
@@ -21,4 +21,8 @@ struct APITVShow: Decodable {
     let short_description: String
     let type: APIContentType
     let year: Int
+    let countries: [APICountry]?
+    let genres: [APIGenre]?
+    let actors: [APIActor]?
+    let directors: [APIDirector]?
 }

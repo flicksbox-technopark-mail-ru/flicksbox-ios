@@ -8,7 +8,7 @@
 import Foundation
 
 // TODO: uses in different places -> move to another place
-struct ContentInfo {
+struct ContentInfo: Equatable {
     enum ContentType {
         case movie
         case tvshow
@@ -49,5 +49,9 @@ struct ContentInfo {
         self.year = year
         self.type = type
         self.short_desc = short_desc
+    }
+    
+    static func ==(lhs: ContentInfo, rhs: ContentInfo) -> Bool {
+        return lhs.contentId == rhs.contentId
     }
 }

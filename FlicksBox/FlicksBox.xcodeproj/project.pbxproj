@@ -68,7 +68,13 @@
 		C43A8A2526568CCE006FFC7C /* ContentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A8A2426568CCE006FFC7C /* ContentInfo.swift */; };
 		C43A8A342656CC9B006FFC7C /* MoviesPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A8A332656CC9B006FFC7C /* MoviesPageModel.swift */; };
 		C43A8A3C2656ED9A006FFC7C /* TVShowsPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43A8A3B2656ED9A006FFC7C /* TVShowsPageModel.swift */; };
+		C4AB107A2659132600FBEA8D /* MyListEmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB10782659132500FBEA8D /* MyListEmptyResultView.swift */; };
+		C4AB107B2659132600FBEA8D /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB10792659132600FBEA8D /* MyListViewController.swift */; };
+		C4AB107F2659143600FBEA8D /* MyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AB107E2659143600FBEA8D /* MyListModel.swift */; };
 		C4CEDEA42657CD74004CBECF /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEDEA32657CD74004CBECF /* HomeContentView.swift */; };
+		C4F78D7E266305480014BCD9 /* MyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D7D266305480014BCD9 /* MyListInteractor.swift */; };
+		C4F78D82266308550014BCD9 /* APIFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D81266308550014BCD9 /* APIFavourites.swift */; };
+		C4F78D8626630E100014BCD9 /* APIDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D8526630E100014BCD9 /* APIDirector.swift */; };
 		C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9324262CAC90001BBC13 /* FreeContentViewController.swift */; };
 		C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9326262CAC90001BBC13 /* ContentGridView.swift */; };
 		C4FB932F262CAC90001BBC13 /* ContentGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9327262CAC90001BBC13 /* ContentGridCell.swift */; };
@@ -205,7 +211,13 @@
 		C43A8A2426568CCE006FFC7C /* ContentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfo.swift; sourceTree = "<group>"; };
 		C43A8A332656CC9B006FFC7C /* MoviesPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPageModel.swift; sourceTree = "<group>"; };
 		C43A8A3B2656ED9A006FFC7C /* TVShowsPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsPageModel.swift; sourceTree = "<group>"; };
+		C4AB10782659132500FBEA8D /* MyListEmptyResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListEmptyResultView.swift; sourceTree = "<group>"; };
+		C4AB10792659132600FBEA8D /* MyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		C4AB107E2659143600FBEA8D /* MyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListModel.swift; sourceTree = "<group>"; };
 		C4CEDEA32657CD74004CBECF /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		C4F78D7D266305480014BCD9 /* MyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListInteractor.swift; sourceTree = "<group>"; };
+		C4F78D81266308550014BCD9 /* APIFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFavourites.swift; sourceTree = "<group>"; };
+		C4F78D8526630E100014BCD9 /* APIDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDirector.swift; sourceTree = "<group>"; };
 		C4FB9324262CAC90001BBC13 /* FreeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeContentViewController.swift; sourceTree = "<group>"; };
 		C4FB9326262CAC90001BBC13 /* ContentGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentGridView.swift; sourceTree = "<group>"; };
 		C4FB9327262CAC90001BBC13 /* ContentGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentGridCell.swift; sourceTree = "<group>"; };
@@ -371,6 +383,8 @@
 				B55CF12B263EA27500DE6F25 /* APIContentType.swift */,
 				C4FB935E262D98B6001BBC13 /* APIGenre.swift */,
 				C4FB93AD2634D521001BBC13 /* APIResult.swift */,
+				C4F78D81266308550014BCD9 /* APIFavourites.swift */,
+				C4F78D8526630E100014BCD9 /* APIDirector.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -385,6 +399,7 @@
 				C4FB9368262D9B66001BBC13 /* CountriesInteractor.swift */,
 				C4FB93952633630D001BBC13 /* SearchInteractor.swift */,
 				C4FB93A12634BF15001BBC13 /* RecommendationsInteractor.swift */,
+				C4F78D7D266305480014BCD9 /* MyListInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -567,6 +582,7 @@
 				C42B1F022656849C003DA620 /* MainPageModel.swift */,
 				C43A8A332656CC9B006FFC7C /* MoviesPageModel.swift */,
 				C43A8A3B2656ED9A006FFC7C /* TVShowsPageModel.swift */,
+				C4AB107E2659143600FBEA8D /* MyListModel.swift */,
 				C43A8A2426568CCE006FFC7C /* ContentInfo.swift */,
 			);
 			path = Models;
@@ -587,6 +603,8 @@
 		C4CEDEA92657CE56004CBECF /* MyList */ = {
 			isa = PBXGroup;
 			children = (
+				C4AB10792659132600FBEA8D /* MyListViewController.swift */,
+				C4AB10782659132500FBEA8D /* MyListEmptyResultView.swift */,
 			);
 			path = MyList;
 			sourceTree = "<group>";
@@ -926,6 +944,7 @@
 				C4FB938026335B67001BBC13 /* RecommendationsGridCell.swift in Sources */,
 				C4FB9365262D991B001BBC13 /* GenresInteractor.swift in Sources */,
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
+				C4AB107B2659132600FBEA8D /* MyListViewController.swift in Sources */,
 				C4FB938126335B67001BBC13 /* ResultsGridFooter.swift in Sources */,
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
@@ -935,8 +954,10 @@
 				78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */,
 				B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */,
 				78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */,
+				C4F78D82266308550014BCD9 /* APIFavourites.swift in Sources */,
 				C43A8A2526568CCE006FFC7C /* ContentInfo.swift in Sources */,
 				B52F579F2606633F003FFF06 /* ProfileViewController.swift in Sources */,
+				C4F78D7E266305480014BCD9 /* MyListInteractor.swift in Sources */,
 				78F3E11C263611B800BB68C9 /* AuthLabel.swift in Sources */,
 				B535F051260780D900C48BC4 /* APIResponse.swift in Sources */,
 				B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */,
@@ -952,9 +973,11 @@
 				C4FB932F262CAC90001BBC13 /* ContentGridCell.swift in Sources */,
 				78F3E10C2635D5BF00BB68C9 /* AuthModel.swift in Sources */,
 				C4FB938426335B67001BBC13 /* ResultsGridHeader.swift in Sources */,
+				C4AB107F2659143600FBEA8D /* MyListModel.swift in Sources */,
 				C4FB937B26335B67001BBC13 /* SearchViewController.swift in Sources */,
 				B52F57AE2606650C003FFF06 /* MainController.swift in Sources */,
 				C4FB9330262CAC90001BBC13 /* FiltersView.swift in Sources */,
+				C4AB107A2659132600FBEA8D /* MyListEmptyResultView.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
 				B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */,
@@ -972,6 +995,7 @@
 				C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */,
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,
+				C4F78D8626630E100014BCD9 /* APIDirector.swift in Sources */,
 				C43A8A3C2656ED9A006FFC7C /* TVShowsPageModel.swift in Sources */,
 				C4060F54263FCD6700D7C887 /* PreviewSliderCell.swift in Sources */,
 				C4FB9333262CAC90001BBC13 /* FiltersListFooter.swift in Sources */,
