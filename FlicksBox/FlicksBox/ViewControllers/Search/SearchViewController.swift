@@ -72,17 +72,13 @@ final class SearchViewController: SBViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSubviews()
-        configureGestures()
-        loadRecommendations()
-    }
-    
-    private func configureSubviews() {
         view.addSubview(emptyResultView)
         view.addSubview(resultsGridView)
         view.addSubview(recGridView)
         view.addSubview(searchBarView)
         showRecommendationsGridView()
+        configureGestures()
+        loadRecommendations()
     }
     
     private func configureGestures() {
@@ -109,7 +105,7 @@ final class SearchViewController: SBViewController {
         }
     }
     
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
     }

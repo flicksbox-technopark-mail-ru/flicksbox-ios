@@ -7,6 +7,8 @@
 
 import UIKit
 import Botticelli
+import AVKit
+import AVFoundation
 
 class RecommendationsGridCell: UICollectionViewCell {
     var content: ContentInfo? {
@@ -18,25 +20,25 @@ class RecommendationsGridCell: UICollectionViewCell {
         }
     }
     
-    let poster: SBImageView = {
-        let poster = SBImageView()
-        poster.layer.cornerRadius = 5
-        poster.clipsToBounds = true
-        poster.contentMode = .scaleAspectFill
-        poster.translatesAutoresizingMaskIntoConstraints = false
-        poster.backgroundColor = .darkGray
-        return poster
-    }()
-    
-    let playButton: SBButton = {
+    private lazy var playButton: SBButton = {
         let button = SBButton(type: .custom)
         let image = UIImage(named: "play.png")
         let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         button.setImage(tintedImage, for: .normal)
+        button.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
         return button
     }()
     
-    lazy var titleLabel: SBLabel = {
+    private let poster: SBImageView = {
+        let poster = SBImageView()
+        poster.layer.cornerRadius = 5
+        poster.clipsToBounds = true
+        poster.contentMode = .scaleAspectFill
+        poster.backgroundColor = .darkGray
+        return poster
+    }()
+    
+    private lazy var titleLabel: SBLabel = {
         let label = SBLabel()
         label.baselineAdjustment = .alignCenters
         label.lineBreakMode = .byTruncatingTail
@@ -48,22 +50,23 @@ class RecommendationsGridCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
-        configureSubviews()
+        contentView.addSubview(poster)
+        contentView.addSubview(playButton)
+        contentView.addSubview(titleLabel)
     }
+    
     private func configureView() {
         backgroundColor = .clear
     }
     
-    private func configureSubviews() {
+    override func layoutSubviews() {
         let sideSpace: CGFloat = 10
-        
         poster.frame = CGRect(
             x: contentView.bounds.minX,
             y: contentView.bounds.minY,
             width: contentView.bounds.height / 9 * 16,
             height: contentView.bounds.height
         )
-        contentView.addSubview(poster)
         
         let buttonSize: CGFloat = 40
         playButton.frame = CGRect(
@@ -72,7 +75,6 @@ class RecommendationsGridCell: UICollectionViewCell {
             width: buttonSize,
             height: buttonSize
         )
-        contentView.addSubview(playButton)
         
         titleLabel.frame = CGRect(
             x: poster.frame.maxX + sideSpace,
@@ -80,7 +82,17 @@ class RecommendationsGridCell: UICollectionViewCell {
             width: contentView.frame.width - poster.bounds.width - buttonSize - sideSpace * 3,
             height: contentView.frame.height
         )
-        contentView.addSubview(titleLabel)
+    }
+    
+    @objc private func playVideo() {
+        guard let content = self.content else { return }
+        let videoURL = URL(string: content.video)
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.window?.rootViewController?.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
     }
     
     required init?(coder: NSCoder) {

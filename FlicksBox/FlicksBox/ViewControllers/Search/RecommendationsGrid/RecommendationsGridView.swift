@@ -7,6 +7,8 @@
 
 import UIKit
 import Botticelli
+import AVKit
+import AVFoundation
 
 final class RecommendationsGridView: SBView {
     private var content: [ContentInfo] = []
@@ -23,6 +25,8 @@ final class RecommendationsGridView: SBView {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.keyboardDismissMode = .onDrag
+        collectionView.isUserInteractionEnabled = true
+        collectionView.allowsSelection = false
         
         collectionView.register(
             RecommendationsGridCell.self,
@@ -38,12 +42,11 @@ final class RecommendationsGridView: SBView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureSubviews()
+        addSubview(collectionView)
     }
     
-    private func configureSubviews() {
+    override func layoutSubviews() {
         collectionView.frame = bounds
-        addSubview(collectionView)
     }
     
     required init?(coder: NSCoder) {

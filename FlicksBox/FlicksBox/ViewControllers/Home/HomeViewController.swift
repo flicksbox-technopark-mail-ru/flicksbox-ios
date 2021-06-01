@@ -60,6 +60,9 @@ final class HomeViewController: SBViewController {
         add(tvshowsPageVC, frame: pageFrame)
         add(moviesPageVC, frame: pageFrame)
         add(mainPageVC, frame: pageFrame)
+        
+        hideAllPages()
+        self.mainPageVC.view.isHidden = false
     }
     
     private func hideAllPages() {
