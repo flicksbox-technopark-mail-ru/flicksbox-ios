@@ -53,6 +53,11 @@ final class HomeViewController: SBViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pagesListView.updateData(pages: model.activePages)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(pagesListView)

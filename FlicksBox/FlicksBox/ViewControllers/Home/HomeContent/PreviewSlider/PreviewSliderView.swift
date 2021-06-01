@@ -8,7 +8,13 @@
 import UIKit
 import Botticelli
 
+protocol PreviewSliderViewDelegate: AnyObject {
+    func didSelectCell(content: ContentInfo)
+}
+
 class PreviewSliderView: SBView {
+    weak var delegate: PreviewSliderViewDelegate?
+    
     private let fakeCellsCount = 40
     private var content: [ContentInfo] = []
     
@@ -50,7 +56,7 @@ class PreviewSliderView: SBView {
     }
 }
 
-extension PreviewSliderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension PreviewSliderView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         fakeCellsCount
     }
@@ -96,5 +102,19 @@ extension PreviewSliderView: UICollectionViewDelegate, UICollectionViewDataSourc
             index.row = index.row + 1
         }
         self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+    }
+}
+
+extension PreviewSliderView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.25, animations: {
+            cell?.alpha = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.25, animations: {
+                cell?.alpha = 1
+            })
+        }
+        delegate?.didSelectCell(content: content[indexPath.row % content.count])
     }
 }
