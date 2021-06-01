@@ -214,5 +214,8 @@ extension SearchViewController: ResultsGridViewDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func didSelectActor(actor: Actor) {}
+    func didSelectActor(actor: Actor) {
+        let viewController = FactoryViewControllers.createActorContent(actor: actor)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
