@@ -24,7 +24,6 @@ class ContentGridCell: UICollectionViewCell {
         let poster = SBImageView()
         poster.clipsToBounds = true
         poster.contentMode = .scaleAspectFill
-        poster.translatesAutoresizingMaskIntoConstraints = false
         return poster
     }()
     

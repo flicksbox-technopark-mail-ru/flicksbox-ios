@@ -18,10 +18,6 @@ final class MyListViewController: SBViewController {
         self.model = model
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        loadMyListData()
-//    }
-    
     override func viewWillLayoutSubviews() {
         let sideSpace: CGFloat = 20
         emptyResultView = MyListEmptyResultView(frame: CGRect(
@@ -31,6 +27,7 @@ final class MyListViewController: SBViewController {
             height: view.bounds.height - 300
         ))
         contentGridView = ContentGridView(frame: view.bounds)
+        contentGridView.delegate = self
         
         view.addSubview(emptyResultView)
         view.addSubview(contentGridView)
@@ -66,5 +63,12 @@ final class MyListViewController: SBViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+}
+
+extension MyListViewController: ContentGridViewDelegate {
+    func didSelectCell(content: ContentInfo) {
+        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -330,6 +330,7 @@
 				C4FB9323262CAC90001BBC13 /* FreeContent */,
 				78F3E0E62635D29200BB68C9 /* Auth */,
 				C4FB936C26335B65001BBC13 /* Search */,
+				C4F78DA72666C5850014BCD9 /* Actor */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -607,6 +608,13 @@
 				C4AB10782659132500FBEA8D /* MyListEmptyResultView.swift */,
 			);
 			path = MyList;
+			sourceTree = "<group>";
+		};
+		C4F78DA72666C5850014BCD9 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Actor;
 			sourceTree = "<group>";
 		};
 		C4FB9323262CAC90001BBC13 /* FreeContent */ = {

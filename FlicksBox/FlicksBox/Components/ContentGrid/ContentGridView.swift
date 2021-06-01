@@ -8,7 +8,13 @@
 import UIKit
 import Botticelli
 
+protocol ContentGridViewDelegate: AnyObject {
+    func didSelectCell(content: ContentInfo)
+}
+
 final class ContentGridView: SBView {
+    weak var delegate: ContentGridViewDelegate?
+    
     private var content: [ContentInfo] = []
     private let sideSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 2
@@ -86,5 +92,15 @@ extension ContentGridView: UICollectionViewDataSource, UICollectionViewDelegateF
 }
 
 extension ContentGridView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.25, animations: {
+            cell?.alpha = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.25, animations: {
+                cell?.alpha = 1
+            })
+        }
+        delegate?.didSelectCell(content: content[indexPath.row])
+    }
 }

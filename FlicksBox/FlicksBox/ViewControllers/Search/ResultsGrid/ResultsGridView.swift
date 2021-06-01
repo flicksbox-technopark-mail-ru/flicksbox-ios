@@ -8,7 +8,14 @@
 import UIKit
 import Botticelli
 
+protocol ResultsGridViewDelegate: AnyObject {
+    func didSelectContent(content: ContentInfo)
+    func didSelectActor(actor: Actor)
+}
+
 final class ResultsGridView: SBView {
+    weak var delegate: ResultsGridViewDelegate?
+    
     private var content: [ContentInfo] = []
     private var actors: [Actor] = []
     private let sectionTitles = ["Фильмы и сериалы", "Актеры"]
@@ -69,7 +76,7 @@ final class ResultsGridView: SBView {
     }
 }
 
-extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ResultsGridView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return content.count
@@ -155,7 +162,26 @@ extension ResultsGridView: UICollectionViewDelegate, UICollectionViewDataSource,
     }
 }
 
-extension ResultsGridView: UIGestureRecognizerDelegate {}
+extension ResultsGridView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.25, animations: {
+            cell?.alpha = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.25, animations: {
+                cell?.alpha = 1
+            })
+        }
+        switch indexPath.section {
+        case 0:
+            delegate?.didSelectContent(content: content[indexPath.row])
+        case 1:
+            delegate?.didSelectActor(actor: actors[indexPath.row])
+        default:
+            fatalError("Unexpected section")
+        }
+    }
+}
 
 // Allow collection view multiple gestures recognizers
 extension UICollectionView: UIGestureRecognizerDelegate {
