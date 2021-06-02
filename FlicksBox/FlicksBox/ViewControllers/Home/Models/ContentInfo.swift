@@ -31,7 +31,8 @@ final class ContentInfo: Equatable {
     let largeImage: String
     let year: Int
     let type: ContentType
-    let short_desc: String
+    let description: String
+    let shortDescription: String
     let video: String
     var favourite: Bool?
     
@@ -45,7 +46,8 @@ final class ContentInfo: Equatable {
             type: ContentType(apiType: movie.type),
             short_desc: movie.short_description,
             original_name: movie.original_name,
-            favorite: movie.is_favourite
+            favorite: movie.is_favourite,
+            description: movie.description
         )
     }
     
@@ -59,11 +61,12 @@ final class ContentInfo: Equatable {
             type: ContentType(apiType: tvShow.type),
             short_desc: tvShow.short_description,
             original_name: tvShow.original_name,
-            favorite: tvShow.is_favourite
+            favorite: tvShow.is_favourite,
+            description: tvShow.description
         )
     }
     
-    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String, favorite: Bool?) {
+    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String, favorite: Bool?, description: String) {
         self.id = id
         self.contentId = contentId
         self.name = name
@@ -72,8 +75,9 @@ final class ContentInfo: Equatable {
         self.largeImage = "https://www.flicksbox.ru\(image)/1920"
         self.year = year
         self.type = type
-        self.short_desc = short_desc
+        self.shortDescription = short_desc
         self.favourite = favorite
+        self.description = description
         
         // TODO move to helpers
         if type == .movie {

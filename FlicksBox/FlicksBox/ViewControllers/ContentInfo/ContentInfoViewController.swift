@@ -12,10 +12,18 @@ import AVFoundation
 
 final class ContentInfoViewController: SBViewController {
     let favouriteInteractor = FavoritesInteractor()
+    let ratingInteractor = RatingInteractor()
     
     var contentInfo: ContentInfo? {
         didSet {
-            self.title = contentInfo?.name
+            guard let info = contentInfo else {
+                return
+            }
+            title = info.name
+            nameLabel.text = title
+            shortInfo.text = info.shortDescription
+            originalNameInfo.descriptionText = info.originalName
+            yearInfo.descriptionText = "\(info.year)"
         }
     }
     
@@ -46,6 +54,28 @@ final class ContentInfoViewController: SBViewController {
         return button
     }()
     
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .white
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private let shortInfo: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.textColor = .gray
+        label.textAlignment = .natural
+        return label
+    }()
+    
+    private let originalNameInfo = ContentInfoView(name: "Оригинальное название:")
+    private let yearInfo = ContentInfoView(name: "Год выпуска:")
+    private let ratingInfo = ContentInfoView(name: "Положительных оценок:")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +85,11 @@ final class ContentInfoViewController: SBViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(playButton)
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(shortInfo)
+        scrollView.addSubview(originalNameInfo)
+        scrollView.addSubview(yearInfo)
+        scrollView.addSubview(ratingInfo)
         
         playButton.addTarget(self, action: #selector(openPlayer), for: .touchUpInside)
     }
@@ -62,10 +97,31 @@ final class ContentInfoViewController: SBViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let imageUrl = contentInfo?.largeImage else {
+        guard let info = contentInfo else {
+            alert(message: "Произошла ошибка, извиняемся :)")
             return
         }
-        imageView.loadWebP(url: imageUrl)
+        
+        ratingInfo.descriptionText = "Загружаем..."
+        ratingInteractor.get(contentId: info.contentId) { [weak self] rating in
+            let color: UIColor
+            if rating > 70 {
+                color = .systemGreen
+            } else if rating > 40 {
+                color = .systemOrange
+            } else {
+                color = .systemRed
+            }
+            UIView.animate(withDuration: 0.3) {
+                self?.ratingInfo.descriptionText = "\(rating)%"
+                self?.ratingInfo.descriptionColor = color
+            }
+        } failure: { [weak self] error in
+            self?.alert(message: error.localizedDescription)
+        }
+
+        
+        imageView.loadWebP(url: info.largeImage)
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,10 +137,22 @@ final class ContentInfoViewController: SBViewController {
         playButton.frame = CGRect(x: imageView.frame.midX - buttonWidth / 2, y: imageView.frame.maxY + 10, width: buttonWidth, height: 50)
         playButton.layer.cornerRadius = playButton.frame.height / 2
         
+        let nameFrame = nameLabel.sizeThatFits(CGSize(width: imageView.frame.width - 10, height: .infinity))
+        nameLabel.frame = CGRect(origin: CGPoint(x: imageView.frame.minX, y: playButton.frame.maxY + 10), size: nameFrame)
         
+        let shortFrame = shortInfo.sizeThatFits(CGSize(width: imageView.frame.width - 10, height: .infinity))
+        shortInfo.frame = CGRect(origin: CGPoint(x: imageView.frame.minX, y: nameLabel.frame.maxY + 5), size: shortFrame)
+        
+        originalNameInfo.frame = CGRect(x: imageView.frame.minX, y: shortInfo.frame.maxY + 10, width: imageView.frame.width, height: 30)
+        
+        yearInfo.frame = CGRect(x: imageView.frame.minX, y: originalNameInfo.frame.maxY + 5, width: imageView.frame.width, height: 30)
+        
+        ratingInfo.frame = CGRect(x: imageView.frame.minX, y: yearInfo.frame.maxY + 5, width: imageView.frame.width, height: 30)
+        
+        let hScroll = 5 + imageView.frame.height + 10 + playButton.frame.height + 10 + nameLabel.frame.height + 5 + shortInfo.frame.height + 10 + originalNameInfo.frame.height + 5 + yearInfo.frame.height + 5 + ratingInfo.frame.height + 5
         scrollView.contentSize = CGSize(
             width: view.bounds.width,
-            height: 5 + imageView.frame.height + 10 + playButton.frame.height
+            height: max(hScroll, view.bounds.height + 2)
         )
     }
     
