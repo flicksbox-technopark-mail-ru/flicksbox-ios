@@ -8,7 +8,7 @@ final class AuthViewController: SBViewController {
     private lazy var authView: AuthView = {
         
         let widthAuthView: CGFloat = view.bounds.width * 9 / 10
-        let heightAuthView: CGFloat = view.bounds.height * 5 / 13
+        let heightAuthView: CGFloat = 380
         let authView = AuthView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
         
         authView.authButtonClick = { [weak self] email, password in
@@ -36,7 +36,7 @@ final class AuthViewController: SBViewController {
     private lazy var registrationView: RegistrationView = {
         
         let widthAuthView: CGFloat = view.bounds.width * 9 / 10
-        let heightAuthView: CGFloat = view.bounds.height * 8 / 14
+        let heightAuthView: CGFloat = 520
         let registrationView = RegistrationView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
         
         registrationView.registrationButtonClick = { [weak self] login, email, password, repeatPassword in
@@ -93,9 +93,11 @@ final class AuthViewController: SBViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 55
-        }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                    if self.view.frame.origin.y == 0 {
+                        self.view.frame.origin.y -= keyboardSize.height * 0.2
+                    }
+                }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {

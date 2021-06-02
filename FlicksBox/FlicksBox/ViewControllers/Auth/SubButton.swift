@@ -1,10 +1,3 @@
-//
-//  AuthButton.swift
-//  FlicksBox
-//
-//  Created by Александр Бутолин on 21.04.2021.
-//
-
 import Botticelli
 import UIKit
 

@@ -12,8 +12,9 @@ final class AuthIput: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 5
-        let inputColor = #colorLiteral(red: 0.9802892804, green: 0.9804533124, blue: 0.9802661538, alpha: 1)
-        backgroundColor = inputColor
+        backgroundColor = #colorLiteral(red: 0.9802892804, green: 0.9804533124, blue: 0.9802661538, alpha: 1)
+        attributedPlaceholder = NSAttributedString(string: "input", attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)])
+        textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     required init?(coder: NSCoder) {

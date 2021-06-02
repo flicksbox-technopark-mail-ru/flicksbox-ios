@@ -51,7 +51,6 @@ final class AuthModel: NSObject {
     }
     
     func registration(login: String, email: String, password: String, repeatPassword: String, success: @escaping () -> Void, failure: @escaping (String) -> Void) {
-        
         let userSignup = UserSignup(nickname: login, email: email, password: password, repeated_password: repeatPassword)
         
         userInteractor.signup(user: userSignup) { response in
