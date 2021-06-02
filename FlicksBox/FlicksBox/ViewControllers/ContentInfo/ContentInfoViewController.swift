@@ -48,7 +48,6 @@ final class ContentInfoViewController: SBViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        ClientUser.shared.userData = nil
         
         let starImage = (contentInfo?.favourite ?? false) ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: starImage, style: .plain, target: self, action: #selector(favoriteButtonClicked))
