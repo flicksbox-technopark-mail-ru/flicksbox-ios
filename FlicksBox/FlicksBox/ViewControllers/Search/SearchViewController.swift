@@ -203,14 +203,14 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: RecommendationsGridViewDelegate {
     func didSelectCell(content: ContentInfo) {
         self.isMoveFromRecGridView = true
-        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        let viewController = FactoryViewControllers.createContentInfo(info: content)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 extension SearchViewController: ResultsGridViewDelegate {
     func didSelectContent(content: ContentInfo) {
-        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        let viewController = FactoryViewControllers.createContentInfo(info: content)
         navigationController?.pushViewController(viewController, animated: true)
     }
     

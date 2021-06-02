@@ -55,7 +55,6 @@
 		B5A672E5262378FF0033DFC0 /* APIActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E4262378FF0033DFC0 /* APIActor.swift */; };
 		B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E82623790D0033DFC0 /* APICountry.swift */; };
 		B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672EC262379140033DFC0 /* APIMovie.swift */; };
-		B5AB4997266748AC00F35363 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AB4996266748AC00F35363 /* Storyboard.storyboard */; };
 		B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */; };
 		B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD7143262C889900BDC279 /* APITVShow.swift */; };
 		B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */; };
@@ -196,7 +195,6 @@
 		B5A672E4262378FF0033DFC0 /* APIActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActor.swift; sourceTree = "<group>"; };
 		B5A672E82623790D0033DFC0 /* APICountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICountry.swift; sourceTree = "<group>"; };
 		B5A672EC262379140033DFC0 /* APIMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMovie.swift; sourceTree = "<group>"; };
-		B5AB4996266748AC00F35363 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B5CD7143262C889900BDC279 /* APITVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
 		B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfoViewController.swift; sourceTree = "<group>"; };
@@ -539,7 +537,6 @@
 			isa = PBXGroup;
 			children = (
 				B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */,
-				B5AB4996266748AC00F35363 /* Storyboard.storyboard */,
 			);
 			path = ContentInfo;
 			sourceTree = "<group>";
@@ -845,7 +842,6 @@
 			files = (
 				B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */,
 				B537F65225F25C9700B51383 /* Assets.xcassets in Resources */,
-				B5AB4997266748AC00F35363 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
