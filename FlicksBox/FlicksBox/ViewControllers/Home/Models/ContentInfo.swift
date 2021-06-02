@@ -33,16 +33,37 @@ struct ContentInfo: Equatable {
     let type: ContentType
     let short_desc: String
     let video: String
+    var favorite: Bool?
     
     init(from movie: APIMovie) {
-        self.init(id: movie.id, contentId: movie.content_id, name: movie.name, image: movie.images, year: movie.year, type: ContentType(apiType: movie.type), short_desc: movie.short_description, original_name: movie.original_name)
+        self.init(
+            id: movie.id,
+            contentId: movie.content_id,
+            name: movie.name,
+            image: movie.images,
+            year: movie.year,
+            type: ContentType(apiType: movie.type),
+            short_desc: movie.short_description,
+            original_name: movie.original_name,
+            favorite: movie.is_favourite
+        )
     }
     
     init(from tvShow: APITVShow) {
-        self.init(id: tvShow.id, contentId: tvShow.content_id, name: tvShow.name, image: tvShow.images, year: tvShow.year, type: ContentType(apiType: tvShow.type), short_desc: tvShow.short_description, original_name: tvShow.original_name)
+        self.init(
+            id: tvShow.id,
+            contentId: tvShow.content_id,
+            name: tvShow.name,
+            image: tvShow.images,
+            year: tvShow.year,
+            type: ContentType(apiType: tvShow.type),
+            short_desc: tvShow.short_description,
+            original_name: tvShow.original_name,
+            favorite: tvShow.is_favourite
+        )
     }
     
-    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String) {
+    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String, favorite: Bool?) {
         self.id = id
         self.contentId = contentId
         self.name = name
@@ -52,6 +73,7 @@ struct ContentInfo: Equatable {
         self.year = year
         self.type = type
         self.short_desc = short_desc
+        self.favorite = favorite
         
         // TODO move to helpers
         if type == .movie {

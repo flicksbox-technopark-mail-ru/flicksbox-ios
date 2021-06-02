@@ -56,20 +56,32 @@ public final class HermesClient {
             request.errorHandler?(HermesError.invalidUrl)
             return
         }
+        
+        let failure = { (error: Error) in
+            DispatchQueue.main.async {
+                request.errorHandler?(error)
+            }
+        }
+        let success = { (response: HermesResponse) in
+            DispatchQueue.main.async {
+                request.successHandler?(response)
+            }
+        }
+        
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if let error = error {
-                request.errorHandler?(error)
-                return
-            }
-            guard let data = data else {
-                request.errorHandler?(HermesError.emptyData)
+                failure(error)
                 return
             }
             guard let response = response as? HTTPURLResponse else {
-                request.errorHandler?(HermesError.invalidCode)
+                failure(HermesError.invalidCode)
                 return
             }
-            request.successHandler?(.init(data: .init(with: data), code: response.statusCode, headers: response.allHeaderFields))
+            guard let data = data else {
+                failure(HermesError.emptyData)
+                return
+            }
+            success(.init(data: .init(with: data), code: response.statusCode, headers: response.allHeaderFields))
         }
         task.resume()
     }

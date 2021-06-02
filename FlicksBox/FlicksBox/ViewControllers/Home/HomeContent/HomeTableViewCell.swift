@@ -97,7 +97,7 @@ extension HomeTableViewCell: UICollectionViewDelegate {
             })
         }
 
-        let viewController = FactoryViewControllers.createFilmInfo(info: filmInfo)
+        let viewController = FactoryViewControllers.createContentInfo(info: filmInfo)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

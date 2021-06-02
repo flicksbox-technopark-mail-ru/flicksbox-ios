@@ -55,8 +55,10 @@
 		B5A672E5262378FF0033DFC0 /* APIActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E4262378FF0033DFC0 /* APIActor.swift */; };
 		B5A672E92623790E0033DFC0 /* APICountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672E82623790D0033DFC0 /* APICountry.swift */; };
 		B5A672ED262379140033DFC0 /* APIMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A672EC262379140033DFC0 /* APIMovie.swift */; };
+		B5AB4997266748AC00F35363 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5AB4996266748AC00F35363 /* Storyboard.storyboard */; };
+		B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */; };
 		B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD7143262C889900BDC279 /* APITVShow.swift */; };
-		B5EB4169262C69EB00D741A0 /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4168262C69EB00D741A0 /* FilmInfoViewController.swift */; };
+		B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */; };
 		B5EB416D262C6B1200D741A0 /* SBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB416C262C6B1200D741A0 /* SBImageView.swift */; };
 		C4060F1F263F033F00D7C887 /* HomeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4060F1E263F033F00D7C887 /* HomeTableViewHeader.swift */; };
 		C4060F29263F054800D7C887 /* PreviewSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4060F28263F054800D7C887 /* PreviewSliderView.swift */; };
@@ -191,8 +193,10 @@
 		B5A672E4262378FF0033DFC0 /* APIActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActor.swift; sourceTree = "<group>"; };
 		B5A672E82623790D0033DFC0 /* APICountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICountry.swift; sourceTree = "<group>"; };
 		B5A672EC262379140033DFC0 /* APIMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMovie.swift; sourceTree = "<group>"; };
+		B5AB4996266748AC00F35363 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B5CD7143262C889900BDC279 /* APITVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
-		B5EB4168262C69EB00D741A0 /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
+		B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfoViewController.swift; sourceTree = "<group>"; };
 		B5EB416C262C6B1200D741A0 /* SBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImageView.swift; sourceTree = "<group>"; };
 		B5F896C225F418C300728327 /* HermesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesRequest.swift; sourceTree = "<group>"; };
 		B5F896C625F418D300728327 /* HermesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesClient.swift; sourceTree = "<group>"; };
@@ -326,7 +330,7 @@
 				B5A6729C262334360033DFC0 /* Home */,
 				B52F5793260662C9003FFF06 /* Main */,
 				B52F5791260662B2003FFF06 /* Profile */,
-				B5EB4167262C69CA00D741A0 /* FilmInfo */,
+				B5AB49952667426600F35363 /* ContentInfo */,
 				C4FB9323262CAC90001BBC13 /* FreeContent */,
 				78F3E0E62635D29200BB68C9 /* Auth */,
 				C4FB936C26335B65001BBC13 /* Search */,
@@ -400,6 +404,7 @@
 				C4FB93952633630D001BBC13 /* SearchInteractor.swift */,
 				C4FB93A12634BF15001BBC13 /* RecommendationsInteractor.swift */,
 				C4F78D7D266305480014BCD9 /* MyListInteractor.swift */,
+				B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -523,12 +528,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		B5EB4167262C69CA00D741A0 /* FilmInfo */ = {
+		B5AB49952667426600F35363 /* ContentInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B5EB4168262C69EB00D741A0 /* FilmInfoViewController.swift */,
+				B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */,
+				B5AB4996266748AC00F35363 /* Storyboard.storyboard */,
 			);
-			path = FilmInfo;
+			path = ContentInfo;
 			sourceTree = "<group>";
 		};
 		B5F896F325F445CE00728327 /* Button */ = {
@@ -822,6 +828,7 @@
 			files = (
 				B537F65525F25C9700B51383 /* LaunchScreen.storyboard in Resources */,
 				B537F65225F25C9700B51383 /* Assets.xcassets in Resources */,
+				B5AB4997266748AC00F35363 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +989,7 @@
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
 				B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */,
 				C4060F29263F054800D7C887 /* PreviewSliderView.swift in Sources */,
+				B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */,
 				C4FB9369262D9B66001BBC13 /* CountriesInteractor.swift in Sources */,
 				C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
@@ -991,7 +999,7 @@
 				C4060F4F263FCD1B00D7C887 /* PagesListCell.swift in Sources */,
 				C42B1F032656849C003DA620 /* MainPageModel.swift in Sources */,
 				C4FB937D26335B67001BBC13 /* SearchBarView.swift in Sources */,
-				B5EB4169262C69EB00D741A0 /* FilmInfoViewController.swift in Sources */,
+				B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */,
 				C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */,
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,

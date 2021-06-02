@@ -19,6 +19,9 @@ final class AuthView: UIView {
     
     private lazy var loginInput: AuthIput = {
         let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 30, width: bounds.maxX - 20, height: 40))
+        loginInput.keyboardType = .emailAddress
+        loginInput.autocorrectionType = .no
+        loginInput.autocapitalizationType = .none
         loginInput.placeholder = "Введите логин"
         return loginInput
     }()
