@@ -8,10 +8,7 @@
 import Foundation
 import Hermes
 
-final class FavoritesInteractor {
-    private let client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-    
-    private let encoder = JSONEncoder()
+final class FavoritesInteractor: BaseInteractor {
     
     private struct FavoriteRequest: Encodable {
         let content_id: Int

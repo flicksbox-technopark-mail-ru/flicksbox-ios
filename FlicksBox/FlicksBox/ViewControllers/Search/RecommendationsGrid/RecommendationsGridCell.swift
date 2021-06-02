@@ -7,8 +7,6 @@
 
 import UIKit
 import Botticelli
-import AVKit
-import AVFoundation
 
 class RecommendationsGridCell: UICollectionViewCell {
     var content: ContentInfo? {
@@ -86,12 +84,9 @@ class RecommendationsGridCell: UICollectionViewCell {
     
     @objc private func playVideo() {
         guard let content = self.content else { return }
-        let videoURL = URL(string: content.video)
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.window?.rootViewController?.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
+        guard let vc = FactoryViewControllers.createPlayer(video: content.video) else { return }
+        self.window?.rootViewController?.present(vc, animated: true) {
+            vc.player?.play()
         }
     }
     

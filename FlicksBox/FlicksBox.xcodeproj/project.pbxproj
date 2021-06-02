@@ -58,6 +58,7 @@
 		B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */; };
 		B5AB499D2667705300F35363 /* ContentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB499C2667705300F35363 /* ContentInfoView.swift */; };
 		B5AB499F2667932D00F35363 /* RatingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB499E2667932D00F35363 /* RatingInteractor.swift */; };
+		B5AB49A126679BD700F35363 /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB49A026679BD700F35363 /* BaseInteractor.swift */; };
 		B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD7143262C889900BDC279 /* APITVShow.swift */; };
 		B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */; };
 		B5EB416D262C6B1200D741A0 /* SBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB416C262C6B1200D741A0 /* SBImageView.swift */; };
@@ -200,6 +201,7 @@
 		B5AB499826674DCA00F35363 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		B5AB499C2667705300F35363 /* ContentInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfoView.swift; sourceTree = "<group>"; };
 		B5AB499E2667932D00F35363 /* RatingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingInteractor.swift; sourceTree = "<group>"; };
+		B5AB49A026679BD700F35363 /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		B5CD7143262C889900BDC279 /* APITVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITVShow.swift; sourceTree = "<group>"; };
 		B5EB4168262C69EB00D741A0 /* ContentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentInfoViewController.swift; sourceTree = "<group>"; };
 		B5EB416C262C6B1200D741A0 /* SBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBImageView.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		B535F04126076C0C00C48BC4 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				B5AB49A026679BD700F35363 /* BaseInteractor.swift */,
 				B535F04226076C2600C48BC4 /* UserInteractor.swift */,
 				B5A672A8262339460033DFC0 /* FilmsInteractor.swift */,
 				C4FB934C262CD5B2001BBC13 /* ContentInteractor.swift */,
@@ -995,6 +998,7 @@
 				C4060F31263F067200D7C887 /* PagesListView.swift in Sources */,
 				B5AB499D2667705300F35363 /* ContentInfoView.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
+				B5AB49A126679BD700F35363 /* BaseInteractor.swift in Sources */,
 				C4FB937E26335B67001BBC13 /* RecommendationsGridHeader.swift in Sources */,
 				C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */,
 				C4FB93962633630D001BBC13 /* SearchInteractor.swift in Sources */,

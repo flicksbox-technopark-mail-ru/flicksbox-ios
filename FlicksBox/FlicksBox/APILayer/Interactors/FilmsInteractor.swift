@@ -9,15 +9,7 @@ import Foundation
 import Hermes
 
 // TODO: split this interactor to MovieInteractor and TVShowInteractor
-final class FilmsInteractor {
-    private let client: HermesClient
-    
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class FilmsInteractor: BaseInteractor {
     
     struct MoviesResponse: Decodable {
         let movies: [APIMovie]

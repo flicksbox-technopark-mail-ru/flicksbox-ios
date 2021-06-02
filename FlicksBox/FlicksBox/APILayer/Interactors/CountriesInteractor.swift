@@ -8,14 +8,7 @@
 import Foundation
 import Hermes
 
-final class CountriesInteractor {
-    private let client: HermesClient
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class CountriesInteractor: BaseInteractor {
     
     struct CountriesResponse: Decodable {
         let countries: [APICountry]

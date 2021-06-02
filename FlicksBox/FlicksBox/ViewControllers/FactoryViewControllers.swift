@@ -7,6 +7,8 @@
 
 import UIKit
 import Botticelli
+import AVKit
+import AVFoundation
 
 // в этом классе будут конфигурироваться наши вью контроллеры вместе с моделями
 final class FactoryViewControllers {
@@ -74,5 +76,16 @@ final class FactoryViewControllers {
         let controller = ActorViewController()
         controller.actor = actor
         return controller
+    }
+    
+    static func createPlayer(video: String) -> AVPlayerViewController? {
+        let videoURL = URL(string: video)
+        guard let url = videoURL else {
+            return nil
+        }
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        return playerViewController
     }
 }

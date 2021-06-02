@@ -7,8 +7,6 @@
 
 import UIKit
 import Botticelli
-import AVKit
-import AVFoundation
 
 final class ContentInfoViewController: SBViewController {
     let favouriteInteractor = FavoritesInteractor()
@@ -191,12 +189,9 @@ final class ContentInfoViewController: SBViewController {
     
     @objc private func openPlayer() {
         guard let content = contentInfo else { return }
-        let videoURL = URL(string: content.video)
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        present(playerViewController, animated: true) {
-            playerViewController.player!.play()
+        guard let vc = FactoryViewControllers.createPlayer(video: content.video) else { return }
+        present(vc, animated: true) {
+            vc.player?.play()
         }
     }
 }

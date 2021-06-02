@@ -12,14 +12,7 @@ struct FavouritesResponse: Decodable {
     let favourites: APIFavourites
 }
 
-final class MyListInteractor {
-    private let client: HermesClient
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class MyListInteractor: BaseInteractor {
     
     func content(
         success: @escaping (APIResponse<FavouritesResponse>) -> Void,

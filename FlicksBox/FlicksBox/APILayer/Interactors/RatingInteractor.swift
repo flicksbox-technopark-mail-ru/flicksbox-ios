@@ -8,10 +8,7 @@
 import Foundation
 import Hermes
 
-final class RatingInteractor {
-    private let client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-    
-    private let encoder = JSONEncoder()
+final class RatingInteractor: BaseInteractor {
     
     private struct RatingResponse: Decodable {
         let match: Int
