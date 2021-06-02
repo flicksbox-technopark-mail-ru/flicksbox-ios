@@ -16,7 +16,7 @@ class HomePreviewHeader: SBView {
         return HomeTableViewHeader(frame: titleFrame)
     }()
     
-    private lazy var previewSliderView: PreviewSliderView = {
+    lazy var previewSliderView: PreviewSliderView = {
         let height = bounds.height - titleViewHeight
         let sliderFrame = CGRect(x: 0, y: 0, width: bounds.width, height: height)
         return PreviewSliderView(frame: sliderFrame)

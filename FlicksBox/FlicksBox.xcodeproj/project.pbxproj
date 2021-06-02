@@ -77,6 +77,9 @@
 		C4F78D7E266305480014BCD9 /* MyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D7D266305480014BCD9 /* MyListInteractor.swift */; };
 		C4F78D82266308550014BCD9 /* APIFavourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D81266308550014BCD9 /* APIFavourites.swift */; };
 		C4F78D8626630E100014BCD9 /* APIDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78D8526630E100014BCD9 /* APIDirector.swift */; };
+		C4F78DA92666C66E0014BCD9 /* ActorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78DA82666C66E0014BCD9 /* ActorViewController.swift */; };
+		C4F78DAF2666C6EB0014BCD9 /* ActorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78DAE2666C6EB0014BCD9 /* ActorModel.swift */; };
+		C4F78DB32666C7280014BCD9 /* ActorEmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F78DB22666C7280014BCD9 /* ActorEmptyResultView.swift */; };
 		C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9324262CAC90001BBC13 /* FreeContentViewController.swift */; };
 		C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9326262CAC90001BBC13 /* ContentGridView.swift */; };
 		C4FB932F262CAC90001BBC13 /* ContentGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB9327262CAC90001BBC13 /* ContentGridCell.swift */; };
@@ -222,6 +225,9 @@
 		C4F78D7D266305480014BCD9 /* MyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListInteractor.swift; sourceTree = "<group>"; };
 		C4F78D81266308550014BCD9 /* APIFavourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFavourites.swift; sourceTree = "<group>"; };
 		C4F78D8526630E100014BCD9 /* APIDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDirector.swift; sourceTree = "<group>"; };
+		C4F78DA82666C66E0014BCD9 /* ActorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorViewController.swift; sourceTree = "<group>"; };
+		C4F78DAE2666C6EB0014BCD9 /* ActorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorModel.swift; sourceTree = "<group>"; };
+		C4F78DB22666C7280014BCD9 /* ActorEmptyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorEmptyResultView.swift; sourceTree = "<group>"; };
 		C4FB9324262CAC90001BBC13 /* FreeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeContentViewController.swift; sourceTree = "<group>"; };
 		C4FB9326262CAC90001BBC13 /* ContentGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentGridView.swift; sourceTree = "<group>"; };
 		C4FB9327262CAC90001BBC13 /* ContentGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentGridCell.swift; sourceTree = "<group>"; };
@@ -334,6 +340,7 @@
 				C4FB9323262CAC90001BBC13 /* FreeContent */,
 				78F3E0E62635D29200BB68C9 /* Auth */,
 				C4FB936C26335B65001BBC13 /* Search */,
+				C4F78DA72666C5850014BCD9 /* Actor */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -613,6 +620,16 @@
 				C4AB10782659132500FBEA8D /* MyListEmptyResultView.swift */,
 			);
 			path = MyList;
+			sourceTree = "<group>";
+		};
+		C4F78DA72666C5850014BCD9 /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				C4F78DA82666C66E0014BCD9 /* ActorViewController.swift */,
+				C4F78DAE2666C6EB0014BCD9 /* ActorModel.swift */,
+				C4F78DB22666C7280014BCD9 /* ActorEmptyResultView.swift */,
+			);
+			path = Actor;
 			sourceTree = "<group>";
 		};
 		C4FB9323262CAC90001BBC13 /* FreeContent */ = {
@@ -986,7 +1003,9 @@
 				C4FB9330262CAC90001BBC13 /* FiltersView.swift in Sources */,
 				C4AB107A2659132600FBEA8D /* MyListEmptyResultView.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
+				C4F78DB32666C7280014BCD9 /* ActorEmptyResultView.swift in Sources */,
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
+				C4F78DA92666C66E0014BCD9 /* ActorViewController.swift in Sources */,
 				B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */,
 				C4060F29263F054800D7C887 /* PreviewSliderView.swift in Sources */,
 				B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */,
@@ -1001,6 +1020,7 @@
 				C4FB937D26335B67001BBC13 /* SearchBarView.swift in Sources */,
 				B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */,
 				C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */,
+				C4F78DAF2666C6EB0014BCD9 /* ActorModel.swift in Sources */,
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,
 				C4F78D8626630E100014BCD9 /* APIDirector.swift in Sources */,

@@ -69,4 +69,10 @@ final class FactoryViewControllers {
         controller.contentInfo = info
         return controller
     }
+    
+    static func createActorContent(actor: Actor) -> UIViewController {
+        let controller = ActorViewController()
+        controller.actor = actor
+        return controller
+    }
 }

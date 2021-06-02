@@ -9,6 +9,7 @@ import UIKit
 import Botticelli
 
 final class SearchViewController: SBViewController {
+    var isMoveFromRecGridView = false
     private let searchModel = SearchModel()
     private let recModel = RecommendationsModel()
     
@@ -19,7 +20,9 @@ final class SearchViewController: SBViewController {
             width: view.bounds.width,
             height: view.bounds.height - searchBarView.bounds.maxY - 50
         )
-        return ResultsGridView(frame: viewFrame)
+        let rgv = ResultsGridView(frame: viewFrame)
+        rgv.delegate = self
+        return rgv
     }()
     
     private lazy var recGridView: RecommendationsGridView = {
@@ -29,7 +32,9 @@ final class SearchViewController: SBViewController {
             width: view.bounds.width,
             height: view.bounds.height - searchBarView.bounds.maxY - 100
         )
-        return RecommendationsGridView(frame: viewFrame)
+        let rgv = RecommendationsGridView(frame: viewFrame)
+        rgv.delegate = self
+        return rgv
     }()
     
     private lazy var emptyResultView: SearchEmptyResultView = {
@@ -61,7 +66,10 @@ final class SearchViewController: SBViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchBar.becomeFirstResponder()
+        if isMoveFromRecGridView == false {
+            searchBar.becomeFirstResponder()
+            isMoveFromRecGridView = true
+        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
@@ -84,13 +92,16 @@ final class SearchViewController: SBViewController {
     private func configureGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
-        
+        tapGesture.cancelsTouchesInView = false
+
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(panGesture)
-        
+        panGesture.cancelsTouchesInView = false
+
         let scrollGesture = UIPanGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         scrollGesture.delegate = resultsGridView.collectionView
         self.resultsGridView.collectionView.addGestureRecognizer(scrollGesture)
+        scrollGesture.cancelsTouchesInView = false
     }
     
     private func loadRecommendations() {
@@ -186,5 +197,25 @@ extension SearchViewController: UISearchBarDelegate {
                 self?.alert(message: error)
             }
         }
+    }
+}
+
+extension SearchViewController: RecommendationsGridViewDelegate {
+    func didSelectCell(content: ContentInfo) {
+        self.isMoveFromRecGridView = true
+        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension SearchViewController: ResultsGridViewDelegate {
+    func didSelectContent(content: ContentInfo) {
+        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func didSelectActor(actor: Actor) {
+        let viewController = FactoryViewControllers.createActorContent(actor: actor)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

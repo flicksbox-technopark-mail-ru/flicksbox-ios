@@ -1,14 +1,14 @@
 //
-//  MyListEmptyResultView.swift
+//  ActorEmptyResultView.swift
 //  FlicksBox
 //
-//  Created by Mac-HOME on 06.04.2021.
+//  Created by Mac-HOME on 01.06.2021.
 //
 
 import UIKit
 import Botticelli
 
-final class MyListEmptyResultView: SBView {
+final class ActorEmptyResultView: SBView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureSubviews()
@@ -29,7 +29,7 @@ final class MyListEmptyResultView: SBView {
             attributes: titleTextAttributes
         )
         let desc = NSMutableAttributedString(
-            string: "\nПопробуйте добавить понравившийся фильм или сериал.",
+            string: "\nПопробуйте выбрать другого актера.",
             attributes: descTextAttributes
         )
         

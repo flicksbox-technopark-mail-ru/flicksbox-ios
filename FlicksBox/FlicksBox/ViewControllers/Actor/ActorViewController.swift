@@ -1,26 +1,31 @@
 //
-//  MyListViewController.swift
+//  ActorViewController.swift
 //  FlicksBox
 //
-//  Created by Mac-HOME on 06.04.2021.
+//  Created by Mac-HOME on 01.06.2021.
 //
 
 import UIKit
 import Botticelli
 
-final class MyListViewController: SBViewController {
-    private var model: MyListModel!
-    private var contentGridView: ContentGridView!
-    private var emptyResultView: MyListEmptyResultView!
+final class ActorViewController: SBViewController {
+    var actor: Actor? {
+        didSet {
+            self.title = actor?.name
+        }
+    }
     
-    init(model: MyListModel) {
+    private var model = ActorModel()
+    private var contentGridView: ContentGridView!
+    private var emptyResultView: ActorEmptyResultView!
+    
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.model = model
     }
     
     override func viewWillLayoutSubviews() {
         let sideSpace: CGFloat = 20
-        emptyResultView = MyListEmptyResultView(frame: CGRect(
+        emptyResultView = ActorEmptyResultView(frame: CGRect(
             x: view.bounds.minX + sideSpace,
             y: view.bounds.minY,
             width: view.bounds.width - sideSpace * 2,
@@ -32,10 +37,13 @@ final class MyListViewController: SBViewController {
         view.addSubview(emptyResultView)
         view.addSubview(contentGridView)
         showContentGridView()
+        loadContent()
     }
     
-    func loadMyListData() {
-        model.loadData() { [weak self] content in
+    func loadContent() {
+        guard let actor = actor else { return }
+        
+        model.loadData(actor: actor) { [weak self] content in
             DispatchQueue.main.async {
                 if content.count == 0 {
                     self?.showEmptyResultView()
@@ -66,7 +74,7 @@ final class MyListViewController: SBViewController {
     }
 }
 
-extension MyListViewController: ContentGridViewDelegate {
+extension ActorViewController: ContentGridViewDelegate {
     func didSelectCell(content: ContentInfo) {
         let viewController = FactoryViewControllers.createFilmInfo(info: content)
         navigationController?.pushViewController(viewController, animated: true)

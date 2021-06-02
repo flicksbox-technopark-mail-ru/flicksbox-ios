@@ -10,7 +10,13 @@ import Botticelli
 import AVKit
 import AVFoundation
 
+protocol RecommendationsGridViewDelegate: AnyObject {
+    func didSelectCell(content: ContentInfo)
+}
+
 final class RecommendationsGridView: SBView {
+    weak var delegate: RecommendationsGridViewDelegate?
+    
     private var content: [ContentInfo] = []
     private let lineSpace: CGFloat = 10
     private let cellCountOnRow: CGFloat = 1
@@ -26,7 +32,6 @@ final class RecommendationsGridView: SBView {
         collectionView.backgroundColor = .clear
         collectionView.keyboardDismissMode = .onDrag
         collectionView.isUserInteractionEnabled = true
-        collectionView.allowsSelection = false
         
         collectionView.register(
             RecommendationsGridCell.self,
@@ -59,7 +64,7 @@ final class RecommendationsGridView: SBView {
     }
 }
 
-extension RecommendationsGridView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension RecommendationsGridView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return content.count
     }
@@ -105,5 +110,19 @@ extension RecommendationsGridView: UICollectionViewDelegate, UICollectionViewDat
         default:
             fatalError("Unexpected element kind")
         }
+    }
+}
+
+extension RecommendationsGridView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.25, animations: {
+            cell?.alpha = 0.5
+        }) { _ in
+            UIView.animate(withDuration: 0.25, animations: {
+                cell?.alpha = 1
+            })
+        }
+        delegate?.didSelectCell(content: content[indexPath.row])
     }
 }

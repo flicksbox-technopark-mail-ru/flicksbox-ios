@@ -14,7 +14,9 @@ class HomeContentViewController: SBViewController {
     
     private lazy var previewHeader: HomePreviewHeader = {
         let viewFrame = CGRect.init(x: 0, y: 0, width: view.bounds.width, height: previewHeaderHeight)
-        return HomePreviewHeader(frame: viewFrame, content: [])
+        let ph = HomePreviewHeader(frame: viewFrame, content: [])
+        ph.previewSliderView.delegate = self
+        return ph
     }()
     
     private lazy var tableView: UITableView = {
@@ -112,3 +114,10 @@ extension HomeContentViewController: UITableViewDataSource {
 }
 
 extension HomeContentViewController: UITableViewDelegate {}
+
+extension HomeContentViewController: PreviewSliderViewDelegate {
+    func didSelectCell(content: ContentInfo) {
+        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}

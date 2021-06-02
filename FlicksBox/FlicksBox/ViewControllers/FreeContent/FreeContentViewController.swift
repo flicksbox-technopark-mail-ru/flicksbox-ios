@@ -33,7 +33,9 @@ final class FreeContentViewController: SBViewController {
             width: view.bounds.width,
             height: view.bounds.height - filtersView.frame.maxY - 100
         )
-        return ContentGridView(frame: viewFrame)
+        let cgv = ContentGridView(frame: viewFrame)
+        cgv.delegate = self
+        return cgv
     }()
     
     private lazy var emptyResultView: ContentEmptyResultView = {
@@ -159,6 +161,13 @@ extension FreeContentViewController: MainOutput {
     func configureTabItem() {
         self.tabBarItem.title = "Фильтры"
         self.tabBarItem.image = SBIcon.filter
+    }
+}
+
+extension FreeContentViewController: ContentGridViewDelegate {
+    func didSelectCell(content: ContentInfo) {
+        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
