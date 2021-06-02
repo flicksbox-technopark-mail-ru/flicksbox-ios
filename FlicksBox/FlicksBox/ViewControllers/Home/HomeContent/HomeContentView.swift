@@ -117,7 +117,7 @@ extension HomeContentViewController: UITableViewDelegate {}
 
 extension HomeContentViewController: PreviewSliderViewDelegate {
     func didSelectCell(content: ContentInfo) {
-        let viewController = FactoryViewControllers.createFilmInfo(info: content)
+        let viewController = FactoryViewControllers.createContentInfo(info: content)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

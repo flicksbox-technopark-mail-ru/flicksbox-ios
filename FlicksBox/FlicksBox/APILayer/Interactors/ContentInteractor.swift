@@ -22,14 +22,7 @@ struct ContentFilters: Decodable {
     var is_free: Bool? = nil
 }
 
-final class ContentInteractor {
-    private let client: HermesClient
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class ContentInteractor: BaseInteractor {
     
     func filtredContent(
         from: Int,

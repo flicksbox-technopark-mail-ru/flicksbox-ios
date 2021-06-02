@@ -7,8 +7,6 @@
 
 import UIKit
 import Botticelli
-import AVKit
-import AVFoundation
 
 protocol RecommendationsGridViewDelegate: AnyObject {
     func didSelectCell(content: ContentInfo)

@@ -13,15 +13,7 @@ struct UserSignin: Encodable {
    let password: String
 }
 
-final class UserInteractor {
-    private let client: HermesClient
-    
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class UserInteractor: BaseInteractor {
     
      struct UserSignup: Encodable {
         let nickname: String
@@ -71,9 +63,6 @@ final class UserInteractor {
             guard let data = response.data.decode(type: APIResponse<UserResponse>.self) else {
                 failure(InteractorError.emptyData)
                 return
-            }
-            if let token = response.headers["x-csrf-token"] as? String {
-                CSRFStorage.shared.token = token
             }
             success(data)
         }

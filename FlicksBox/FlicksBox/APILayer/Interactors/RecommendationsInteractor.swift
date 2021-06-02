@@ -8,14 +8,7 @@
 import Foundation
 import Hermes
 
-final class RecommendationsInteractor {
-    private let client: HermesClient
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class RecommendationsInteractor: BaseInteractor {
     
     func recommendations(
         success: @escaping (APIResponse<ContentResponse>) -> Void,

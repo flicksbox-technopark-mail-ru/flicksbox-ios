@@ -8,14 +8,7 @@
 import Foundation
 import Hermes
 
-final class GenresInteractor {
-    private let client: HermesClient
-    private let encoder: JSONEncoder
-    
-    init() {
-        client = HermesClient(with: "https://www.flicksbox.ru/api/v1")
-        encoder = JSONEncoder()
-    }
+final class GenresInteractor: BaseInteractor {
     
     struct GenresResponse: Decodable {
         let genres: [APIGenre]

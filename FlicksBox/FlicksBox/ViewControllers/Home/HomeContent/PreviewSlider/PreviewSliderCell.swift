@@ -15,7 +15,7 @@ class PreviewSliderCell: UICollectionViewCell {
                   let urlImage = content?.image else { return }
             titleLabel.text = content?.name
             poster.loadWebP(url: urlImage)
-            setDescription(content?.short_desc ?? "")
+            setDescription(content?.shortDescription ?? "")
         }
     }
     
