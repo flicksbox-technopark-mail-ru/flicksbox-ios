@@ -9,7 +9,6 @@ import UIKit
 import Botticelli
 
 final class SearchViewController: SBViewController {
-    var isMoveFromRecGridView = false
     private let searchModel = SearchModel()
     private let recModel = RecommendationsModel()
     
@@ -66,10 +65,6 @@ final class SearchViewController: SBViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if isMoveFromRecGridView == false {
-            searchBar.becomeFirstResponder()
-            isMoveFromRecGridView = true
-        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
@@ -202,7 +197,6 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: RecommendationsGridViewDelegate {
     func didSelectCell(content: ContentInfo) {
-        self.isMoveFromRecGridView = true
         let viewController = FactoryViewControllers.createContentInfo(info: content)
         navigationController?.pushViewController(viewController, animated: true)
     }
