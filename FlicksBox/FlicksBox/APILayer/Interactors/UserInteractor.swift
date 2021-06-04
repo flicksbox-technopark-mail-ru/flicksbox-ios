@@ -22,8 +22,52 @@ final class UserInteractor: BaseInteractor {
         let repeated_password: String
     }
     
+    struct UserName: Encodable {
+       let nickname: String
+       let email: String
+    }
+    
+    struct UserPassword: Encodable {
+       let new_password: String
+       let old_password: String
+       let repeated_new_password: String
+   }
+    
     struct UserResponse: Decodable {
         let user: APIUser
+    }
+    
+    private func changeData<T>(user: T, method: String, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) where T: Encodable {
+        
+        guard let data = try? encoder.encode(user) else {
+            failure(InteractorError.invalidEncode)
+            return
+        }
+        let request = HermesRequest(
+            method: .put,
+            path: method,
+            body: data,
+            headers: ["X-Csrf-Token" : CSRFStorage.shared.token ?? ""]
+        )
+        request.successHandler = { response in
+            guard let data = response.data.decode(type: APIResponse<UserResponse>.self) else {
+                failure(InteractorError.emptyData)
+                return
+            }
+            success(data)
+        }
+        request.errorHandler = { error in
+            failure(error)
+        }
+        client.run(with: request)
+    }
+    
+    func changeName(data: UserName, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
+        changeData(user: data, method: "/user/profile", success: success, failure: failure)
+    }
+    
+    func changePassword(data: UserPassword, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
+        changeData(user: data, method: "/user/password", success: success, failure: failure)
     }
     
     func signup(user: UserSignup, success: @escaping (APIResponse<UserResponse>) -> Void, failure: @escaping (Error) -> Void) {
