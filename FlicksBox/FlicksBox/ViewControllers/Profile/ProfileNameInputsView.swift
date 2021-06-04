@@ -52,7 +52,7 @@ final class ProfileNameInputsView: SBView {
     }
     
     func getData() -> UserName {
-        return UserName(
+        UserName(
             nickname: usernameInput.text ?? usernameInput.placeholder!,
             email: emailInput.text ?? emailInput.placeholder!
         )

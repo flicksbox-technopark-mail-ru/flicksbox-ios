@@ -117,7 +117,6 @@
 		C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */; };
 		C4FB93AE2634D521001BBC13 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93AD2634D521001BBC13 /* APIResult.swift */; };
 		C6E2F2EF98DD543C3CC6A349 /* Pods_Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */; };
-		E88FF177266A548700273E17 /* ProfileSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF176266A548700273E17 /* ProfileSubscriptionView.swift */; };
 		E88FF17B266A549E00273E17 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */; };
 		E88FF17F266A54CF00273E17 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */; };
 		E88FF183266A54F300273E17 /* ProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */; };
@@ -278,7 +277,6 @@
 		C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsModel.swift; sourceTree = "<group>"; };
 		C4FB93AD2634D521001BBC13 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E88FF176266A548700273E17 /* ProfileSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubscriptionView.swift; sourceTree = "<group>"; };
 		E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoView.swift; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				B52F579E2606633F003FFF06 /* ProfileViewController.swift */,
-				E88FF176266A548700273E17 /* ProfileSubscriptionView.swift */,
 				E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */,
 				E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */,
 				E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */,
@@ -1083,7 +1080,6 @@
 				C42B1F032656849C003DA620 /* MainPageModel.swift in Sources */,
 				E88FF17F266A54CF00273E17 /* ProfileViewModel.swift in Sources */,
 				C4FB937D26335B67001BBC13 /* SearchBarView.swift in Sources */,
-				E88FF177266A548700273E17 /* ProfileSubscriptionView.swift in Sources */,
 				B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */,
 				C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */,
 				C4F78DAF2666C6EB0014BCD9 /* ActorModel.swift in Sources */,

@@ -7,8 +7,6 @@
 
 import UIKit
 import Botticelli
-import Hermes
-import Foundation
 
 final class ProfileSettingsView: SBView {
     let nameSettingsButton: SBButton
@@ -68,7 +66,6 @@ final class ProfileSettingsView: SBView {
         if isNamesChanges == false {
             nameSettingsButton.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         } else {
-//            nameSettingsButton.backgroundColor = UIColor(red: 87/255, green: 117/255, blue: 144/255, alpha: 1)
             nameSettingsButton.backgroundColor = UIColor(red: 90/255, green: 118/255, blue: 132/255, alpha: 1)
         }
         nameSettingsButton.setTitle("Информация", for: .normal)
@@ -114,7 +111,7 @@ final class ProfileSettingsView: SBView {
             y: 75,
             width: self.bounds.width,
             height: 175
-        ), nickname: "Alkirys", email: "Alkirys@mail.ru")
+        ), nickname: ClientUser.shared.userData?.nickname ?? "", email: ClientUser.shared.userData?.email ?? "")
         
         self.addSubview(inputsView)
 
@@ -175,7 +172,6 @@ final class ProfileSettingsView: SBView {
     var changeUserInfo: ((String, String) -> Void) = {_,_ in }
     
     @objc private func testRequest() {
-        print("Button clicked")
         let userInteractor = UserInteractor()
 
         if isNamesChanges == true {
@@ -195,7 +191,6 @@ final class ProfileSettingsView: SBView {
 
                 (self.inputsView as! ProfileNameInputsView).setData(username: user.nickname, email: user.email)
                 (self.changeUserInfo)(user.nickname, user.email)
-                print("All is fucking right!!!")
                 
             } failure: { error in
                 print(error.localizedDescription)
@@ -213,8 +208,6 @@ final class ProfileSettingsView: SBView {
                     print("Неизвестная ошибка")
                     return
                 }
-
-                print("All is fucking right!!!")
                 
             } failure: { error in
                 print(error.localizedDescription)

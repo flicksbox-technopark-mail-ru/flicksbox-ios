@@ -104,7 +104,7 @@ final class ProfileUserInfoView: SBView {
     @objc private func exit() {
         ClientUser.shared.userData = nil
         
-        (exitProfile ?? {print("EXITED")})()
+        (exitProfile ?? {})()
     }
     
     var exitProfile: (() -> Void)?
@@ -112,7 +112,6 @@ final class ProfileUserInfoView: SBView {
     func changeUserData(nickname: String, email: String) {
         userNameLabel.text = nickname.uppercased()
         emailLabel.text = email
-        print(userNameLabel.text)
     }
     
     private func configurateAvatarImage() {
