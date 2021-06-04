@@ -18,12 +18,12 @@ struct User {
     }
 }
 
-struct UserSignup: Encodable {
-   let nickname: String
-   let email: String
-   let password: String
-   let repeated_password: String
-}
+//struct UserSignup: Encodable {
+//   let nickname: String
+//   let email: String
+//   let password: String
+//   let repeated_password: String
+//}
 
 final class AuthModel: NSObject {
     private let userInteractor = UserInteractor()

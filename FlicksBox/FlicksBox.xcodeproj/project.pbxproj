@@ -117,6 +117,12 @@
 		C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */; };
 		C4FB93AE2634D521001BBC13 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB93AD2634D521001BBC13 /* APIResult.swift */; };
 		C6E2F2EF98DD543C3CC6A349 /* Pods_Botticelli.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */; };
+		E88FF17B266A549E00273E17 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */; };
+		E88FF17F266A54CF00273E17 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */; };
+		E88FF183266A54F300273E17 /* ProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */; };
+		E88FF187266A554800273E17 /* ProfileNameInputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF186266A554800273E17 /* ProfileNameInputsView.swift */; };
+		E88FF18B266A556200273E17 /* ProfilePasswordInputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF18A266A556200273E17 /* ProfilePasswordInputsView.swift */; };
+		E88FF190266A55CF00273E17 /* SBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF18F266A55CF00273E17 /* SBTextField.swift */; };
 		FC1B950C4283F031381CBA15 /* Pods_Hermes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */; };
 /* End PBXBuildFile section */
 
@@ -271,6 +277,12 @@
 		C4FB93A52634C149001BBC13 /* RecommendationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsModel.swift; sourceTree = "<group>"; };
 		C4FB93AD2634D521001BBC13 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		E6968DA562D7EE506D0FC20E /* Pods_Botticelli.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Botticelli.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserInfoView.swift; sourceTree = "<group>"; };
+		E88FF186266A554800273E17 /* ProfileNameInputsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameInputsView.swift; sourceTree = "<group>"; };
+		E88FF18A266A556200273E17 /* ProfilePasswordInputsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePasswordInputsView.swift; sourceTree = "<group>"; };
+		E88FF18F266A55CF00273E17 /* SBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBTextField.swift; sourceTree = "<group>"; };
 		F89B5E233A6DA81C316B8E5C /* Pods_Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -372,6 +384,11 @@
 			isa = PBXGroup;
 			children = (
 				B52F579E2606633F003FFF06 /* ProfileViewController.swift */,
+				E88FF17A266A549E00273E17 /* ProfileSettingsView.swift */,
+				E88FF17E266A54CF00273E17 /* ProfileViewModel.swift */,
+				E88FF182266A54F300273E17 /* ProfileUserInfoView.swift */,
+				E88FF186266A554800273E17 /* ProfileNameInputsView.swift */,
+				E88FF18A266A556200273E17 /* ProfilePasswordInputsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -523,6 +540,7 @@
 		B563055F25F45AE200A9ED21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E88FF18E266A55BA00273E17 /* TextField */,
 				B52F57A226066388003FFF06 /* Image */,
 				B5F896F525F445DE00728327 /* ViewController */,
 				B5F896F325F445CE00728327 /* Button */,
@@ -739,6 +757,14 @@
 				C4FB937A26335B65001BBC13 /* ResultsActorGridCell.swift */,
 			);
 			path = ResultsGrid;
+			sourceTree = "<group>";
+		};
+		E88FF18E266A55BA00273E17 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				E88FF18F266A55CF00273E17 /* SBTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -990,10 +1016,12 @@
 				C4FB938326335B67001BBC13 /* ResultsGridView.swift in Sources */,
 				C4FB9332262CAC90001BBC13 /* FiltersListView.swift in Sources */,
 				C4FB93A22634BF16001BBC13 /* RecommendationsInteractor.swift in Sources */,
+				E88FF183266A54F300273E17 /* ProfileUserInfoView.swift in Sources */,
 				C4FB938026335B67001BBC13 /* RecommendationsGridCell.swift in Sources */,
 				C4FB9365262D991B001BBC13 /* GenresInteractor.swift in Sources */,
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
 				C4AB107B2659132600FBEA8D /* MyListViewController.swift in Sources */,
+				E88FF187266A554800273E17 /* ProfileNameInputsView.swift in Sources */,
 				C4FB938126335B67001BBC13 /* ResultsGridFooter.swift in Sources */,
 				78FFFE5426432B1D00D0D2D0 /* SubLabel.swift in Sources */,
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
@@ -1016,6 +1044,7 @@
 				B5CD7144262C889900BDC279 /* APITVShow.swift in Sources */,
 				B5AB499F2667932D00F35363 /* RatingInteractor.swift in Sources */,
 				B56E97DE2635B46800F71060 /* StartViewController.swift in Sources */,
+				E88FF18B266A556200273E17 /* ProfilePasswordInputsView.swift in Sources */,
 				C4060F31263F067200D7C887 /* PagesListView.swift in Sources */,
 				B5AB499D2667705300F35363 /* ContentInfoView.swift in Sources */,
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
@@ -1049,10 +1078,12 @@
 				C4060F3C263F0A0800D7C887 /* HomePreviewHeader.swift in Sources */,
 				C4060F4F263FCD1B00D7C887 /* PagesListCell.swift in Sources */,
 				C42B1F032656849C003DA620 /* MainPageModel.swift in Sources */,
+				E88FF17F266A54CF00273E17 /* ProfileViewModel.swift in Sources */,
 				C4FB937D26335B67001BBC13 /* SearchBarView.swift in Sources */,
 				B5EB4169262C69EB00D741A0 /* ContentInfoViewController.swift in Sources */,
 				C4FB9344262CCE6E001BBC13 /* FreeContentModel.swift in Sources */,
 				C4F78DAF2666C6EB0014BCD9 /* ActorModel.swift in Sources */,
+				E88FF17B266A549E00273E17 /* ProfileSettingsView.swift in Sources */,
 				B52F58172606A4DB003FFF06 /* APIUser.swift in Sources */,
 				B5A6729E262334450033DFC0 /* HomeViewController.swift in Sources */,
 				C4F78D8626630E100014BCD9 /* APIDirector.swift in Sources */,
@@ -1086,6 +1117,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88FF190266A55CF00273E17 /* SBTextField.swift in Sources */,
 				B52F57A42606639A003FFF06 /* SBImage.swift in Sources */,
 				B52F57AA26066457003FFF06 /* SBTabBarController.swift in Sources */,
 				B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */,
