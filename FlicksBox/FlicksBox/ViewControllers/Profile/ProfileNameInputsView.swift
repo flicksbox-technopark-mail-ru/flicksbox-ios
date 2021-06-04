@@ -51,8 +51,8 @@ final class ProfileNameInputsView: SBView {
         configureSubviews()
     }
     
-    func getData() -> UserInteractor.UserName {
-        return UserInteractor.UserName(
+    func getData() -> UserName {
+        return UserName(
             nickname: usernameInput.text ?? usernameInput.placeholder!,
             email: emailInput.text ?? emailInput.placeholder!
         )

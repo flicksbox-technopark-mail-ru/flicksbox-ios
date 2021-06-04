@@ -13,25 +13,25 @@ struct UserSignin: Encodable {
    let password: String
 }
 
+struct UserSignup: Encodable {
+   let nickname: String
+   let email: String
+   let password: String
+   let repeated_password: String
+}
+
+struct UserName: Encodable {
+   let nickname: String
+   let email: String
+}
+
+struct UserPassword: Encodable {
+   let new_password: String
+   let old_password: String
+   let repeated_new_password: String
+}
+
 final class UserInteractor: BaseInteractor {
-    
-     struct UserSignup: Encodable {
-        let nickname: String
-        let email: String
-        let password: String
-        let repeated_password: String
-    }
-    
-    struct UserName: Encodable {
-       let nickname: String
-       let email: String
-    }
-    
-    struct UserPassword: Encodable {
-       let new_password: String
-       let old_password: String
-       let repeated_new_password: String
-   }
     
     struct UserResponse: Decodable {
         let user: APIUser

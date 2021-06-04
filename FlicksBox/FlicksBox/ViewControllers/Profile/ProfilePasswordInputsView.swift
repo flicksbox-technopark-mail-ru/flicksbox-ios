@@ -57,8 +57,8 @@ final class ProfilePasswordInputsView: SBView {
         self.layer.cornerRadius = 20
     }
     
-    func getData() -> UserInteractor.UserPassword {
-        return UserInteractor.UserPassword(
+    func getData() -> UserPassword {
+        return UserPassword(
             new_password: newPasswordInput.text ?? "",
             old_password: oldPasswordInput.text ?? "",
             repeated_new_password: againPasswordInput.text ?? ""
