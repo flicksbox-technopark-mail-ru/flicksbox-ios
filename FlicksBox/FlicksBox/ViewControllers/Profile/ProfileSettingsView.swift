@@ -53,11 +53,11 @@ final class ProfileSettingsView: SBView {
     }
 
     private func configurateView() {
-        self.backgroundColor = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
+        self.backgroundColor = UIColor(red: 18/255, green: 17/255, blue: 16/255, alpha: 1)
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 20
     }
-    
+
     private func configurateNameSettingsButton() {
         nameSettingsButton.frame = CGRect(
             x: self.bounds.minX + self.bounds.width * 0.2,
@@ -66,9 +66,10 @@ final class ProfileSettingsView: SBView {
             height: 25
         )
         if isNamesChanges == false {
-            nameSettingsButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.4)
+            nameSettingsButton.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         } else {
-            nameSettingsButton.backgroundColor = UIColor(red: 255/255, green: 69/255, blue: 0/255, alpha: 0.7)
+//            nameSettingsButton.backgroundColor = UIColor(red: 87/255, green: 117/255, blue: 144/255, alpha: 1)
+            nameSettingsButton.backgroundColor = UIColor(red: 90/255, green: 118/255, blue: 132/255, alpha: 1)
         }
         nameSettingsButton.setTitle("Информация", for: .normal)
         nameSettingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -88,9 +89,9 @@ final class ProfileSettingsView: SBView {
             height: 25
         )
         if isNamesChanges == true {
-            passwordSettingsButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.4)
+            passwordSettingsButton.backgroundColor = UIColor(red: 97/255, green: 97/255, blue: 97/255, alpha: 1)
         } else {
-            passwordSettingsButton.backgroundColor = UIColor(red: 255/255, green: 69/255, blue: 0/255, alpha: 0.7)
+            passwordSettingsButton.backgroundColor = UIColor(red: 90/255, green: 118/255, blue: 132/255, alpha: 1)
         }
         
         passwordSettingsButton.setTitle("Безопасность", for: .normal)

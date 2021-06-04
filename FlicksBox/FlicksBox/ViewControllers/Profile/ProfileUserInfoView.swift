@@ -46,7 +46,7 @@ final class ProfileUserInfoView: SBView {
     }
 
     private func configurateView() {
-        self.backgroundColor = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
+        self.backgroundColor = UIColor(red: 18/255, green: 17/255, blue: 16/255, alpha: 1)
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 20
     }

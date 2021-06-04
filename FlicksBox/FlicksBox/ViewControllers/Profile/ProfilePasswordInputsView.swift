@@ -52,7 +52,7 @@ final class ProfilePasswordInputsView: SBView {
     }
 
     private func configurateView() {
-        self.backgroundColor = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
+        self.backgroundColor = UIColor(red: 18/255, green: 17/255, blue: 16/255, alpha: 1)
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 20
     }
@@ -88,6 +88,7 @@ final class ProfilePasswordInputsView: SBView {
             height: 40
         )
 
+        oldPasswordInput.tintColor = .black
         oldPasswordInput.isSecureTextEntry = true
         oldPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         oldPasswordInput.layer.cornerRadius = 5
@@ -118,6 +119,7 @@ final class ProfilePasswordInputsView: SBView {
             width: self.bounds.width * 0.7,
             height: 40
         )
+        newPasswordInput.tintColor = .black
         newPasswordInput.isSecureTextEntry = true
         newPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         newPasswordInput.layer.cornerRadius = 5
@@ -149,6 +151,7 @@ final class ProfilePasswordInputsView: SBView {
             height: 40
         )
 
+        againPasswordInput.tintColor = .black
         againPasswordInput.isSecureTextEntry = true
         againPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         againPasswordInput.layer.cornerRadius = 5
