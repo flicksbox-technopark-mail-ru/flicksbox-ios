@@ -1,4 +1,12 @@
 PODS:
+  - AppCenter (4.1.1):
+    - AppCenter/Analytics (= 4.1.1)
+    - AppCenter/Crashes (= 4.1.1)
+  - AppCenter/Analytics (4.1.1):
+    - AppCenter/Core
+  - AppCenter/Core (4.1.1)
+  - AppCenter/Crashes (4.1.1):
+    - AppCenter/Core
   - libwebp (1.2.0):
     - libwebp/demux (= 1.2.0)
     - libwebp/mux (= 1.2.0)
@@ -14,19 +22,22 @@ PODS:
     - SDWebImage/Core (~> 5.10)
 
 DEPENDENCIES:
+  - AppCenter
   - SDWebImageWebPCoder
 
 SPEC REPOS:
   trunk:
+    - AppCenter
     - libwebp
     - SDWebImage
     - SDWebImageWebPCoder
 
 SPEC CHECKSUMS:
+  AppCenter: cd53e3ed3563cc720bcb806c9731a12389b40d44
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SDWebImageWebPCoder: bbf46e29fb8d1980a78ad3d5e9b4123c77f10ebc
 
-PODFILE CHECKSUM: aebb530d3ad52e021825ac32433cbbca1eede32b
+PODFILE CHECKSUM: f55472b32f5c572c6e9107b3c190848e0155d711
 
 COCOAPODS: 1.8.4

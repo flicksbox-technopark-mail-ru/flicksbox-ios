@@ -13,14 +13,8 @@ struct UserSignin: Encodable {
    let password: String
 }
 
+
 final class UserInteractor: BaseInteractor {
-    
-     struct UserSignup: Encodable {
-        let nickname: String
-        let email: String
-        let password: String
-        let repeated_password: String
-    }
     
     struct UserResponse: Decodable {
         let user: APIUser

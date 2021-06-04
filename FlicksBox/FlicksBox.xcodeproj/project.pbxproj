@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		60245F796FDA7B2BF0593D93 /* Pods_FlicksBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */; };
+		7894F6452667E26D0026252A /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7894F6442667E26D0026252A /* ValidationService.swift */; };
 		78F3E0F42635D36700BB68C9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F32635D36700BB68C9 /* AuthViewController.swift */; };
 		78F3E0FA2635D39400BB68C9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0F92635D39400BB68C9 /* AuthView.swift */; };
 		78F3E1002635D3BB00BB68C9 /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */; };
 		78F3E1062635D40100BB68C9 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E1052635D40100BB68C9 /* AuthButton.swift */; };
 		78F3E10C2635D5BF00BB68C9 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */; };
 		78F3E11C263611B800BB68C9 /* AuthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F3E11B263611B800BB68C9 /* AuthLabel.swift */; };
+		78FFFE5426432B1D00D0D2D0 /* SubLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FFFE5326432B1D00D0D2D0 /* SubLabel.swift */; };
+		78FFFE5C26432BCA00D0D2D0 /* SubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FFFE5B26432BCA00D0D2D0 /* SubButton.swift */; };
+		78FFFE6126432F8700D0D2D0 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FFFE6026432F8700D0D2D0 /* RegistrationView.swift */; };
 		B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B508561525FE161900EFD69B /* FactoryViewControllers.swift */; };
 		B52F5780260661EA003FFF06 /* SBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896F625F4460400728327 /* SBViewController.swift */; };
 		B52F5787260661EE003FFF06 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F896FA25F4461700728327 /* SBButton.swift */; };
@@ -152,12 +156,16 @@
 		209462193A37A7EE8D27044D /* Pods-FlicksBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.debug.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.debug.xcconfig"; sourceTree = "<group>"; };
 		3999011EB277C28CD9719C04 /* Pods-FlicksBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksBox.release.xcconfig"; path = "Target Support Files/Pods-FlicksBox/Pods-FlicksBox.release.xcconfig"; sourceTree = "<group>"; };
 		6BA71565DB277CFA6149315C /* Pods-Hermes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.release.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.release.xcconfig"; sourceTree = "<group>"; };
+		7894F6442667E26D0026252A /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		78F3E0F32635D36700BB68C9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		78F3E0F92635D39400BB68C9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		78F3E0FF2635D3BB00BB68C9 /* AuthInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
 		78F3E1052635D40100BB68C9 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		78F3E11B263611B800BB68C9 /* AuthLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLabel.swift; sourceTree = "<group>"; };
+		78FFFE5326432B1D00D0D2D0 /* SubLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLabel.swift; sourceTree = "<group>"; };
+		78FFFE5B26432BCA00D0D2D0 /* SubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubButton.swift; sourceTree = "<group>"; };
+		78FFFE6026432F8700D0D2D0 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		8C98ACF8C0696B5B34590CF8 /* Pods-Botticelli.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Botticelli.release.xcconfig"; path = "Target Support Files/Pods-Botticelli/Pods-Botticelli.release.xcconfig"; sourceTree = "<group>"; };
 		945A157C6B4A545A51A26BE7 /* Pods_FlicksBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlicksBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CBE7A266ACBFEB4A24AE2AE /* Pods-Hermes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hermes.debug.xcconfig"; path = "Target Support Files/Pods-Hermes/Pods-Hermes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -306,6 +314,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7894F6432667E1DE0026252A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7894F6442667E26D0026252A /* ValidationService.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		78F3E0E62635D29200BB68C9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +331,9 @@
 				78F3E1052635D40100BB68C9 /* AuthButton.swift */,
 				78F3E10B2635D5BF00BB68C9 /* AuthModel.swift */,
 				78F3E11B263611B800BB68C9 /* AuthLabel.swift */,
+				78FFFE5326432B1D00D0D2D0 /* SubLabel.swift */,
+				78FFFE5B26432BCA00D0D2D0 /* SubButton.swift */,
+				78FFFE6026432F8700D0D2D0 /* RegistrationView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -455,6 +474,7 @@
 		B537F64725F25C8A00B51383 /* FlicksBox */ = {
 			isa = PBXGroup;
 			children = (
+				7894F6432667E1DE0026252A /* Tools */,
 				B56E97E72635CC5100F71060 /* Client */,
 				B52F580C26069B42003FFF06 /* APILayer */,
 				B508561125FE15F900EFD69B /* ViewControllers */,
@@ -975,6 +995,7 @@
 				B52F57B226066532003FFF06 /* MainOutput.swift in Sources */,
 				C4AB107B2659132600FBEA8D /* MyListViewController.swift in Sources */,
 				C4FB938126335B67001BBC13 /* ResultsGridFooter.swift in Sources */,
+				78FFFE5426432B1D00D0D2D0 /* SubLabel.swift in Sources */,
 				B5A672A9262339460033DFC0 /* FilmsInteractor.swift in Sources */,
 				B508561625FE161900EFD69B /* FactoryViewControllers.swift in Sources */,
 				C4FB93A62634C149001BBC13 /* RecommendationsModel.swift in Sources */,
@@ -1000,6 +1021,7 @@
 				B537F64925F25C8A00B51383 /* AppDelegate.swift in Sources */,
 				B5AB49A126679BD700F35363 /* BaseInteractor.swift in Sources */,
 				C4FB937E26335B67001BBC13 /* RecommendationsGridHeader.swift in Sources */,
+				7894F6452667E26D0026252A /* ValidationService.swift in Sources */,
 				C4FB932D262CAC90001BBC13 /* FreeContentViewController.swift in Sources */,
 				C4FB93962633630D001BBC13 /* SearchInteractor.swift in Sources */,
 				C4FB932F262CAC90001BBC13 /* ContentGridCell.swift in Sources */,
@@ -1012,12 +1034,14 @@
 				C4AB107A2659132600FBEA8D /* MyListEmptyResultView.swift in Sources */,
 				B5A672A5262336510033DFC0 /* HomeModel.swift in Sources */,
 				C4F78DB32666C7280014BCD9 /* ActorEmptyResultView.swift in Sources */,
+				78FFFE6126432F8700D0D2D0 /* RegistrationView.swift in Sources */,
 				C4FB9359262CEC7B001BBC13 /* FiltersModel.swift in Sources */,
 				C4F78DA92666C66E0014BCD9 /* ActorViewController.swift in Sources */,
 				B56E97E92635CC6100F71060 /* ClientUser.swift in Sources */,
 				C4060F29263F054800D7C887 /* PreviewSliderView.swift in Sources */,
 				B5AB499926674DCA00F35363 /* FavoritesInteractor.swift in Sources */,
 				C4FB9369262D9B66001BBC13 /* CountriesInteractor.swift in Sources */,
+				78FFFE5C26432BCA00D0D2D0 /* SubButton.swift in Sources */,
 				C4FB932E262CAC90001BBC13 /* ContentGridView.swift in Sources */,
 				B537F64B25F25C8A00B51383 /* SceneDelegate.swift in Sources */,
 				C4CEDEA42657CD74004CBECF /* HomeContentView.swift in Sources */,

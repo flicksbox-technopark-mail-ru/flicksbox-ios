@@ -24,3 +24,5 @@ target 'Hermes' do
   # Pods for Hermes
 
 end
+
+pod 'AppCenter'
