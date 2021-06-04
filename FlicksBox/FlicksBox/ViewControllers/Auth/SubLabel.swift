@@ -8,12 +8,12 @@
 import Botticelli
 import UIKit
 
-final class AuthLabel: UILabel {
+final class SubLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         textAlignment = .center
-        textColor = UIColor.white
+        textColor = #colorLiteral(red: 0.7214913964, green: 0.7216146588, blue: 0.7214741707, alpha: 1)
     }
     
     required init?(coder: NSCoder) {

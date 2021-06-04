@@ -1,10 +1,3 @@
-//
-//  AuthViewController.swift
-//  FlicksBox
-//
-//  Created by Александр Бутолин on 18.04.2021.
-//
-
 import Botticelli
 import UIKit
 
@@ -15,9 +8,10 @@ final class AuthViewController: SBViewController {
     private lazy var authView: AuthView = {
         
         let widthAuthView: CGFloat = view.bounds.width * 9 / 10
-        let heightAuthView: CGFloat = view.bounds.height * 4 / 13
+        let heightAuthView: CGFloat = 380
         let authView = AuthView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
-        authView.buttonClick = { [weak self] email, password in
+        
+        authView.authButtonClick = { [weak self] email, password in
             self?.authModel.authorization(email: email, password: password) {
                 guard let viewControllerrs = self?.tabBarController?.viewControllers,
                         let self = self else {
@@ -31,9 +25,52 @@ final class AuthViewController: SBViewController {
                 print(error)
             }
         }
+        
+        authView.subButtonClick = {
+            self.changeForm()
+        }
+        
         return authView
     }()
+    
+    private lazy var registrationView: RegistrationView = {
+        
+        let widthAuthView: CGFloat = view.bounds.width * 9 / 10
+        let heightAuthView: CGFloat = 520
+        let registrationView = RegistrationView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
+        
+        registrationView.registrationButtonClick = { [weak self] login, email, password, repeatPassword in
+            self?.authModel.registration(login: login, email: email, password: password, repeatPassword: repeatPassword) {
+                guard let viewControllerrs = self?.tabBarController?.viewControllers,
+                        let self = self else {
+                    return
+                }
+                var newViewControllers = viewControllerrs
+                newViewControllers.removeLast()
+                newViewControllers.append(FactoryViewControllers.profile)
+                self.tabBarController?.setViewControllers(newViewControllers, animated: true)
+            } failure: { (error) in
+                print(error)
+            }
+        }
+        
+        registrationView.subButtonClick = {
+            self.changeForm()
+        }
+        
+        return registrationView
+    }()
 
+    private func changeForm() {
+        if authView.isDescendant(of: view) {
+            authView.removeFromSuperview()
+            view.addSubview(registrationView)
+        } else {
+            registrationView.removeFromSuperview()
+            view.addSubview(authView)
+        }
+    }
+    
     private func configureGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -57,11 +94,10 @@ final class AuthViewController: SBViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            print(self.view.frame.origin.y)
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height - 100
-            }
-        }
+                    if self.view.frame.origin.y == 0 {
+                        self.view.frame.origin.y -= keyboardSize.height * 0.2
+                    }
+                }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -82,12 +118,5 @@ final class AuthViewController: SBViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-}
-
-extension AuthViewController: MainOutput {
-    func configureTabItem() {
-        self.title = "Авторизация"
-        self.tabBarItem.image = SBIcon.auth
     }
 }
