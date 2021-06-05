@@ -92,6 +92,7 @@ final class ProfileNameInputsView: SBView {
             height: 40
         )
 
+        usernameInput.textColor = .black
         usernameInput.tintColor = UIColor.black
         usernameInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         usernameInput.layer.cornerRadius = 5
@@ -122,6 +123,7 @@ final class ProfileNameInputsView: SBView {
             width: self.bounds.width * 0.7,
             height: 40
         )
+        emailInput.textColor = .black
         emailInput.tintColor = UIColor.black
         emailInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         emailInput.layer.cornerRadius = 5

@@ -88,6 +88,7 @@ final class ProfilePasswordInputsView: SBView {
             height: 40
         )
 
+        oldPasswordInput.textColor = .black
         oldPasswordInput.tintColor = .black
         oldPasswordInput.isSecureTextEntry = true
         oldPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
@@ -119,6 +120,7 @@ final class ProfilePasswordInputsView: SBView {
             width: self.bounds.width * 0.7,
             height: 40
         )
+        newPasswordInput.textColor = .black
         newPasswordInput.tintColor = .black
         newPasswordInput.isSecureTextEntry = true
         newPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
@@ -151,6 +153,7 @@ final class ProfilePasswordInputsView: SBView {
             height: 40
         )
 
+        againPasswordInput.textColor = .black
         againPasswordInput.tintColor = .black
         againPasswordInput.isSecureTextEntry = true
         againPasswordInput.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)

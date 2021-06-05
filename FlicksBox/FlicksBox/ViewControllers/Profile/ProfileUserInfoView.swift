@@ -123,13 +123,18 @@ final class ProfileUserInfoView: SBView {
         )
 
         if let avatar = ClientUser.shared.userData?.avatar {
-            let url = URL(string:"https://www.flicksbox.ru" + avatar)
-                if let data = try? Data(contentsOf: url!)
-                {
-                    avatarImage.image = UIImage(data: data)
-                } else {
-                    avatarImage.image = UIImage(named: "avatar")
-                }
+            print(avatar)
+            if (avatar != "") {
+                let url = URL(string:"https://www.flicksbox.ru" + avatar)
+                    if let data = try? Data(contentsOf: url!)
+                    {
+                        avatarImage.image = UIImage(data: data)
+                    } else {
+                        avatarImage.image = UIImage(named: "avatar")
+                    }
+            } else {
+                avatarImage.image = UIImage(named: "avatar")
+            }
         } else {
             avatarImage.image = UIImage(named: "avatar")
         }
