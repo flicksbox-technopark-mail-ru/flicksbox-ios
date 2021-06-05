@@ -20,8 +20,44 @@ final class ProfileViewController: MainOutputController {
         super.viewDidLoad()
         configurateView()
         configureSubviews()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
+    @objc func keyboardWillAppear(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+                self.scrollView.contentSize = CGSize(
+                    width: view.bounds.width,
+                    height: 535 + keyboardHeight
+                )
+            }
+    }
+
+    @objc func keyboardWillDisappear() {
+        self.scrollView.contentSize = CGSize(
+            width: view.bounds.width,
+            height: 605// высота userInfoView + subscriptionView + отступы
+        )
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configurateView()
@@ -62,6 +98,8 @@ final class ProfileViewController: MainOutputController {
                 self.tabBarController?.setViewControllers(newViewControllers, animated: true)
             }
 
+            userInfo.becomeFirstResponder()
+            
             let settings = ProfileSettingsView(frame: CGRect(
                 x: 25,
                 y: view.bounds.minY + 175,
