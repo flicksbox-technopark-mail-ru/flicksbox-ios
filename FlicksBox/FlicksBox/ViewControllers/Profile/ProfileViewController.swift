@@ -64,9 +64,9 @@ final class ProfileViewController: MainOutputController {
         configureSubviews()
     }
 
-    func configureTabItem() {
-        self.tabBarItem.title = "Профиль"
-        self.tabBarItem.image = SBIcon.person
+    func prepareForUse() {
+        title = "Профиль"
+        tabBarItem.image = SBIcon.person
     }
 
     private func configurateView() {

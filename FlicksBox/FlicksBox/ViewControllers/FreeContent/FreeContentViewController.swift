@@ -158,7 +158,7 @@ final class FreeContentViewController: SBViewController {
 }
 
 extension FreeContentViewController: MainOutput {
-    func configureTabItem() {
+    func prepareForUse() {
         self.tabBarItem.title = "Фильтры"
         self.tabBarItem.image = SBIcon.filter
     }

@@ -8,7 +8,7 @@
 import Botticelli
 
 protocol MainOutput {
-    func configureTabItem()
+    func prepareForUse()
 }
 
 typealias MainOutputController = SBViewController & MainOutput
