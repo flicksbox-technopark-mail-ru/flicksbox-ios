@@ -54,7 +54,7 @@ final class ProfilePasswordInputsView: SBView {
     private func configurateView() {
         self.backgroundColor = UIColor(red: 18/255, green: 17/255, blue: 16/255, alpha: 1)
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 5
     }
     
     func getData() -> UserPassword {

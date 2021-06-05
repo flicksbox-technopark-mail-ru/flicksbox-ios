@@ -4,13 +4,14 @@ import UIKit
 final class AuthView: UIView {
     
     private lazy var authLabel: AuthLabel = {
-        let authLabel = AuthLabel(frame: CGRect(x: 20, y: 10, width: bounds.maxX - 40, height: 30))
+        let authLabel = AuthLabel(frame: CGRect(x: 20, y: 15, width: bounds.maxX - 40, height: 30))
         authLabel.text = "Авторизация"
+        authLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return authLabel
     }()
     
     private lazy var loginInput: AuthIput = {
-        let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 30, width: bounds.maxX - 20, height: 40))
+        let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 25, width: bounds.maxX - 20, height: 40))
         loginInput.keyboardType = .emailAddress
         loginInput.autocorrectionType = .no
         loginInput.autocapitalizationType = .none
@@ -44,7 +45,7 @@ final class AuthView: UIView {
     }()
     
     private lazy var authButton: AuthButton = {
-        let authButton = AuthButton(frame: CGRect(x: 10, y: passwordInput.frame.maxY + 50, width: bounds.maxX - 20, height: 40))
+        let authButton = AuthButton(frame: CGRect(x: 10, y: passwordInput.frame.maxY + 35, width: bounds.maxX - 20, height: 40))
         authButton.setTitle("Войти", for: .normal)
         authButton.addTarget(self, action:#selector(self.handleAuthorization), for: .touchUpInside)
         return authButton
@@ -99,7 +100,7 @@ final class AuthView: UIView {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.6
         layer.shadowRadius = 4.0
-        layer.cornerRadius = 20
+        layer.cornerRadius = 5
         setupSubviews()
     }
     
