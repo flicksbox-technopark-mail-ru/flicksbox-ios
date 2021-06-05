@@ -6,19 +6,12 @@
 //
 
 import UIKit
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
-        AppCenter.start(withAppSecret: "973904d4-593d-4898-b25a-ee53dc597e6f", services:[
-          Analytics.self,
-          Crashes.self
-        ])
         return true
     }
 
