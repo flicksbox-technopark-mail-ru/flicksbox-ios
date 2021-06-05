@@ -6,9 +6,8 @@ final class AuthViewController: SBViewController {
     let authModel = AuthModel()
     
     private lazy var authView: AuthView = {
-        
         let widthAuthView: CGFloat = view.bounds.width * 9 / 10
-        let heightAuthView: CGFloat = 380
+        let heightAuthView: CGFloat = 365
         let authView = AuthView(frame: CGRect(x: view.bounds.midX - widthAuthView/2, y: view.bounds.midY - heightAuthView/2, width: widthAuthView, height: heightAuthView))
         
         authView.authButtonClick = { [weak self] email, password in
@@ -21,8 +20,10 @@ final class AuthViewController: SBViewController {
                 newViewControllers.removeLast()
                 newViewControllers.append(FactoryViewControllers.profile)
                 self.tabBarController?.setViewControllers(newViewControllers, animated: true)
-            } failure: { (error) in
-                print(error)
+            } failure: { [weak self] error in
+                DispatchQueue.main.async {
+                    self?.alert(message: error)
+                }
             }
         }
         
@@ -49,8 +50,10 @@ final class AuthViewController: SBViewController {
                 newViewControllers.removeLast()
                 newViewControllers.append(FactoryViewControllers.profile)
                 self.tabBarController?.setViewControllers(newViewControllers, animated: true)
-            } failure: { (error) in
-                print(error)
+            } failure: { [weak self] error in
+                DispatchQueue.main.async {
+                    self?.alert(message: error)
+                }
             }
         }
         

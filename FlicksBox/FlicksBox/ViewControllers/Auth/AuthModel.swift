@@ -33,6 +33,7 @@ final class AuthModel: NSObject {
         let userSignin = UserSignin(email: email, password: password)
         
         userInteractor.signin(user: userSignin) { response in
+            print(response)
             if let error = response.error {
                 failure(error.user_message)
                 return

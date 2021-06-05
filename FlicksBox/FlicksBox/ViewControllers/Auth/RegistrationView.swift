@@ -5,13 +5,14 @@ import UIKit
 final class RegistrationView: UIView {
 
     private lazy var authLabel: AuthLabel = {
-        let authLabel = AuthLabel(frame: CGRect(x: 20, y: 10, width: bounds.maxX - 40, height: 30))
+        let authLabel = AuthLabel(frame: CGRect(x: 20, y: 15, width: bounds.maxX - 40, height: 30))
         authLabel.text = "Регистрация"
+        authLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return authLabel
     }()
     
     private lazy var loginInput: AuthIput = {
-        let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 30, width: bounds.maxX - 20, height: 40))
+        let loginInput = AuthIput(frame: CGRect(x: 10, y: authLabel.frame.maxY + 25, width: bounds.maxX - 20, height: 40))
         loginInput.placeholder = "Введите логин"
         return loginInput
     }()
@@ -65,7 +66,7 @@ final class RegistrationView: UIView {
     
     private lazy var repeatPasswordErrorLabel: UILabel = {
         let repeatPasswordErrorLabel = UILabel(frame: CGRect(x: 10, y: repeatPasswordInput.frame.maxY + 10, width: bounds.maxX - 20, height: 20))
-        repeatPasswordErrorLabel.text = "Пароль не совпадают"
+        repeatPasswordErrorLabel.text = "Пароли не совпадают"
         repeatPasswordErrorLabel.textColor = UIColor.red
         repeatPasswordErrorLabel.textAlignment = .center
         repeatPasswordErrorLabel.isHidden = true;
@@ -136,7 +137,7 @@ final class RegistrationView: UIView {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.7
         layer.shadowRadius = 4.0
-        layer.cornerRadius = 20
+        layer.cornerRadius = 5
         setupSubviews()
     }
     
