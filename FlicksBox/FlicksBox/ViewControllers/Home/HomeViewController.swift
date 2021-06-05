@@ -79,7 +79,7 @@ final class HomeViewController: SBViewController {
 }
 
 extension HomeViewController: MainOutput {
-    func configureTabItem() {
+    func prepareForUse() {
         self.title = "FlicksBox"
         self.tabBarItem.image = SBIcon.house
     }

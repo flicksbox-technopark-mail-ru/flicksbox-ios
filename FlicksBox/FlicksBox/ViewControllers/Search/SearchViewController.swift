@@ -136,7 +136,7 @@ final class SearchViewController: SBViewController {
 }
 
 extension SearchViewController: MainOutput {
-    func configureTabItem() {
+    func prepareForUse() {
         self.tabBarItem.title = "Поиск"
         self.tabBarItem.image = SBIcon.search
     }

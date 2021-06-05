@@ -21,25 +21,25 @@ final class FactoryViewControllers {
     
     class var home: UIViewController {
         let controller = HomeViewController()
-        controller.configureTabItem()
+        controller.prepareForUse()
         return UINavigationController(rootViewController: controller)
     }
     
     class var free: UIViewController {
         let controller = FreeContentViewController()
-        controller.configureTabItem()
+        controller.prepareForUse()
         return UINavigationController(rootViewController: controller)
     }
     
     class var search: UIViewController {
         let controller = SearchViewController()
-        controller.configureTabItem()
+        controller.prepareForUse()
         return UINavigationController(rootViewController: controller)
     }
 
     class var profile: UIViewController {
         let controller = ProfileViewController()
-        controller.configureTabItem()
+        controller.prepareForUse()
         return UINavigationController(rootViewController: controller)
     }
     

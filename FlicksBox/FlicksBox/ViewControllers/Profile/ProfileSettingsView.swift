@@ -179,7 +179,6 @@ final class ProfileSettingsView: SBView {
             let data = (inputsView as! ProfileNameInputsView).getData()
             
             userInteractor.changeName(data: data) { response in
-                print(response)
                 if let error = response.error {
                     print(error.user_message)
                     return
@@ -199,7 +198,6 @@ final class ProfileSettingsView: SBView {
             let data = (inputsView as! ProfilePasswordInputsView).getData()
             
             userInteractor.changePassword(data: data) { response in
-                print(response)
                 if let error = response.error {
                     print(error.user_message)
                     return

@@ -18,7 +18,6 @@ class MyListModel: NSObject, BaseHomeModel {
             }
             success(self.trasformate(resp: body))
         } failure: { error in
-            print(error)
             failure(error.localizedDescription)
         }
     }
