@@ -52,6 +52,24 @@ final class ContentInfoViewController: SBViewController {
         return button
     }()
     
+    private let likeButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        let image = UIImage(systemName: "heart")
+        button.setImage(image, for: .normal)
+        return button
+    }()
+    
+    private let dislikeButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 1
+        let image = UIImage(systemName: "heart.slash")
+        button.setImage(image, for: .normal)
+        return button
+    }()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -88,52 +106,79 @@ final class ContentInfoViewController: SBViewController {
         scrollView.addSubview(originalNameInfo)
         scrollView.addSubview(yearInfo)
         scrollView.addSubview(ratingInfo)
+        scrollView.addSubview(likeButton)
+        scrollView.addSubview(dislikeButton)
         
         playButton.addTarget(self, action: #selector(openPlayer), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(like), for: .touchUpInside)
+        dislikeButton.addTarget(self, action: #selector(dislike), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        layoutSubviews()
+        loadRating()
+        ratingInfo.descriptionText = "Загружаем..."
         
         guard let info = contentInfo else {
             alert(message: "Произошла ошибка, извиняемся :)")
             return
         }
         
-        ratingInfo.descriptionText = "Загружаем..."
-        ratingInteractor.get(contentId: info.contentId) { [weak self] rating in
-            let color: UIColor
-            if rating > 70 {
-                color = .systemGreen
-            } else if rating > 40 {
-                color = .systemOrange
-            } else {
-                color = .systemRed
-            }
-            UIView.animate(withDuration: 0.3) {
-                self?.ratingInfo.descriptionText = "\(rating)%"
-                self?.ratingInfo.descriptionColor = color
-            }
-        } failure: { [weak self] error in
-            self?.alert(message: error.localizedDescription)
-        }
-
-        
         imageView.loadWebP(url: info.largeImage)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        layoutSubviews()
+    }
+    
+    private func layoutSubviews() {
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height)
         
         let imageWidth = view.bounds.width - 10
         imageView.frame = CGRect(x: view.bounds.minX + 5, y: view.bounds.minY + 5, width: imageWidth, height: imageWidth * 9 / 16)
         
-        let buttonWidth = imageView.frame.width / 2
-        playButton.frame = CGRect(x: imageView.frame.midX - buttonWidth / 2, y: imageView.frame.maxY + 10, width: buttonWidth, height: 50)
+        let playButtonX: CGFloat
+        let buttonWidth = (imageView.frame.width - 10) / 2
+        if let _ = ClientUser.shared.userData {
+            playButtonX = imageView.frame.minX
+            likeButton.isHidden = false
+            dislikeButton.isHidden = false
+        } else {
+            playButtonX = imageView.frame.midX - buttonWidth / 2
+            likeButton.isHidden = true
+            dislikeButton.isHidden = true
+        }
+        
+        playButton.frame = CGRect(x: playButtonX, y: imageView.frame.maxY + 10, width: buttonWidth, height: 50)
         playButton.layer.cornerRadius = playButton.frame.height / 2
+        
+        likeButton.frame = CGRect(x: playButton.frame.maxX + 10, y: playButton.frame.minY, width: (imageView.frame.width - 40) / 4, height: 50)
+        dislikeButton.frame = CGRect(x: likeButton.frame.maxX + 10, y: playButton.frame.minY, width: (imageView.frame.width - 40) / 4, height: 50)
+        
+        likeButton.layer.cornerRadius = likeButton.frame.height / 2
+        dislikeButton.layer.cornerRadius = dislikeButton.frame.height / 2
+        if let liked = contentInfo?.liked {
+            if liked {
+                likeButton.tintColor = .systemGreen
+                likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                
+                dislikeButton.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+                dislikeButton.tintColor = .white
+            } else {
+                dislikeButton.tintColor = .systemRed
+                dislikeButton.setImage(UIImage(systemName: "heart.slash.fill"), for: .normal)
+                
+                likeButton.tintColor = .white
+                likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        } else {
+            likeButton.tintColor = .white
+            dislikeButton.tintColor = .white
+        }
         
         let nameFrame = nameLabel.sizeThatFits(CGSize(width: imageView.frame.width - 10, height: .infinity))
         nameLabel.frame = CGRect(origin: CGPoint(x: imageView.frame.minX, y: playButton.frame.maxY + 10), size: nameFrame)
@@ -152,6 +197,63 @@ final class ContentInfoViewController: SBViewController {
             width: view.bounds.width,
             height: max(hScroll, view.bounds.height + 2)
         )
+    }
+    
+    private func loadRating() {
+        guard let id = contentInfo?.contentId else {
+            alert(message: "Произошла ошибка, извиняемся :)")
+            return
+        }
+        ratingInteractor.get(contentId: id) { [weak self] rating in
+            let color: UIColor
+            if rating > 70 {
+                color = .systemGreen
+            } else if rating > 40 {
+                color = .systemOrange
+            } else {
+                color = .systemRed
+            }
+            UIView.animate(withDuration: 0.3) {
+                self?.ratingInfo.descriptionText = "\(rating)%"
+                self?.ratingInfo.descriptionColor = color
+            }
+        } failure: { [weak self] error in
+            self?.alert(message: error.localizedDescription)
+        }
+    }
+    
+    @objc private func like() {
+        guard let id = contentInfo?.contentId else {
+            alert(message: "Произошла ошибка, извиняемся :)")
+            return
+        }
+        
+        ratingInteractor.rate(id: id, like: true, change: contentInfo?.liked != nil) { [weak self] in
+            UIView.animate(withDuration: 0.3) {
+                self?.contentInfo?.liked = true
+                self?.layoutSubviews()
+                self?.loadRating()
+            }
+        } failure: { [weak self] error in
+            self?.alert(message: error.localizedDescription)
+        }
+    }
+    
+    @objc private func dislike() {
+        guard let id = contentInfo?.contentId else {
+            alert(message: "Произошла ошибка, извиняемся :)")
+            return
+        }
+        
+        ratingInteractor.rate(id: id, like: false, change: contentInfo?.liked != nil) { [weak self] in
+            UIView.animate(withDuration: 0.3) {
+                self?.contentInfo?.liked = false
+                self?.layoutSubviews()
+                self?.loadRating()
+            }
+        } failure: { [weak self] error in
+            self?.alert(message: error.localizedDescription)
+        }
     }
     
     @objc private func favoriteButtonClicked() {

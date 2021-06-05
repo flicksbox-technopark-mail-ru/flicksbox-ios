@@ -32,6 +32,36 @@ final class RatingInteractor: BaseInteractor {
         }
         client.run(with: request)
     }
+    
+    private struct RatingRequest: Encodable {
+        let likes: Bool
+    }
+    
+    func rate(
+        id: Int,
+        like: Bool,
+        change: Bool,
+        success: @escaping () -> Void,
+        failure: @escaping (Error) -> Void
+    ) {
+        guard let data = try? encoder.encode(RatingRequest(likes: like)) else {
+            failure(InteractorError.invalidEncode)
+            return
+        }
+        let request = HermesRequest(
+            method: change ? .put : .post,
+            path: "/rating/\(id)",
+            body: data,
+            headers: ["X-Csrf-Token": CSRFStorage.shared.token ?? ""]
+        )
+        request.successHandler = { response in
+            success()
+        }
+        request.errorHandler = { error in
+            failure(error)
+        }
+        client.run(with: request)
+    }
 }
     
     

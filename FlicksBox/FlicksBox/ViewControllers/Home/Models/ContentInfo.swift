@@ -34,6 +34,7 @@ final class ContentInfo: Equatable {
     let description: String
     let shortDescription: String
     let video: String
+    var liked: Bool?
     var favourite: Bool?
     
     convenience init(from movie: APIMovie) {
@@ -47,7 +48,8 @@ final class ContentInfo: Equatable {
             short_desc: movie.short_description,
             original_name: movie.original_name,
             favorite: movie.is_favourite,
-            description: movie.description
+            description: movie.description,
+            liked: movie.is_liked
         )
     }
     
@@ -62,11 +64,12 @@ final class ContentInfo: Equatable {
             short_desc: tvShow.short_description,
             original_name: tvShow.original_name,
             favorite: tvShow.is_favourite,
-            description: tvShow.description
+            description: tvShow.description,
+            liked: tvShow.is_liked
         )
     }
     
-    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String, favorite: Bool?, description: String) {
+    init(id: Int, contentId: Int, name: String, image: String, year: Int, type: ContentType, short_desc: String, original_name: String, favorite: Bool?, description: String, liked: Bool?) {
         self.id = id
         self.contentId = contentId
         self.name = name
@@ -78,8 +81,8 @@ final class ContentInfo: Equatable {
         self.shortDescription = short_desc
         self.favourite = favorite
         self.description = description
+        self.liked = liked
         
-        // TODO move to helpers
         if type == .movie {
             self.video = "https://www.flicksbox.ru/videos/\(contentId)/movie.mp4"
         } else {
