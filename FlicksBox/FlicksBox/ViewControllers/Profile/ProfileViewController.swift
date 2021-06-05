@@ -115,6 +115,14 @@ final class ProfileViewController: MainOutputController {
                 (self.userInfoView as! ProfileUserInfoView).changeUserData(nickname: nickname, email: email)
             }
             
+            settings.errorAlert = { [weak self] message in
+                self?.alert(message: message, title: "Ошибка!")
+            }
+            
+            settings.sucsessAlert = { [weak self] message in
+                self?.alert(message: message, title: "Успех!")
+            }
+            
             self.scrollView.addSubview(userInfo)
             userInfoView = userInfo
             self.scrollView.addSubview(settings)

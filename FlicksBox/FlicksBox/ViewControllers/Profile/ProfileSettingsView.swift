@@ -171,6 +171,10 @@ final class ProfileSettingsView: SBView {
     
     var changeUserInfo: ((String, String) -> Void) = {_,_ in }
     
+    var errorAlert: ((String) -> Void) = {_ in }
+
+    var sucsessAlert: ((String) -> Void) = {_ in }
+    
     @objc private func testRequest() {
         let userInteractor = UserInteractor()
 
@@ -180,14 +184,15 @@ final class ProfileSettingsView: SBView {
             
             userInteractor.changeName(data: data) { response in
                 if let error = response.error {
-                    print(error.user_message)
+                    self.errorAlert(error.user_message)
                     return
                 }
                 guard let user = response.body?.user else {
-                    print("Неизвестная ошибка")
+                    self.errorAlert("Неверные данные")
                     return
                 }
 
+                self.sucsessAlert("Данные изменены")
                 (self.inputsView as! ProfileNameInputsView).setData(username: user.nickname, email: user.email)
                 (self.changeUserInfo)(user.nickname, user.email)
                 
@@ -199,14 +204,15 @@ final class ProfileSettingsView: SBView {
             
             userInteractor.changePassword(data: data) { response in
                 if let error = response.error {
-                    print(error.user_message)
+                    self.errorAlert(error.user_message)
                     return
                 }
                 guard let user = response.body?.user else {
-                    print("Неизвестная ошибка")
+                    self.errorAlert("Неверные данные")
                     return
                 }
                 
+                self.sucsessAlert("Данные изменены")
             } failure: { error in
                 print(error.localizedDescription)
             }

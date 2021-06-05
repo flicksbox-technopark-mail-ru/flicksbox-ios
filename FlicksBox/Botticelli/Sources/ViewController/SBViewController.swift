@@ -35,7 +35,11 @@ open class SBViewController: UIViewController {
     }
     
     public func alert(message: String, complition: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: "Ошибка!", message: message, preferredStyle: .alert)
+        alert(message: message, title: "Ошибка", complition: complition)
+    }
+    
+    public func alert(message: String, title: String, complition: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: { _ in
             complition?()
         }))
